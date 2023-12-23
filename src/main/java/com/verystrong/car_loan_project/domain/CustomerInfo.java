@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Objects;
 
@@ -14,6 +16,7 @@ import java.util.Objects;
         @Index(columnList="CustomerId"),
         @Index(columnList="CustomerName")
 })
+//@EntityListeners(AuditingEntityListener.class)
 @Entity
 public class CustomerInfo {
 
@@ -21,16 +24,23 @@ public class CustomerInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long CustomerId;
 
+    @Setter
     @Column(nullable = false, length = 20) // 기본정보는 null false
     private String CustomerName;
+    @Setter
     @Column(nullable = false)
     private Gender Gender;
+    @Setter
     @Column(nullable = false)
-    private Long Age;
+    private int Age;
 
+    @Setter
     private Education education;
+    @Setter
     private MartialStatus martialStatus;
+    @Setter
     private Integer FamilyCount;
+    @Setter
     private Integer ChildCount;
 
     @Setter  // 수정 가능한 데이터 Setter 설정
@@ -50,7 +60,7 @@ public class CustomerInfo {
 
     private CustomerInfo(String customerName,
                         Gender gender,
-                        Long age, Education education,
+                        int age, Education education,
                         MartialStatus martialStatus,
                         Integer familyCount,
                         Integer childCount,
@@ -87,7 +97,7 @@ public class CustomerInfo {
 
     public static CustomerInfo of(String customerName,
                         Gender gender,
-                        Long age, Education education,
+                        int age, Education education,
                         MartialStatus martialStatus,
                         Integer familyCount,
                         Integer childCount,
@@ -111,6 +121,8 @@ public class CustomerInfo {
     protected CustomerInfo() {
 
     }
+
+
 
     @Override
     public boolean equals(Object o) {
