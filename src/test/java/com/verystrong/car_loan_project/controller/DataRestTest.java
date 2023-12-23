@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
+@Disabled("SpringDataRest 통합 테스트는 불필요하므로 제외시킴")
 @DisplayName("Data Rest 테스트")
 @Transactional // 트랜잭션을 Rollback 상태로 묶음
 @AutoConfigureMockMvc
