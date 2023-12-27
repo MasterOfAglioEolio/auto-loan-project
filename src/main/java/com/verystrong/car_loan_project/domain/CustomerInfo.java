@@ -1,6 +1,7 @@
 package com.verystrong.car_loan_project.domain;
 
 
+import com.verystrong.car_loan_project.domain.CustomerInfo_type.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +30,7 @@ public class CustomerInfo {
     private String CustomerName;
     @Setter
     @Column(nullable = false)
-    private Gender Gender;
+    private Gender gender;
     @Setter
     @Column(nullable = false)
     private int Age;
@@ -37,7 +38,7 @@ public class CustomerInfo {
     @Setter
     private Education education;
     @Setter
-    private MartialStatus martialStatus;
+    private MaritalStatus martialStatus;
     @Setter
     private Integer FamilyCount;
     @Setter
@@ -50,18 +51,18 @@ public class CustomerInfo {
     @Setter private OrgType orgType;
 
     @Setter private int EmployedYears;
-    @Setter private boolean HouseOwnedYN;
+    @Setter private HouseOwnedYN houseOwnedYN;
     @Setter private DwellingType dwellingType;
-    @Setter private HosingType hosingType;
+    @Setter private HousingType housingType;
     @Setter private ResidenceClass residenceClass;
 
     @Setter private int HouseAge;
-    @Setter private boolean CarOwnedYN;
+    @Setter private CarOwnedYN carOwnedYN;
 
     private CustomerInfo(String customerName,
                         Gender gender,
                         int age, Education education,
-                        MartialStatus martialStatus,
+                        MaritalStatus martialStatus,
                         Integer familyCount,
                         Integer childCount,
                         IncomeType incomeType,
@@ -69,14 +70,14 @@ public class CustomerInfo {
                         Occupation occupation,
                         OrgType orgType,
                         int employedYears,
-                        boolean houseOwnedYN,
+                        HouseOwnedYN houseOwnedYN,
                         DwellingType dwellingType,
-                        HosingType hosingType,
+                        HousingType housingType,
                         ResidenceClass residenceClass,
                         int houseAge,
-                        boolean carOwnedYN) {
+                        CarOwnedYN carOwnedYN) {
         CustomerName = customerName;
-        Gender = gender;
+        this.gender = gender;
         Age = age;
         this.education = education;
         this.martialStatus = martialStatus;
@@ -87,18 +88,18 @@ public class CustomerInfo {
         this.occupation = occupation;
         this.orgType = orgType;
         EmployedYears = employedYears;
-        HouseOwnedYN = houseOwnedYN;
+        this.houseOwnedYN = houseOwnedYN;
         this.dwellingType = dwellingType;
-        this.hosingType = hosingType;
+        this.housingType = housingType;
         this.residenceClass = residenceClass;
         HouseAge = houseAge;
-        CarOwnedYN = carOwnedYN;
+        this.carOwnedYN = carOwnedYN;
     }
 
     public static CustomerInfo of(String customerName,
                         Gender gender,
                         int age, Education education,
-                        MartialStatus martialStatus,
+                        MaritalStatus maritalStatus,
                         Integer familyCount,
                         Integer childCount,
                         IncomeType incomeType,
@@ -106,15 +107,15 @@ public class CustomerInfo {
                         Occupation occupation,
                         OrgType orgType,
                         int employedYears,
-                        boolean houseOwnedYN,
+                        HouseOwnedYN houseOwnedYN,
                         DwellingType dwellingType,
-                        HosingType hosingType,
+                        HousingType housingType,
                         ResidenceClass residenceClass,
                         int houseAge,
-                        boolean carOwnedYN) {
-       return new CustomerInfo(customerName,gender,age,education,martialStatus,familyCount,
+                        CarOwnedYN carOwnedYN) {
+       return new CustomerInfo(customerName,gender,age,education,maritalStatus,familyCount,
                childCount,incomeType,incomeClass,occupation,orgType,employedYears,houseOwnedYN,
-               dwellingType,hosingType,residenceClass,houseAge,carOwnedYN);
+               dwellingType,housingType,residenceClass,houseAge,carOwnedYN);
 
     }
 
