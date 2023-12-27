@@ -17,6 +17,5 @@ public interface CustomerInfoRepository extends
 //        QuerydslPredicateExecutor<CustomerInfo> // TODO : 검색기능 추가인데 필요할까? 일단 보류
 //        QuerydslBinderCustomizer<QCustomerinfo>
 {
-
->>>>>>> Stashed changes
+    
 }
