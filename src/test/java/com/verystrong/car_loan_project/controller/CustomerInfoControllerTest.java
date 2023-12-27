@@ -27,8 +27,10 @@ class CustomerInfoControllerTest {
     public void givenNothing_whenRequestingCustomerInfoView_thenReturnsCustomerInfoView() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/customerinfo"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.TEXT_HTML))
+                .andExpect(MockMvcResultMatchers.content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
+                .andExpect(MockMvcResultMatchers.view().name("customerinfo/index"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("customerinfo"));
+
     }
 
     @DisplayName("[view] [GET] 회원 정보 입력 페이지 - 정상호출")
