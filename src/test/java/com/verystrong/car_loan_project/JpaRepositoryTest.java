@@ -53,7 +53,8 @@ class JpaRepositoryTest {
     void givenTestData_whenInserting_thenWorksFine(){
         //Given
         long previousCount=customerInfoRepository.count();
-        CustomerInfo customerInfo = CustomerInfo.of("new name",
+        CustomerInfo customerInfo = CustomerInfo.of(
+//                "new name",
                 Gender.Man,
                 21,
                 Education.University,
