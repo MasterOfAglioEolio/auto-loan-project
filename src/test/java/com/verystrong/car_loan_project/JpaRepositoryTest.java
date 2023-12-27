@@ -2,6 +2,7 @@ package com.verystrong.car_loan_project;
 
 import com.verystrong.car_loan_project.config.JpaConfig;
 import com.verystrong.car_loan_project.domain.*;
+import com.verystrong.car_loan_project.domain.CustomerInfo_type.*;
 import com.verystrong.car_loan_project.repository.CustomerInfoRepository;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -30,7 +31,6 @@ class JpaRepositoryTest {
     void givenTestData_whenSelecting_thenWorksFine(){
         //Given
 
-
         //When
         List<CustomerInfo> customerInfos = customerInfoRepository.findAll();
 
@@ -46,23 +46,23 @@ class JpaRepositoryTest {
         //Given
         long previousCount=customerInfoRepository.count();
         CustomerInfo customerInfo = CustomerInfo.of("new name",
-                Gender.MALE,
+                Gender.Man,
                 21,
-                Education.E,
-                MartialStatus.E,
+                Education.University,
+                MaritalStatus.Single,
                 5,
                 3,
-                IncomeType.a,
-                IncomeClass.b,
-                Occupation.a,
-                OrgType.A,
+                IncomeType.Other,
+                IncomeClass.F,
+                Occupation.General_work,
+                OrgType.Communications,
                 11,
-                true,
-                DwellingType.A,
-                HosingType.B,
-                ResidenceClass.A,
+                HouseOwnedYN.N,
+                DwellingType.Family_joint,
+                HousingType.Detached_house,
+                ResidenceClass.Best,
                 12,
-                true);
+                CarOwnedYN.Y);
 
         //When
         CustomerInfo SavedCustomerInfos = customerInfoRepository.save(customerInfo);
@@ -77,7 +77,7 @@ class JpaRepositoryTest {
     void givenTestData_whenUpdating_thenWorksFine(){
         //Given
         CustomerInfo customerInfo = customerInfoRepository.findById(1L).orElseThrow();
-        Gender UpdateGender = Gender.MALE;
+        Gender UpdateGender = Gender.Woman;
         customerInfo.setGender(UpdateGender);
 
 
