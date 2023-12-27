@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @DisplayName("Data Rest 테스트")
 @Transactional // 트랜잭션을 Rollback 상태로 묶음
@@ -34,9 +35,24 @@ public class DataRestTest {
 
         //When
         mvc.perform(MockMvcRequestBuilders.get("/api/customerInfoes")) // TODO : 왜 Infoes로 잡히는지 모르겠음
-                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.valueOf("application/hal+json")))
                 .andDo(print());
+
+        //Then
+    }
+    @DisplayName("[api] 회원 관련 API는 일체 제공 않기")
+    @Test
+    void givenNothing_whenRequestUserAccounts_thenThrowsException() throws Exception {
+        //Given
+
+        //When
+        mvc.perform(MockMvcRequestBuilders.get("/api/customerInfo")).andExpect(status().isNotFound());
+        mvc.perform(MockMvcRequestBuilders.post("/api/customerInfo")).andExpect(status().isNotFound());
+        mvc.perform(MockMvcRequestBuilders.put("/api/customerInfo")).andExpect(status().isNotFound());
+        mvc.perform(MockMvcRequestBuilders.patch("/api/customerInfo")).andExpect(status().isNotFound());
+        mvc.perform(MockMvcRequestBuilders.delete("/api/customerInfo")).andExpect(status().isNotFound());
+        mvc.perform(MockMvcRequestBuilders.head("/api/customerInfo")).andExpect(status().isNotFound());
 
         //Then
     }
