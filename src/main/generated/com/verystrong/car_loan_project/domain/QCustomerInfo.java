@@ -19,7 +19,7 @@ public class QCustomerInfo extends EntityPathBase<CustomerInfo> {
 
     public static final QCustomerInfo customerInfo = new QCustomerInfo("customerInfo");
 
-    public final NumberPath<Integer> Age = createNumber("Age", Integer.class);
+    public final NumberPath<Float> Age = createNumber("Age", Float.class);
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.CarOwnedYN> carOwnedYN = createEnum("carOwnedYN", com.verystrong.car_loan_project.domain.CustomerInfo_type.CarOwnedYN.class);
 
@@ -27,19 +27,17 @@ public class QCustomerInfo extends EntityPathBase<CustomerInfo> {
 
     public final NumberPath<Long> CustomerId = createNumber("CustomerId", Long.class);
 
-    public final StringPath CustomerName = createString("CustomerName");
-
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.DwellingType> dwellingType = createEnum("dwellingType", com.verystrong.car_loan_project.domain.CustomerInfo_type.DwellingType.class);
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.Education> education = createEnum("education", com.verystrong.car_loan_project.domain.CustomerInfo_type.Education.class);
 
-    public final NumberPath<Integer> EmployedYears = createNumber("EmployedYears", Integer.class);
+    public final NumberPath<Float> EmployedYears = createNumber("EmployedYears", Float.class);
 
     public final NumberPath<Integer> FamilyCount = createNumber("FamilyCount", Integer.class);
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.Gender> gender = createEnum("gender", com.verystrong.car_loan_project.domain.CustomerInfo_type.Gender.class);
 
-    public final NumberPath<Integer> HouseAge = createNumber("HouseAge", Integer.class);
+    public final NumberPath<Float> HouseAge = createNumber("HouseAge", Float.class);
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.HouseOwnedYN> houseOwnedYN = createEnum("houseOwnedYN", com.verystrong.car_loan_project.domain.CustomerInfo_type.HouseOwnedYN.class);
 
@@ -49,7 +47,7 @@ public class QCustomerInfo extends EntityPathBase<CustomerInfo> {
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.IncomeType> incomeType = createEnum("incomeType", com.verystrong.car_loan_project.domain.CustomerInfo_type.IncomeType.class);
 
-    public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.MaritalStatus> martialStatus = createEnum("martialStatus", com.verystrong.car_loan_project.domain.CustomerInfo_type.MaritalStatus.class);
+    public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.MaritalStatus> maritalStatus = createEnum("maritalStatus", com.verystrong.car_loan_project.domain.CustomerInfo_type.MaritalStatus.class);
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerInfo_type.Occupation> occupation = createEnum("occupation", com.verystrong.car_loan_project.domain.CustomerInfo_type.Occupation.class);
 

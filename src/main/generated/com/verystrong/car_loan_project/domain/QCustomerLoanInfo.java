@@ -26,7 +26,7 @@ public class QCustomerLoanInfo extends EntityPathBase<CustomerLoanInfo> {
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ActiveLoanYN> activeLoanYN = createEnum("activeLoanYN", com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ActiveLoanYN.class);
 
-    public final TimePath<java.time.LocalTime> applHour = createTime("applHour", java.time.LocalTime.class);
+    public final NumberPath<Integer> applHour = createNumber("applHour", Integer.class);
 
     public final EnumPath<com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ApplWeek> applWeek = createEnum("applWeek", com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ApplWeek.class);
 

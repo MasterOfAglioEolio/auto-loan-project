@@ -24,63 +24,111 @@ public class CustomerInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long CustomerId;
-
-    @Setter
-    @Column(nullable = false, length = 20) // 기본정보는 null false
-    private String CustomerName;
+//
+//    @Setter
+//    @Column(nullable = false, length = 20) // 기본정보는 null false
+//    private String CustomerName;
     @Setter
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Gender gender;
-    @Setter
-    @Column(nullable = false)
-    private int Age;
 
     @Setter
+    @Column(nullable = false)
+    private float Age;
+
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Education education;
+
     @Setter
-    private MaritalStatus martialStatus;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private MaritalStatus maritalStatus;
+
     @Setter
+    @Column(nullable = false)
     private Integer FamilyCount;
     @Setter
+    @Column(nullable = false)
     private Integer ChildCount;
 
     @Setter  // 수정 가능한 데이터 Setter 설정
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private IncomeType incomeType;
-    @Setter private IncomeClass incomeClass;
-    @Setter private Occupation occupation;
-    @Setter private OrgType orgType;
 
-    @Setter private int EmployedYears;
-    @Setter private HouseOwnedYN houseOwnedYN;
-    @Setter private DwellingType dwellingType;
-    @Setter private HousingType housingType;
-    @Setter private ResidenceClass residenceClass;
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private IncomeClass incomeClass;
 
-    @Setter private int HouseAge;
-    @Setter private CarOwnedYN carOwnedYN;
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Occupation occupation;
 
-    private CustomerInfo(String customerName,
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private OrgType orgType;
+
+    @Setter
+    @Column(nullable = true)
+    private float EmployedYears;
+
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private HouseOwnedYN houseOwnedYN;
+
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private DwellingType dwellingType;
+
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private HousingType housingType;
+
+    @Setter@Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ResidenceClass residenceClass;
+
+    @Setter
+    @Column(nullable = true)
+    private float HouseAge;
+
+    @Setter
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CarOwnedYN carOwnedYN;
+
+    private CustomerInfo(
+//            String customerName,
                         Gender gender,
-                        int age, Education education,
-                        MaritalStatus martialStatus,
+                        float age, Education education,
+                        MaritalStatus maritalStatus,
                         Integer familyCount,
                         Integer childCount,
                         IncomeType incomeType,
                         IncomeClass incomeClass,
                         Occupation occupation,
                         OrgType orgType,
-                        int employedYears,
+                        float employedYears,
                         HouseOwnedYN houseOwnedYN,
                         DwellingType dwellingType,
                         HousingType housingType,
                         ResidenceClass residenceClass,
-                        int houseAge,
+                        float houseAge,
                         CarOwnedYN carOwnedYN) {
-        CustomerName = customerName;
+//        CustomerName = customerName;
         this.gender = gender;
         Age = age;
         this.education = education;
-        this.martialStatus = martialStatus;
+        this.maritalStatus = maritalStatus;
         FamilyCount = familyCount;
         ChildCount = childCount;
         this.incomeType = incomeType;
@@ -96,9 +144,10 @@ public class CustomerInfo {
         this.carOwnedYN = carOwnedYN;
     }
 
-    public static CustomerInfo of(String customerName,
+    public static CustomerInfo of(
+//            String customerName,
                         Gender gender,
-                        int age, Education education,
+                        float age, Education education,
                         MaritalStatus maritalStatus,
                         Integer familyCount,
                         Integer childCount,
@@ -106,16 +155,32 @@ public class CustomerInfo {
                         IncomeClass incomeClass,
                         Occupation occupation,
                         OrgType orgType,
-                        int employedYears,
+                        float employedYears,
                         HouseOwnedYN houseOwnedYN,
                         DwellingType dwellingType,
                         HousingType housingType,
                         ResidenceClass residenceClass,
-                        int houseAge,
+                        float houseAge,
                         CarOwnedYN carOwnedYN) {
-       return new CustomerInfo(customerName,gender,age,education,maritalStatus,familyCount,
-               childCount,incomeType,incomeClass,occupation,orgType,employedYears,houseOwnedYN,
-               dwellingType,housingType,residenceClass,houseAge,carOwnedYN);
+       return new CustomerInfo(
+//               customerName,
+               gender,
+               age,
+               education,
+               maritalStatus,
+               familyCount,
+               childCount,
+               incomeType,
+               incomeClass,
+               occupation,
+               orgType,
+               employedYears,
+               houseOwnedYN,
+               dwellingType,
+               housingType,
+               residenceClass,
+               houseAge,
+               carOwnedYN);
 
     }
 

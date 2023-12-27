@@ -45,12 +45,12 @@ public class CustomerLoanInfo {
 
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private ApplWeek applWeek;
 
-    @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
     @CreatedDate
     @Column(nullable = false, updatable = false)
-    private LocalTime applHour; // 방문일시
+    private int applHour; // 방문일시
 
     @Setter
     @Enumerated(EnumType.STRING)
@@ -99,7 +99,7 @@ public class CustomerLoanInfo {
                              ActiveLoanYN activeLoanYN,
                              LoanType loanType,
                              ApplWeek applWeek,
-                             LocalTime applHour,
+                             int applHour,
                              Accompany accompany,
                              BigDecimal carPrice,
                              int deposit,
@@ -135,7 +135,7 @@ public class CustomerLoanInfo {
                              ActiveLoanYN activeLoanYN,
                              LoanType loanType,
                              ApplWeek applWeek,
-                             LocalTime applHour,
+                             int applHour,
                              Accompany accompany,
                              BigDecimal carPrice,
                              int deposit,
