@@ -80,7 +80,7 @@ class JpaRepositoryTest {
         assertThat(customerInfoRepository.count()).isEqualTo(previousCount+1);
     }
 
-    @Disabled //TODO : DB 원본 추가후 다시 테스트
+//    @Disabled //TODO : DB 원본 추가후 다시 테스트
     @DisplayName("update 테스트")
     @Test
     void givenTestData_whenUpdating_thenWorksFine(){

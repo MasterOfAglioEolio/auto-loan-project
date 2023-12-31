@@ -21,7 +21,7 @@ public class CustomerInfoController {
     }
 
     @GetMapping("/{customerId}")
-    public String customerinfo(@PathVariable Long articleId, ModelMap map)
+    public String customerinfo(@PathVariable Long customerId, ModelMap map)
     {
         map.addAttribute("customerinfo",null);
         //map.addAttribute("customerloaninfo",List.of());;

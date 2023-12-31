@@ -14,8 +14,8 @@ import java.util.Objects;
 @Getter
 @ToString
 @Table(indexes = {
-        @Index(columnList="CustomerId"),
-        @Index(columnList="CustomerName")
+        @Index(columnList="CustomerId")
+//        @Index(columnList="CustomerName")
 })
 //@EntityListeners(AuditingEntityListener.class)
 @Entity
