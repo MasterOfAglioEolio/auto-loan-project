@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">Regist Your Information!</h1>
+                        </div>
+                        <form class="user">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="FirstName" class="form-label">First name</label>
+                                    <input type="text" class="form-control form-control-user" id="FirstName">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="LastName" class="form-label">Last name</label>
+                                    <input type="text" class="form-control form-control-user" id="LastName">
+                                    <div class="invalid-feedback">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="InputEmail" class="form-label">Input Email</label>
+                                <input type="email" class="form-control form-control-user" id="InputEmail">
+                                <div class="invalid-feedback">
+                                    Please enter a valid email address for shipping updates.
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="InputPassword" class="form-label">Input Password</label>
+                                    <input type="password" class="form-control form-control-user"
+                                           id="InputPassword">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="RepeatPassword" class="form-label">Input Repeat Password</label>
+                                    <input type="password" class="form-control form-control-user"
+                                           id="RepeatPassword">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="Gender" class="form-label">Gender</label>
+                                    <select class="form-control form-control-user" id="Gender">
+                                        <option value="Man">남자</option>
+                                        <option value="Woman">여자</option>
+                                    </select>
+                                    </div>
+                                <div class="col-sm-6">
+                                    <label for="Age" class="form-label">Age</label>
+                                    <input type="number" class="form-control form-control-user" id="Age">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="Education" class="form-label">Education</label>
+                                    <input type="text" class="form-control form-control-user" id="Education">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="MaritalStatus" class="form-label">Marital Status</label>
+                                    <input type="text" class="form-control form-control-user" id="MaritalStatus">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="FamilyCount" class="form-label">Family Count</label>
+                                    <input type="number" class="form-control form-control-user" id="FamilyCount">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="ChildCount" class="form-label">Child Count</label>
+                                    <input type="number" class="form-control form-control-user" id="ChildCount">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="IncomeType" class="form-label">Income Type</label>
+                                <input type="text" class="form-control form-control-user" id="IncomeType">
+                            </div>
+                            <div class="form-group">
+                                <label for="IncomeClass" class="form-label">Income Class</label>
+                                <input type="text" class="form-control form-control-user" id="IncomeClass">
+                            </div>
+                            <div class="form-group">
+                                <label for="Occupation" class="form-label">Occupation</label>
+                                <input type="text" class="form-control form-control-user" id="Occupation">
+                            </div>
+                            <div class="form-group">
+                                <label for="OrgType" class="form-label">Org Type</label>
+                                <input type="text" class="form-control form-control-user" id="OrgType">
+                            </div>
+                            <div class="form-group">
+                                <label for="EmployedYears" class="form-label">Employed Years</label>
+                                <input type="number" class="form-control form-control-user" id="EmployedYears">
+                            </div>
+                            <div class="form-group">
+                                <label for="HouseOwnYN" class="form-label">House Own Y/N</label>
+                                <input type="text" class="form-control form-control-user" id="HouseOwnYN">
+                            </div>
+                            <div class="form-group">
+                                <label for="DwellingType" class="form-label">Dwelling Type</label>
+                                <input type="text" class="form-control form-control-user" id="DwellingType">
+                            </div>
+                            <div class="form-group">
+                                <label for="HousingType" class="form-label">Housing Type</label>
+                                <input type="text" class="form-control form-control-user" id="HousingType">
+                            </div>
+                            <div class="form-group">
+                                <label for="ResidenceClass" class="form-label">Residence Class</label>
+                                <input type="text" class="form-control form-control-user" id="ResidenceClass">
+                            </div>
+                            <div class="form-group">
+                                <label for="HouseAge" class="form-label">House Age</label>
+                                <input type="number" class="form-control form-control-user" id="HouseAge">
+                            </div>
+                            <div class="form-group">
+                                <label for="CarOwnedYN" class="form-label">Car Owned Y/N</label>
+                                <input type="text" class="form-control form-control-user" id="CarOwnedYN">
+                            </div>
+
+                            <!-- ... 나머지 필드들을 이와 같은 방식으로 추가 ... -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button>
+                            </div>
+
+<!--                            <a href="login.html" class="btn btn-primary btn-user btn-block">-->
+<!--                                Register Account-->
+<!--                            </a>-->
+<!--                            <hr>-->
+<!--                            <a href="../templates/index.html" class="btn btn-google btn-user btn-block">-->
+<!--                                <i class="fab fa-google fa-fw"></i> Register with Google-->
+<!--                            </a>-->
+<!--                            <a href="../templates/index.html" class="btn btn-facebook btn-user btn-block">-->
+<!--                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook-->
+<!--                            </a>-->
+<!--                        </form>-->
+<!--                        <hr>-->
+<!--                        <div class="text-center">-->
+<!--                            <a class="small" href="forgot-password.html">Forgot Password?</a>-->
+<!--                        </div>-->
+<!--                        <div class="text-center">-->
+<!--                            <a class="small" href="login.html">Already have an account? Login!</a>-->
+<!--                        </div>-->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="/bootstrap/vendor/jquery/jquery.min.js"></script>
+<script src="/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/bootstrap/js/sb-admin-2.min.js"></script>
+
+</body>
+
+</html>
