@@ -3,9 +3,7 @@ package com.verystrong.car_loan_project.domain;
 
 import com.verystrong.car_loan_project.domain.CustomerInfo_type.*;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -13,11 +11,13 @@ import java.util.Objects;
 
 @Getter
 @ToString
+@AllArgsConstructor	// 모든 컬럼 생성자 생성
+//@NoArgsConstructor	// 기본 생성자
 @Table(indexes = {
         @Index(columnList="CustomerId")
 //        @Index(columnList="CustomerName")
 })
-//@EntityListeners(AuditingEntityListener.class)
+@Builder
 @Entity
 public class CustomerInfo {
 
@@ -108,22 +108,22 @@ public class CustomerInfo {
 
     private CustomerInfo(
 //            String customerName,
-                        Gender gender,
-                        float age, Education education,
-                        MaritalStatus maritalStatus,
-                        Integer familyCount,
-                        Integer childCount,
-                        IncomeType incomeType,
-                        IncomeClass incomeClass,
-                        Occupation occupation,
-                        OrgType orgType,
-                        float employedYears,
-                        HouseOwnedYN houseOwnedYN,
-                        DwellingType dwellingType,
-                        HousingType housingType,
-                        ResidenceClass residenceClass,
-                        float houseAge,
-                        CarOwnedYN carOwnedYN) {
+            Gender gender,
+            float age, Education education,
+            MaritalStatus maritalStatus,
+            Integer familyCount,
+            Integer childCount,
+            IncomeType incomeType,
+            IncomeClass incomeClass,
+            Occupation occupation,
+            OrgType orgType,
+            float employedYears,
+            HouseOwnedYN houseOwnedYN,
+            DwellingType dwellingType,
+            HousingType housingType,
+            ResidenceClass residenceClass,
+            float houseAge,
+            CarOwnedYN carOwnedYN) {
 //        CustomerName = customerName;
         this.gender = gender;
         Age = age;
@@ -146,48 +146,47 @@ public class CustomerInfo {
 
     public static CustomerInfo of(
 //            String customerName,
-                        Gender gender,
-                        float age, Education education,
-                        MaritalStatus maritalStatus,
-                        Integer familyCount,
-                        Integer childCount,
-                        IncomeType incomeType,
-                        IncomeClass incomeClass,
-                        Occupation occupation,
-                        OrgType orgType,
-                        float employedYears,
-                        HouseOwnedYN houseOwnedYN,
-                        DwellingType dwellingType,
-                        HousingType housingType,
-                        ResidenceClass residenceClass,
-                        float houseAge,
-                        CarOwnedYN carOwnedYN) {
-       return new CustomerInfo(
+            Gender gender,
+            float age, Education education,
+            MaritalStatus maritalStatus,
+            Integer familyCount,
+            Integer childCount,
+            IncomeType incomeType,
+            IncomeClass incomeClass,
+            Occupation occupation,
+            OrgType orgType,
+            float employedYears,
+            HouseOwnedYN houseOwnedYN,
+            DwellingType dwellingType,
+            HousingType housingType,
+            ResidenceClass residenceClass,
+            float houseAge,
+            CarOwnedYN carOwnedYN) {
+        return new CustomerInfo(
 //               customerName,
-               gender,
-               age,
-               education,
-               maritalStatus,
-               familyCount,
-               childCount,
-               incomeType,
-               incomeClass,
-               occupation,
-               orgType,
-               employedYears,
-               houseOwnedYN,
-               dwellingType,
-               housingType,
-               residenceClass,
-               houseAge,
-               carOwnedYN);
+                gender,
+                age,
+                education,
+                maritalStatus,
+                familyCount,
+                childCount,
+                incomeType,
+                incomeClass,
+                occupation,
+                orgType,
+                employedYears,
+                houseOwnedYN,
+                dwellingType,
+                housingType,
+                residenceClass,
+                houseAge,
+                carOwnedYN);
 
     }
 
     protected CustomerInfo() {
 
     }
-
 
 
     @Override
@@ -201,4 +200,6 @@ public class CustomerInfo {
     public int hashCode() {
         return Objects.hash(CustomerId);
     }
+
+
 }
