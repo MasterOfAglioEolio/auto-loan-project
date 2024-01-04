@@ -28,80 +28,70 @@ public class CustomerInfo {
 //    @Setter
 //    @Column(nullable = false, length = 20) // 기본정보는 null false
 //    private String CustomerName;
-    @Setter
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @Setter
+
     @Column(nullable = false)
     private float Age;
 
-    @Setter
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Education education;
 
-    @Setter
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private MaritalStatus maritalStatus;
 
-    @Setter
     @Column(nullable = false)
     private Integer FamilyCount;
-    @Setter
+
     @Column(nullable = false)
     private Integer ChildCount;
 
-    @Setter  // 수정 가능한 데이터 Setter 설정
+  // 수정 가능한 데이터 Setter 설정 권장하진 않음
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private IncomeType incomeType;
 
-    @Setter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private IncomeClass incomeClass;
 
-    @Setter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Occupation occupation;
 
-    @Setter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private OrgType orgType;
 
-    @Setter
     @Column(nullable = true)
     private float EmployedYears;
 
-    @Setter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private HouseOwnedYN houseOwnedYN;
 
-    @Setter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private DwellingType dwellingType;
 
-    @Setter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private HousingType housingType;
 
-    @Setter@Column(nullable = false)
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ResidenceClass residenceClass;
 
-    @Setter
     @Column(nullable = true)
     private float HouseAge;
 
-    @Setter
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private CarOwnedYN carOwnedYN;

@@ -1,32 +1,25 @@
 package com.verystrong.car_loan_project.service;
 
 
+import com.verystrong.car_loan_project.domain.CustomerInfo;
 import com.verystrong.car_loan_project.dto.CustomerInfoDto;
-import com.verystrong.car_loan_project.repository.CustomerInfoRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 
 import java.util.List;
 
 
-@RequiredArgsConstructor
-@Transactional
-@Service
-public class CustomerInfoService {
+public interface CustomerInfoService {
 
-    private final CustomerInfoRepository customerInfoRepository;
+    CustomerInfo create(CustomerInfoDto dto);
+    CustomerInfo get(Long customerId);
+    CustomerInfo update(CustomerInfoDto dto);
 
-    public void saveCustomerInfo(CustomerInfoDto dto) {
-    }
+    void delete(Long customerId);
 
-    public void updateCustomerInfo(CustomerInfoDto dto) {
-    }
 
-    public void deleteCustomerInfo(CustomerInfoDto dto) {
-    }
 
-//    @Transactional
-//    public List<CustomerInfoDto> saveCustomerInfo(){
-//    }
 }

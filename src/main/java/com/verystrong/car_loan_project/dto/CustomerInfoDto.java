@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 @AllArgsConstructor
 @ToString
+
 public class CustomerInfoDto {
 
     private Long customerId;
