@@ -9,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import static com.verystrong.car_loan_project.dto.ResponseDTO.ok;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Slf4j
 //@RequestMapping("/customerinfo")
@@ -53,16 +52,64 @@ public class CustomerInfoController {
     @GetMapping("customerinfo/{customerId}")
     public String show(@PathVariable Long customerId, Model model)
     {
-        log.info("customer id = "+customerId);
+        log.info("show customer id = "+customerId);
         //1. id를 조회해 데이터 가져오기
-        CustomerInfo customerInfoEntity = customerInfoRepository.findById(customerId).orElse(null);
+        CustomerInfo customerInfo = customerInfoRepository.findById(customerId).orElse(null);
         //2. 모델에 데이터 등록하기
-        model.addAttribute("customerInfo", customerInfoEntity);
-        log.info("model:"+model.addAttribute("customerInfo", customerInfoEntity));
+        model.addAttribute("customerInfo", customerInfo);
+        log.info("model:"+model.addAttribute("customerInfo", customerInfo));
         //3. 뷰 페이지 반환하기
         return "customerinfo/show";
     }
 
+    @GetMapping("customerinfo/{customerId}/edit")
+    public String edit(@PathVariable Long customerId, Model model)
+    {
+        log.info("edit customer id = "+customerId);
+        //1. id를 조회해 데이터 가져오기
+        CustomerInfo customerInfo = customerInfoRepository.findById(customerId).orElse(null);
+        //2. 모델에 데이터 등록하기
+        model.addAttribute("customerInfo", customerInfo);
+        //3. 뷰페이지 설정하기
+        return "customerinfo/edit";
+    }
+
+    @PostMapping("/customerinfo/update")
+    public String update(CustomerInfoDto dto)
+    {
+        log.info("update form to String"+dto.toString());
+        //1. DTO를 엔티티로 변환
+        CustomerInfo customerInfo = dto.toEntity();
+        log.info("customerInfo to DTO {}",customerInfo.toString());
+        //2. id 찾기
+        CustomerInfo target = customerInfoRepository.findById(customerInfo.getCustomerId()).orElse(null);
+        //3. 리퍼지토리로 엔티티를 DB에 저장
+        if (target!=null) {
+            CustomerInfo saved =customerInfoRepository.save(customerInfo);
+            log.info("DTO to Repository {}",saved.toString());
+            //4. 수정 결과 페이지로 리다이렉트
+            return "redirect:/customerinfo/"+saved.getCustomerId();
+        }
+        return "redirect:/customerinfo/";
+
+    }
+
+    @GetMapping("/customerinfo/{customerId}/delete")
+    public String delete(@PathVariable Long customerId, RedirectAttributes rttr)
+    {
+        log.info("삭제 요청이 들어왔습니다!!");
+        // 1.삭제할 대상 가져오기
+        CustomerInfo target = customerInfoRepository.findById(customerId).orElse(null);
+        log.info("target"+target.toString());
+        // 2. 대상 엔티티 삭제하기
+        if (target != null){
+            customerInfoRepository.delete(target);
+            rttr.addFlashAttribute("msg","삭제되었습니다.");
+        }
+        //3. 결과 페이지로 리다이렉트
+        return "redirect:/customerinfo";
+
+    }
 
 
     //    @PostMapping("/customerinfo/new")

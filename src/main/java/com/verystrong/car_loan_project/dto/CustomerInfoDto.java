@@ -10,7 +10,7 @@ import java.io.Serializable;
 @ToString
 public class CustomerInfoDto {
 
-    private Long id;
+    private Long customerId;
     private Gender gender;
     private float Age;
     private Education education;
@@ -29,7 +29,7 @@ public class CustomerInfoDto {
     private float HouseAge;
     private CarOwnedYN carOwnedYN;
 
-    public CustomerInfo toEntity() {return new CustomerInfo(id,
+    public CustomerInfo toEntity() {return new CustomerInfo(customerId,
             gender,
             Age,
             education,
