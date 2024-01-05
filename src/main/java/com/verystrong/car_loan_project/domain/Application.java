@@ -62,5 +62,11 @@ public class Application extends BaseEntity{
 //    @Column(nullable = false)
     private LocalDateTime appliedAt; // 신청일자
 
+    @Column(columnDefinition = "decimal(15,2)")
+    private BigDecimal approvalAmount;
+
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime contractedAt; //약정일자
+
 
 }
