@@ -6,6 +6,7 @@ import lombok.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,8 +23,10 @@ public class ApplicationDto {
     private LocalDateTime maturity;
     private BigDecimal hopeAmount;
     private LocalDateTime appliedAt;
+    private LocalDateTime contractedAt;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private BigDecimal approvalAmount;
 
     public Application toEntity() {
         return new Application(
@@ -35,9 +38,19 @@ public class ApplicationDto {
                 this.fee,
                 this.maturity,
                 this.hopeAmount,
-                this.appliedAt
+                this.appliedAt,
+                this.approvalAmount,
+                this.contractedAt
         );
 
+    }
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    @Getter
+    public static class AcceptTerms {
+        List<Long> acceptTermsIds;
     }
 
 }

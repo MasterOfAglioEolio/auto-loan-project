@@ -1,22 +1,40 @@
 package com.verystrong.car_loan_project.service;
 
+import com.verystrong.car_loan_project.domain.AcceptTerms;
 import com.verystrong.car_loan_project.domain.Application;
 import com.verystrong.car_loan_project.domain.CustomerInfo;
+import com.verystrong.car_loan_project.domain.Terms;
 import com.verystrong.car_loan_project.dto.ApplicationDto;
+import com.verystrong.car_loan_project.exception.BaseException;
+import com.verystrong.car_loan_project.exception.ResultType;
+import com.verystrong.car_loan_project.repository.AcceptTermsRepository;
 import com.verystrong.car_loan_project.repository.ApplicationRepository;
+import com.verystrong.car_loan_project.repository.JudgmentRepository;
+import com.verystrong.car_loan_project.repository.TermsRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class ApplicationServiceImpl implements ApplicationService{
+    private final TermsRepository termsRepository;
+
+    private final AcceptTermsRepository acceptTermsRepository;
 
     private final ApplicationRepository applicationRepository;
+
+    private final JudgmentRepository judgmentRepository;
+
     private final ModelMapper modelMapper;
     @Override
     public Application create(ApplicationDto dto) {
@@ -72,5 +90,62 @@ public class ApplicationServiceImpl implements ApplicationService{
 
         }
 
+    }
+
+    @Override
+    public Boolean acceptTerms(Long applicationId, ApplicationDto.AcceptTerms terms) {
+        applicationRepository.findById(applicationId).orElse(null);
+        //terms Id 기준 정렬
+        List<Terms> termsList = termsRepository.findAll(Sort.by(Sort.Direction.ASC, "termsId"));
+        if (termsList.isEmpty()){
+            throw new BaseException(ResultType.SYSTEM_ERROR); //조회할 약관이 없으면 에러
+        }
+
+        List<Long> acceptTermsIds = terms.getAcceptTermsIds();
+        if (termsList.size() !=acceptTermsIds.size()){
+            throw new BaseException(ResultType.SYSTEM_ERROR); //여러개의 약관과 우리가 관리하는 약관의 개수가 다르면 에러
+        }
+
+        List<Long> termsIds = termsList.stream().map(Terms::getTermsId).collect(Collectors.toList());
+        Collections.sort(acceptTermsIds);
+
+        if (!termsIds.containsAll(acceptTermsIds)) {
+            throw new BaseException(ResultType.SYSTEM_ERROR); //약관에 존재하지 않는 약관에 동의 시 에러
+        }
+
+        for (Long termsId : acceptTermsIds) {
+            AcceptTerms accepted = AcceptTerms.builder()
+                    .termsId(termsId)
+                    .applicationId(applicationId)
+                    .build();
+
+            acceptTermsRepository.save(accepted);
+        }
+
+        return true;
+
+    }
+
+    @Override
+    public Application contract(Long applicationId) {
+        Application application = applicationRepository.findById(applicationId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
+
+        judgmentRepository.findByApplicationId(applicationId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
+
+        if (application.getApprovalAmount() == null
+                || application.getApprovalAmount().compareTo(BigDecimal.ZERO) == 0) {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        }
+
+        application.setContractedAt(LocalDateTime.now());
+
+        Application updated = applicationRepository.save(application);
+
+//        return modelMapper.map(updated, Response.class);
+        return updated;
     }
 }

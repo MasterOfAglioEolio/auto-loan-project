@@ -1,5 +1,6 @@
 package com.verystrong.car_loan_project.service;
 
+import com.verystrong.car_loan_project.domain.AcceptTerms;
 import com.verystrong.car_loan_project.domain.Application;
 import com.verystrong.car_loan_project.domain.CustomerInfo;
 import com.verystrong.car_loan_project.dto.ApplicationDto;
@@ -10,6 +11,7 @@ public interface ApplicationService {
     Application create(ApplicationDto dto);
     Application get(Long applicationId);
     Application update(ApplicationDto dto);
-
     void delete(Long applicationId);
+    Boolean acceptTerms(Long applicationId, ApplicationDto.AcceptTerms terms);
+    Application contract(Long applicationId);
 }
