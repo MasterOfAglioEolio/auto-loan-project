@@ -28,7 +28,7 @@ public class BalanceServiceImpl implements BalanceService{
         balance.setApplicationId(applicationId);
         balance.setBalance(entryAmount);
 
-        balanceRepository.findAllByApplicationId(applicationId).ifPresent(b -> {
+        balanceRepository.findByApplicationId(applicationId).ifPresent(b -> {
             balance.setBalanceId(b.getBalanceId());
             balance.setIsDeleted(b.getIsDeleted());
             balance.setCreatedAt(b.getCreatedAt());

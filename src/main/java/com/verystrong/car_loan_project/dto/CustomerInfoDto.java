@@ -7,8 +7,11 @@ import lombok.*;
 import java.io.Serializable;
 
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
+@Setter
 @ToString
-
 public class CustomerInfoDto {
 
     private Long customerId;
@@ -29,6 +32,7 @@ public class CustomerInfoDto {
     private ResidenceClass residenceClass;
     private float HouseAge;
     private CarOwnedYN carOwnedYN;
+
 
     public CustomerInfo toEntity() {return new CustomerInfo(customerId,
             gender,

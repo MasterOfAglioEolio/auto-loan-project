@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Slf4j
-//@RequestMapping("/customerinfo")
+@RequestMapping("/customerinfo")
 @Controller
 public class CustomerInfoController {
 
@@ -26,26 +26,27 @@ public class CustomerInfoController {
 
         return "customerinfo/index";
     }
-    @GetMapping("/customerinfo/new")
+    @GetMapping("/new")
     public String createCustomerInfoForm()
     {
         log.info("[Register Page]");
         return "customerinfo/inforegister";
     }
 
-    @PostMapping("/customerinfo/new")
+    @PostMapping("/new")
     public String create(CustomerInfoDto dto)
     {
-        CustomerInfo saved = customerInfoService.create(dto);
+        CustomerInfoDto saved = customerInfoService.create(dto);
+        Long newCustomerId = saved.toEntity().getCustomerId();
 
-        return "redirect:/customerinfo/"+saved.getCustomerId();
+        return "redirect:/customerinfo/"+newCustomerId;
 
     }
 
-    @GetMapping("customerinfo/{customerId}")
+    @GetMapping("/{customerId}")
     public String show(@PathVariable Long customerId, Model model)
     {
-        CustomerInfo customerInfo = customerInfoService.get(customerId);
+        CustomerInfoDto customerInfo = customerInfoService.get(customerId);
         // 모델에 데이터 등록하기
         model.addAttribute("customerInfo", customerInfo);
         log.info("model:"+model.addAttribute("customerInfo", customerInfo));
@@ -53,31 +54,35 @@ public class CustomerInfoController {
         return "customerinfo/show";
     }
 
-    @GetMapping("customerinfo/{customerId}/edit")  // TODO: URI에 행위에 대한 동사 표현이 들어가면 안된다(CRUD 기능을 나타내는 것은 URI에 사용하지 않는다.)
+
+//    @PutMapping("/{customerId}")  // TODO: URI에 행위에 대한 동사 표현이 들어가면 안된다(CRUD 기능을 나타내는 것은 URI에 사용하지 않는다.)
+    @GetMapping("/{customerId}/edit")
     public String edit(@PathVariable Long customerId, Model model)
     {
 
-        CustomerInfo customerInfo = customerInfoService.get(customerId);
+        CustomerInfoDto customerInfo = customerInfoService.get(customerId);
         //2. 모델에 데이터 등록하기
         model.addAttribute("customerInfo", customerInfo);
         //3. 뷰페이지 설정하기
         return "customerinfo/edit";
     }
 
-    @PostMapping("/customerinfo/update")
+    @PostMapping("/update")
     public String update(CustomerInfoDto dto)
     {
-        CustomerInfo saved = customerInfoService.update(dto);
+        CustomerInfoDto saved = customerInfoService.update(dto);
+        Long newCustomerId = saved.toEntity().getCustomerId();
 
         if (saved !=null){
-            return "redirect:/customerinfo/"+saved.getCustomerId();
+            return "redirect:/customerinfo/"+newCustomerId;
         }
-        return "redirect:/customerinfo/";
+        return "redirect:/customerinfo";
 
 
     }
 
-    @GetMapping("/customerinfo/{customerId}/delete")
+//    @DeleteMapping("/{customerId}/delete")
+    @GetMapping("/{customerId}/delete")
     public String delete(@PathVariable Long customerId, RedirectAttributes rttr)
     {
 

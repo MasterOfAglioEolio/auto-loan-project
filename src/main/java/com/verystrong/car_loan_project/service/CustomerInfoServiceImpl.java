@@ -2,6 +2,8 @@ package com.verystrong.car_loan_project.service;
 
 import com.verystrong.car_loan_project.domain.CustomerInfo;
 import com.verystrong.car_loan_project.dto.CustomerInfoDto;
+import com.verystrong.car_loan_project.exception.BaseException;
+import com.verystrong.car_loan_project.exception.ResultType;
 import com.verystrong.car_loan_project.repository.CustomerInfoRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,29 +20,35 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
 
     private final ModelMapper modelMapper;
     @Override
-    public CustomerInfo create(CustomerInfoDto dto) {
+    public CustomerInfoDto create(CustomerInfoDto dto) {
 
         log.info("[Register customerInfo] Request :: {}",dto);
         //1. DTO를 엔티티로 변환
-        CustomerInfo customerInfo = dto.toEntity();
+        CustomerInfo customerInfo = modelMapper.map(dto,CustomerInfo.class);
 //     CustomerInfo customerInfo =modelMapper.map(customerInfoDto, CustomerInfo.class); //TODO : 나중에 리팩토링 이거로 바꾸기
         log.info("DTO to entity {}",customerInfo);
 
         //2. 리퍼지토리로 엔티티를 DB에 저장
-        return customerInfoRepository.save(customerInfo);
+        CustomerInfo saved = customerInfoRepository.save(customerInfo);
+
+        log.info("[ModelMapper]{}",modelMapper.map(saved, CustomerInfoDto.class));
+        return  modelMapper.map(saved, CustomerInfoDto.class);
 
     }
 
     @Override
-    public CustomerInfo get(Long customerId) {
+    public CustomerInfoDto get(Long customerId) {
 
         log.info("show customer id = "+customerId);
+       CustomerInfo customerInfo= customerInfoRepository.findById(customerId).orElseThrow(() -> {
+           throw new BaseException(ResultType.SYSTEM_ERROR);
+       });
 
-        return customerInfoRepository.findById(customerId).orElse(null);
+        return modelMapper.map(customerInfo, CustomerInfoDto.class);
     }
 
     @Override
-    public CustomerInfo update(CustomerInfoDto dto) {
+    public CustomerInfoDto update(CustomerInfoDto dto) {
         log.info("update form to String"+dto.toString());
         //1. DTO를 엔티티로 변환
         CustomerInfo customerInfo = dto.toEntity();
@@ -53,7 +61,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
             CustomerInfo saved =customerInfoRepository.save(customerInfo);
             log.info("DTO to Repository {}",saved.toString());
             //4. 수정 결과 페이지로 리다이렉트
-            return saved;
+            return modelMapper.map(saved,CustomerInfoDto.class);
         }
         return null;
     }
