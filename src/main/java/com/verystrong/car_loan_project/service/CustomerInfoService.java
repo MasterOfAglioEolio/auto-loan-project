@@ -14,9 +14,9 @@ import java.util.List;
 
 public interface CustomerInfoService {
 
-    CustomerInfo create(CustomerInfoDto dto);
-    CustomerInfo get(Long customerId);
-    CustomerInfo update(CustomerInfoDto dto);
+    CustomerInfoDto create(CustomerInfoDto dto);
+    CustomerInfoDto get(Long customerId);
+    CustomerInfoDto update(CustomerInfoDto dto);
 
     void delete(Long customerId);
 

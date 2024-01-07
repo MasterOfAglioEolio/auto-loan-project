@@ -18,6 +18,7 @@ public class JudgmentDto extends BaseEntity {
         private Long applicationId;
         private String name;
         private BigDecimal approvalAmount;
+        private BigDecimal approvalInterestRate;
         private Long judgmentId;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
@@ -27,7 +28,8 @@ public class JudgmentDto extends BaseEntity {
                         this.judgmentId,
                         this.applicationId,
                         this.name,
-                        this.approvalAmount
+                        this.approvalAmount,
+                        this.approvalInterestRate
                 );
 
         }
