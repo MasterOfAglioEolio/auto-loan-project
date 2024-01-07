@@ -22,10 +22,10 @@ public class TermsController {
         return "terms/";
     }
 
-    @GetMapping()
-    public String getAll()  // 모든 약관 조회
-    {
-        termsService.getAll();
-        return "terms/";
-    }
+//    @GetMapping("/")
+//    public String getAll()  // 모든 약관 조회
+//    {
+//        termsService.getAll();
+//        return "terms/";
+//    }
 }

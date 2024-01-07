@@ -36,7 +36,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">register Your Information!</h1>
                         </div>
-                        <form class="user" method="post">
+                        <form class="user" action="/customerinfo/new" method="post">
 <!--                            <div class="form-group row">-->
 <!--                                <div class="col-sm-6 mb-3 mb-sm-0">-->
 <!--                                    <label for="FirstName" class="form-label">First name</label>-->
@@ -57,27 +57,30 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="gender" class="form-label">Gender</label>
-                                    <select class="custom-select" id="gender" name="gender">
+                                    <select class="custom-select" id="gender" name="gender" required>
+                                        <option value="" selected disabled hidden></option>
                                         <option th:each="genderOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.Gender).values()}"
                                                 th:value="${genderOpt}" th:text="${genderOpt.name}"></option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="Age" class="form-label">Age</label>
-                                    <input type="number" class="form-control form-control-user" id="Age" name="Age">
+                                    <input type="number" class="form-control form-control-user" id="Age" name="Age" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="education" class="form-label">Education</label>
-                                    <select class="custom-select" id="education" name="education">
+                                    <select class="custom-select" id="education" name="education" required>
+                                        <option value="" selected disabled hidden></option>
                                         <option th:each="educationOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.Education).values()}"
                                                 th:value="${educationOpt}" th:text="${educationOpt.name}"></option>
                                     </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="maritalStatus" class="form-label">Marital Status</label>
-                                    <select class="custom-select" id="maritalStatus" name="maritalStatus">
+                                    <select class="custom-select" id="maritalStatus" name="maritalStatus" required>
+                                        <option value="" selected disabled hidden></option>
                                         <option th:each="maritalStatusOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.MaritalStatus).values()}"
                                                 th:value="${maritalStatusOpt}" th:text="${maritalStatusOpt.name}"></option>
                                     </select>
@@ -86,23 +89,25 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="FamilyCount" class="form-label">Family Count</label>
-                                    <input type="number" class="form-control form-control-user" id="FamilyCount" name="FamilyCount">
+                                    <input type="number" class="form-control form-control-user" id="FamilyCount" name="FamilyCount" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="ChildCount" class="form-label">Child Count</label>
-                                    <input type="number" class="form-control form-control-user" id="ChildCount" name="ChildCount">
+                                    <input type="number" class="form-control form-control-user" id="ChildCount" name="ChildCount" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="incomeType" class="form-label">Income Type</label>
-                                <select class="custom-select" id="incomeType" name="incomeType">
+                                <select class="custom-select" id="incomeType" name="incomeType" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="incomeTypeOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.IncomeType).values()}"
                                             th:value="${incomeTypeOpt}" th:text="${incomeTypeOpt.name}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="incomeClass" class="form-label">Income Class</label>
-                                <select class="custom-select" id="incomeClass" name="incomeClass">
+                                <select class="custom-select" id="incomeClass" name="incomeClass" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="incomeClassOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.IncomeClass).values()}"
                                             th:value="${incomeClassOpt}" th:text="${incomeClassOpt.name}"></option>
                                 </select>
@@ -110,57 +115,64 @@
                             </div>
                             <div class="form-group">
                                 <label for="occupation" class="form-label">Occupation</label>
-                                <select class="custom-select" id="occupation" name="occupation">
+                                <select class="custom-select" id="occupation" name="occupation" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="occupationOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.Occupation).values()}"
                                             th:value="${occupationOpt}" th:text="${occupationOpt.name}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="orgType" class="form-label">Org Type</label>
-                                <select class="custom-select" id="orgType" name="orgType">
+                                <select class="custom-select" id="orgType" name="orgType" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="orgTypeOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.OrgType).values()}"
                                             th:value="${orgTypeOpt}" th:text="${orgTypeOpt.name}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="EmployedYears" class="form-label">Employed Years</label>
-                                <input type="number" class="form-control form-control-user" id="EmployedYears" name="EmployedYears">
+                                <input type="number" class="form-control form-control-user" id="EmployedYears" name="EmployedYears" required>
                             </div>
                             <div class="form-group">
                                 <label for="houseOwnedYN" class="form-label">House Own Y/N</label>
-                                <select class="custom-select" id="houseOwnedYN" name="houseOwnedYN">
+                                <select class="custom-select" id="houseOwnedYN" name="houseOwnedYN" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="HouseOwnedYNOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.HouseOwnedYN).values()}"
                                             th:value="${HouseOwnedYNOpt}" th:text="${HouseOwnedYNOpt.name}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="dwellingType" class="form-label">Dwelling Type</label>
-                                <select class="custom-select" id="dwellingType" name="dwellingType">
+                                <select class="custom-select" id="dwellingType" name="dwellingType" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="dwellingTypeOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.DwellingType).values()}"
                                             th:value="${dwellingTypeOpt}" th:text="${dwellingTypeOpt.name}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="housingType" class="form-label">Housing Type</label>
-                                <select class="custom-select" id="housingType" name="housingType">
+                                <select class="custom-select" id="housingType" name="housingType" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="housingTypeOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.HousingType).values()}"
                                             th:value="${housingTypeOpt}" th:text="${housingTypeOpt.name}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="residenceClass" class="form-label">Residence Class</label>
-                                <select class="custom-select" id="residenceClass" name="residenceClass">
+                                <select class="custom-select" id="residenceClass" name="residenceClass" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="residenceClassOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.ResidenceClass).values()}"
                                             th:value="${residenceClassOpt}" th:text="${residenceClassOpt.name}"></option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="HouseAge" class="form-label">House Age</label>
-                                <input type="number" class="form-control form-control-user" id="HouseAge" name="HouseAge">
+                                <input type="number" class="form-control form-control-user" id="HouseAge" name="HouseAge" required>
                             </div>
                             <div class="form-group">
                                 <label for="carOwnedYN" class="form-label">Car Owned Y/N</label>
-                                <select class="custom-select" id="carOwnedYN" name="carOwnedYN">
+                                <select class="custom-select" id="carOwnedYN" name="carOwnedYN" required>
+                                    <option value="" selected disabled hidden></option>
                                     <option th:each="carOwnedYNOpt : ${T(com.verystrong.car_loan_project.domain.CustomerInfo_type.CarOwnedYN).values()}"
                                             th:value="${carOwnedYNOpt}" th:text="${carOwnedYNOpt.name}"></option>
                                 </select>

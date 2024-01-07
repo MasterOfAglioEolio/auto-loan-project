@@ -2,6 +2,7 @@ package com.verystrong.car_loan_project.domain.CustomerInfo_type;
 
 import lombok.Getter;
 
+@Getter
 public enum OrgType {
 
     General("일반"),
@@ -24,7 +25,6 @@ public enum OrgType {
     Cleaning_Laundering("청소/세탁"),
     Foreign_Community("외국계");
 
-    @Getter
     private final String name;
     private OrgType(String name) {
         this.name = name;
