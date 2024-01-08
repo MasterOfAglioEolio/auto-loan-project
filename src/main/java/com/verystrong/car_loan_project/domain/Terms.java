@@ -6,17 +6,16 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Where;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @Builder
-@EqualsAndHashCode(callSuper = true)
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@DynamicInsert
-//@DynamicUpdate
-//@Where(clause = "is_deleted=false")
-public class Terms extends BaseEntity {
+public class Terms{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,4 +26,17 @@ public class Terms extends BaseEntity {
     private String name; //약관명
 
     private String termsDetailUrl; //약관상세 URL
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (!(o instanceof Terms terms)) return false;
+//        return Objects.equals(termsId, terms.termsId);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(termsId);
+//    }
+
+
 }

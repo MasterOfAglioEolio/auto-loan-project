@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface TermsService {
 
-    Terms create(TermsDto dto);
+    TermsDto create(TermsDto dto);
     List<Terms> getAll();
 }

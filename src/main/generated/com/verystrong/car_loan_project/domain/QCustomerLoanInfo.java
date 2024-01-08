@@ -22,13 +22,13 @@ public class QCustomerLoanInfo extends EntityPathBase<CustomerLoanInfo> {
 
     public static final QCustomerLoanInfo customerLoanInfo = new QCustomerLoanInfo("customerLoanInfo");
 
-    public final EnumPath<com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.Accompany> accompany = createEnum("accompany", com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.Accompany.class);
+    public final EnumPath<com.verystrong.car_loan_project.domain.Application_type.Accompany> accompany = createEnum("accompany", com.verystrong.car_loan_project.domain.Application_type.Accompany.class);
 
-    public final EnumPath<com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ActiveLoanYN> activeLoanYN = createEnum("activeLoanYN", com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ActiveLoanYN.class);
+    public final EnumPath<com.verystrong.car_loan_project.domain.Application_type.ActiveLoanYN> activeLoanYN = createEnum("activeLoanYN", com.verystrong.car_loan_project.domain.Application_type.ActiveLoanYN.class);
 
     public final NumberPath<Integer> applHour = createNumber("applHour", Integer.class);
 
-    public final EnumPath<com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ApplWeek> applWeek = createEnum("applWeek", com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.ApplWeek.class);
+    public final EnumPath<com.verystrong.car_loan_project.domain.Application_type.ApplWeek> applWeek = createEnum("applWeek", com.verystrong.car_loan_project.domain.Application_type.ApplWeek.class);
 
     public final NumberPath<java.math.BigDecimal> CarPrice = createNumber("CarPrice", java.math.BigDecimal.class);
 
@@ -42,7 +42,7 @@ public class QCustomerLoanInfo extends EntityPathBase<CustomerLoanInfo> {
 
     public final NumberPath<Float> interestRate = createNumber("interestRate", Float.class);
 
-    public final EnumPath<com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.InterestType> interestType = createEnum("interestType", com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.InterestType.class);
+    public final EnumPath<com.verystrong.car_loan_project.domain.Application_type.InterestType> interestType = createEnum("interestType", com.verystrong.car_loan_project.domain.Application_type.InterestType.class);
 
     public final NumberPath<java.math.BigDecimal> loanAmount = createNumber("loanAmount", java.math.BigDecimal.class);
 
@@ -54,7 +54,7 @@ public class QCustomerLoanInfo extends EntityPathBase<CustomerLoanInfo> {
 
     public final NumberPath<Integer> loanTerm = createNumber("loanTerm", Integer.class);
 
-    public final EnumPath<com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.LoanType> loanType = createEnum("loanType", com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.LoanType.class);
+    public final EnumPath<com.verystrong.car_loan_project.domain.Application_type.LoanType> loanType = createEnum("loanType", com.verystrong.car_loan_project.domain.Application_type.LoanType.class);
 
     public QCustomerLoanInfo(String variable) {
         this(CustomerLoanInfo.class, forVariable(variable), INITS);

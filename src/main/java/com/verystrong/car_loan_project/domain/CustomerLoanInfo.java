@@ -1,16 +1,13 @@
 package com.verystrong.car_loan_project.domain;
 
-import com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.*;
+import com.verystrong.car_loan_project.domain.Application_type.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
-import java.time.DayOfWeek;
-import java.time.LocalTime;
 import java.util.Objects;
 
 @Getter

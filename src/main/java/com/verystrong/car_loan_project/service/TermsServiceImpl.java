@@ -19,10 +19,11 @@ public class TermsServiceImpl implements TermsService{
 
     private final ModelMapper modelMapper;
     @Override
-    public Terms create(TermsDto dto) {
-
-        Terms terms = dto.toEntity();
-        return termsRepository.save(terms);
+    public TermsDto create(TermsDto dto) {
+        log.info("[Terms Create]{}{}{}",dto.getTermsId(),dto.getName(),dto.getTermsDetailUrl());
+        Terms terms =modelMapper.map(dto, Terms.class);
+        log.info("[Terms Entity]{}",terms);
+        return modelMapper.map(termsRepository.save(terms),TermsDto.class);
     }
 
     @Override
