@@ -53,4 +53,25 @@
     e.preventDefault();
   });
 
+  $('#openpop').on('click',function(e){
+    e.preventDefault();
+
+    $('#popup').css('display','');
+    //$(this).val('true');
+    popup.classList.remove('hide');
+    popup.classList.add('has-filter');
+    if (hasFilter) {
+      popup.classList.add('has-filter');
+    } else {
+      popup.classList.remove('has-filter');
+    }
+
+
+  });
+  $('#closepopupbtn').on('click',function(e){
+    e.preventDefault();
+    popup.classList.remove('has-filter');
+    popup.classList.add('hide');
+  });
+
 })(jQuery); // End of use strict
