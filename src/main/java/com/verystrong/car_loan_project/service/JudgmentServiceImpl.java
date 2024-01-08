@@ -2,6 +2,7 @@ package com.verystrong.car_loan_project.service;
 
 import com.verystrong.car_loan_project.domain.Application;
 import com.verystrong.car_loan_project.domain.Judgment;
+import com.verystrong.car_loan_project.dto.ApplicationDto;
 import com.verystrong.car_loan_project.dto.JudgmentDto;
 import com.verystrong.car_loan_project.exception.BaseException;
 import com.verystrong.car_loan_project.exception.ResultType;
@@ -26,7 +27,7 @@ public class JudgmentServiceImpl implements JudgmentService {
     private final ModelMapper modelMapper;
 
     @Override
-    public Judgment create(JudgmentDto dto) {
+    public JudgmentDto create(JudgmentDto dto) {
         Long applicationId = dto.getApplicationId();
         if (!isPresentApplication(applicationId)) {
             throw new BaseException(ResultType.SYSTEM_ERROR);
@@ -35,23 +36,24 @@ public class JudgmentServiceImpl implements JudgmentService {
         Judgment judgment = modelMapper.map(dto, Judgment.class);
 
         Judgment saved = judgmentRepository.save(judgment);
+        log.info("[Create Judgment]{}",dto);
 //        return modelMapper.map(saved, JudgmentDto.class);
-        return saved;
+        return modelMapper.map(saved,JudgmentDto.class);
 
     }
 
     @Override
-    public Judgment get(Long judgmentId) {
+    public JudgmentDto get(Long judgmentId) {
         Judgment judgment = judgmentRepository.findById(judgmentId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
 
 //        return modelMapper.map(judgment, JudgmentDTO.Response.class);
-        return judgment;
+        return modelMapper.map(judgment,JudgmentDto.class);
     }
 
     @Override
-    public Judgment getJudgmentOfApplication(Long applicationId) {
+    public JudgmentDto getJudgmentOfApplication(Long applicationId) {
         if (!isPresentApplication(applicationId)) {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         }
@@ -61,11 +63,11 @@ public class JudgmentServiceImpl implements JudgmentService {
         });
 
 //        return modelMapper.map(judgment, JudgmentDTO.Response.class);
-        return judgment;
+        return modelMapper.map(judgment,JudgmentDto.class);
     }
 
     @Override
-    public Judgment update(Long judgmentId, JudgmentDto dto) {
+    public JudgmentDto update(Long judgmentId, JudgmentDto dto) {
         Judgment judgment = judgmentRepository.findById(judgmentId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
@@ -76,7 +78,7 @@ public class JudgmentServiceImpl implements JudgmentService {
         Judgment saved = judgmentRepository.save(judgment);
 
 //        return modelMapper.map(judgment, JudgmentDTO.Response.class);
-        return saved;
+        return modelMapper.map(saved,JudgmentDto.class);
     }
 
     @Override
@@ -92,7 +94,7 @@ public class JudgmentServiceImpl implements JudgmentService {
     }
 
     @Override
-    public Application grant(Long judgmentId) {
+    public ApplicationDto grant(Long judgmentId) {
         Judgment judgment = judgmentRepository.findById(judgmentId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
@@ -109,7 +111,7 @@ public class JudgmentServiceImpl implements JudgmentService {
         Application saved = applicationRepository.save(application);
 
         log.info("check grant {}",saved);
-        return saved; // 체크 필요
+        return modelMapper.map(saved, ApplicationDto.class); // 체크 필요
     }
 
     private boolean isPresentApplication(Long applicationId) {

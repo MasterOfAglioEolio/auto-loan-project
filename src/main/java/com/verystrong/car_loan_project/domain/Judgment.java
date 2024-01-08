@@ -22,7 +22,7 @@ public class Judgment extends BaseEntity {
     @Column(nullable = false, updatable = false)
     private Long judgmentId;
 
-    private Long applicationId;
+    private Long applicationId; // 신청 id
 
     private String name; // 심사자
 
