@@ -26,7 +26,7 @@ public class CustomerInfoController {
 //        return "customerinfo/index";
 //    }
     @GetMapping("/new")
-    public String createCustomerInfoForm()
+    public String CustomerInfoForm()
     {
         log.info("[Register Page]");
         return "customerinfo/inforegister";
