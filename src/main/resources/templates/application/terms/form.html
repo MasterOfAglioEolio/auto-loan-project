@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>약관 생성</title>
+</head>
+<body>
+<h1>새 약관 생성</h1>
+<form action="/application/terms/form" method="post">
+    <label for="name">약관명:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label onclick="showPopup()">약관상세 URL:</label>
+    <input type="checkbox" id="termsAgree" name="termsAgree"><br>
+    <label for="termsAgree"> 약관에 동의합니다.</label><br>
+    <input type="submit" value="Submit">
+    
+</form>
+<div id="popup" style="display: none;" >
+    <div class="content" style="overflow-y: scroll; height:550px;">
+        <p style="font-size: 16px; font-weight: 700;"> 오토론 이용약관</p>
+        <div>
+            <div class="termstitle">제 1조(목적)</div>
+            <div class="termscontent">
+                이 약관은 ㅇㅇ 주식회사(이하 '회사'라 함)이 제공하는
+                오토론 이용에 관한 제반사항과
+                기타 필요한 사항을 구체적으로 규정함을 목적으로 합니다.
+            </div>
+        </div> <!-- inner -->
+        <div id="popupbtnarea" style="text-align: center;"><button id="closepopupbtn" onclick="closePopup()">확인하였습니다</button></div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script>
+    function showPopup() {
+        $('#popup').show();
+    }
+
+    function closePopup() {
+        $('#popup').hide();
+    }
+</script>
+</body>
+</html>

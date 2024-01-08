@@ -1,7 +1,6 @@
-package com.verystrong.car_loan_project.domain.CustomerLoanInfo_type;
+package com.verystrong.car_loan_project.domain.Application_type;
 
 import lombok.Getter;
-import lombok.Setter;
 
 public enum Accompany {
     Other("기타"),

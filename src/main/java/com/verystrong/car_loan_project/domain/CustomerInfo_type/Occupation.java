@@ -2,6 +2,7 @@ package com.verystrong.car_loan_project.domain.CustomerInfo_type;
 
 import lombok.Getter;
 
+@Getter
 public enum Occupation {
     Cleaning_Laundering("청소/세탁"),
     Personnel_Manager("인사담당"),
@@ -23,7 +24,6 @@ public enum Occupation {
     PersonalService("개인서비스"),
     Other("기타");
 
-    @Getter
     private final String name;
 
     private Occupation(String name)

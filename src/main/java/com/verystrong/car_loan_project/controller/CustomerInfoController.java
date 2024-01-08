@@ -1,7 +1,6 @@
 package com.verystrong.car_loan_project.controller;
 
 
-import com.verystrong.car_loan_project.domain.CustomerInfo;
 import com.verystrong.car_loan_project.dto.CustomerInfoDto;
 import com.verystrong.car_loan_project.service.CustomerInfoService;
 import lombok.extern.slf4j.Slf4j;
@@ -20,14 +19,14 @@ public class CustomerInfoController {
     @Autowired
     private CustomerInfoService customerInfoService;
 
-    @GetMapping
-    public String Home()
-    {
-
-        return "customerinfo/index";
-    }
+//    @GetMapping
+//    public String Home()
+//    {
+//
+//        return "customerinfo/index";
+//    }
     @GetMapping("/new")
-    public String createCustomerInfoForm()
+    public String CustomerInfoForm()
     {
         log.info("[Register Page]");
         return "customerinfo/inforegister";
@@ -51,7 +50,7 @@ public class CustomerInfoController {
         model.addAttribute("customerInfo", customerInfo);
         log.info("model:"+model.addAttribute("customerInfo", customerInfo));
         //3. 뷰 페이지 반환하기
-        return "customerinfo/show";
+        return "customerinfo/edit";
     }
 
 
@@ -76,20 +75,23 @@ public class CustomerInfoController {
         if (saved !=null){
             return "redirect:/customerinfo/"+newCustomerId;
         }
-        return "redirect:/customerinfo";
+        return "redirect:/customerinfo/blank";
 
 
     }
 
 //    @DeleteMapping("/{customerId}/delete")
     @GetMapping("/{customerId}/delete")
+    //TODO: 일반적으로 HTTP GET 요청은 리소스를 삭제하는 데 사용되지 않습니다.
+    // GET 요청은 안전하고 멱등해야 하므로, 리소스의 상태를 변경하지 않아야 합니다.
+    // 리소스를 삭제하는 작업은 HTTP DELETE 요청을 사용하는 것이 좋습니다.
     public String delete(@PathVariable Long customerId, RedirectAttributes rttr)
     {
 
         customerInfoService.delete(customerId);
         rttr.addFlashAttribute("msg","삭제되었습니다.");
         //3. 결과 페이지로 리다이렉트
-        return "redirect:/customerinfo";
+        return "redirect:/";
 
     }
 

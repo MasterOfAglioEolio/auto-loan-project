@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Register</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="/bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gradient-primary">
+
+<div class="container">
+
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                <div class="col-lg-7">
+                    <div class="p-5">
+                        <div class="text-center">
+                            <h1 class="h4 text-gray-900 mb-4">register Your Application!</h1>
+                        </div>
+
+
+                        <form class="user" action="/application/form" method="post">
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control form-control-user" id="name" name="name" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="cellPhone" class="form-label">Cell Phone</label>
+                                    <input type="text" class="form-control form-control-user" id="cellPhone" name="cellPhone" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" required>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="loanType" class="form-label">Loan Type</label>
+                                    <select class="custom-select" id="loanType" name="loanType" required>
+                                        <option value="" selected disabled hidden></option>
+                                        <option th:each="loanTypeOpt : ${T(com.verystrong.car_loan_project.domain.Application_type.LoanType).values()}"
+                                                th:value="${loanTypeOpt}" th:text="${loanTypeOpt.name}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="deposit" class="form-label">Deposit</label>
+                                    <select class="custom-select" id="deposit" name="deposit">
+                                        <option value="" selected disabled hidden></option>
+                                        <option value="0">0</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="loanTerm" class="form-label">Loan Term</label>
+                                    <select class="custom-select" id="loanTerm" name="loanTerm">
+                                        <option value="" selected disabled hidden></option>
+                                        <option value="12">12</option>
+                                        <option value="24">24</option>
+                                        <option value="36">36</option>
+                                        <option value="48">48</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="interestType" class="form-label">Interest Type</label>
+                                    <select class="custom-select" id="interestType" name="interestType">
+                                        <option value="" selected disabled hidden></option>
+                                        <option th:each="interestTypeOpt : ${T(com.verystrong.car_loan_project.domain.Application_type.InterestType).values()}"
+                                                th:value="${interestTypeOpt}" th:text="${interestTypeOpt.name}"></option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="interestRate" class="form-label">Interest Rate</label>
+                                    <input type="number" step="0.01" class="form-control form-control-user" id="interestRate" name="interestRate" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="fee" class="form-label">Fee</label>
+                                    <input type="number" step="0.01" class="form-control form-control-user" id="fee" name="fee">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="hopeAmount" class="form-label">Hope Amount</label>
+                                    <input type="number" class="form-control form-control-user" id="hopeAmount" name="hopeAmount">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                    <label for="approvalAmount" class="form-label">Approval Amount</label>
+                                    <input type="number" class="form-control form-control-user" id="approvalAmount" name="approvalAmount">
+                                </div>
+                            </div>
+
+                            <!-- ... 나머지 필드들을 이와 같은 방식으로 추가 ... -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="/bootstrap/vendor/jquery/jquery.min.js"></script>
+<script src="/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="/bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="/bootstrap/js/sb-admin-2.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // 'loanTerm' 드롭다운의 값이 변경되었을 때 이벤트를 발생시킵니다.
+        $("#loanTerm").change(function() {
+            // 선택된 옵션의 값을 가져옵니다.
+            var selectedValue = Number($(this).val());
+
+            // 선택된 값에 따라 'interestRate' 필드의 값을 설정합니다.
+            if (selectedValue === 12) {
+                $("#interestRate").val(5.6);
+            } else if (selectedValue === 24) {
+                $("#interestRate").val(5.7);
+            }
+            else if (selectedValue === 36) {
+                $("#interestRate").val(5.8);
+            }
+            else if (selectedValue === 48) {
+                $("#interestRate").val(5.9);
+            }
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</body>
+
+</html>

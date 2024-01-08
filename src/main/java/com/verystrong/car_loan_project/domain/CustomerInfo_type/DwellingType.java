@@ -2,6 +2,7 @@ package com.verystrong.car_loan_project.domain.CustomerInfo_type;
 
 import lombok.Getter;
 
+@Getter
 public enum DwellingType {
 
     Self("자가"),
@@ -11,7 +12,6 @@ public enum DwellingType {
     Half_Charter("반전세"),
     N("정보누락"),
     Public_long_term_rental("공공장기임대");
-    @Getter
     private final String name;
     private DwellingType(String name) {
         this.name = name;

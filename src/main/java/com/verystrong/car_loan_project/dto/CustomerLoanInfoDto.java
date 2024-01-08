@@ -1,7 +1,7 @@
 package com.verystrong.car_loan_project.dto;
 
 import com.verystrong.car_loan_project.domain.CustomerLoanInfo;
-import com.verystrong.car_loan_project.domain.CustomerLoanInfo_type.*;
+import com.verystrong.car_loan_project.domain.Application_type.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

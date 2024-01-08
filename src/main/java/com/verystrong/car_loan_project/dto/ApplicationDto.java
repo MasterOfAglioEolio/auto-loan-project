@@ -1,23 +1,30 @@
 package com.verystrong.car_loan_project.dto;
 
 import com.verystrong.car_loan_project.domain.Application;
+import com.verystrong.car_loan_project.domain.Application_type.InterestType;
+import com.verystrong.car_loan_project.domain.Application_type.LoanType;
 import lombok.*;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Getter
 @Setter
+@ToString
 public class ApplicationDto {
 
     private Long applicationId;
     private String name;
     private String cellPhone;
     private String email;
+    private LoanType loanType;
+    private Integer deposit;
+    private Integer loanTerm;
+    private InterestType interestType;
     private BigDecimal interestRate;
     private BigDecimal fee;
     private LocalDateTime maturity;
@@ -34,6 +41,10 @@ public class ApplicationDto {
                 this.name,
                 this.cellPhone,
                 this.email,
+                loanType,
+                this.deposit,
+                this.loanTerm,
+                interestType,
                 this.interestRate,
                 this.fee,
                 this.maturity,

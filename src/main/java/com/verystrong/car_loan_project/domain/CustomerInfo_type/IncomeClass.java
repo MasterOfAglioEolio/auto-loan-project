@@ -2,6 +2,7 @@ package com.verystrong.car_loan_project.domain.CustomerInfo_type;
 
 import lombok.Getter;
 
+@Getter
 public enum IncomeClass {
     A("1.5억원 이상"),
     B("1억원~1.5억원 미만"),
@@ -13,7 +14,6 @@ public enum IncomeClass {
     H("1000만원 미만"),
     N("누락");
 
-    @Getter
     private final String name;
 
     private IncomeClass(String name)

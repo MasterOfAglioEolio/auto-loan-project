@@ -1,5 +1,7 @@
 package com.verystrong.car_loan_project.domain;
 
+import com.verystrong.car_loan_project.domain.Application_type.InterestType;
+import com.verystrong.car_loan_project.domain.Application_type.LoanType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,33 +27,36 @@ public class Application extends BaseEntity{
 //    @Column(nullable = false, updatable = false)
     private Long applicationId;
 
-
 //    @Column(nullable = false)
     private String name;
-
 
 //    @Column(nullable = false)
     private String cellPhone;
 
-
 //    @Column(nullable = false)
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    private LoanType loanType;
+
+    private Integer deposit;
+
+    private Integer loanTerm;
+
+    @Enumerated(EnumType.STRING)
+    private InterestType interestType;
 
     //    @Column(nullable = false)
     @Column(columnDefinition = "decimal(5,4)")
     private BigDecimal interestRate; // 금리
 
-
 //    @Column(nullable = false)
     @Column(columnDefinition = "decimal(5,4)")
     private BigDecimal fee; // 취급 수수료
 
-
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 //    @Column(nullable = false)
     private LocalDateTime maturity; //만기
-
 
     //    @Column(nullable = false)
     @Column(columnDefinition = "decimal(15,2)")

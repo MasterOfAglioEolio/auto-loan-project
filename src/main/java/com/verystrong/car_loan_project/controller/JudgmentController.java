@@ -11,15 +11,22 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/judgments")
+@RequestMapping("/application/judgments")
 public class JudgmentController {
 
     private final JudgmentService judgmentService;
 
-    @PostMapping
+    @GetMapping()
+    public String judgement() {
+
+        log.info("[Judgement]");
+        return "application/judgments/judgment";
+    }
+
+    @PostMapping("/judgment")
     public String create(@RequestBody JudgmentDto dto) {
         judgmentService.create(dto);
-        return "judgements/";
+        return "application/judgments/result";
     }
 
     @GetMapping("/{judgmentId}")

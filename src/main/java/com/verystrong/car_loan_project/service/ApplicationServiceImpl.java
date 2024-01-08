@@ -37,28 +37,33 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     private final ModelMapper modelMapper;
     @Override
-    public Application create(ApplicationDto dto) {
+    public ApplicationDto create(ApplicationDto dto) {
         Application application = modelMapper.map(dto,Application.class);
+        application.setMaturity(LocalDateTime.now());
         application.setAppliedAt(LocalDateTime.now());
+        application.setContractedAt(LocalDateTime.now());
         application.setIsDeleted(false); // TODO : 일단 테스트용으로 false 설정
         log.info("[Create] application : {}",application);
 
         Application applied=applicationRepository.save(application);
         log.info("DTO to Repositroy {} ",applied);
         //return modelMapper.map(applied,ApplicationDto.class); //TODO : 리팩토링 시 전체 적용하기
-        return applied;
+        return modelMapper.map(applied,ApplicationDto.class);
     }
 
     @Override
-    public Application get(Long applicationId) {
+    public ApplicationDto get(Long applicationId) {
         log.info("show customer id = "+applicationId);
         //1. id를 조회해 데이터 가져오기
+        Application customerInfo= applicationRepository.findById(applicationId).orElseThrow(() -> {
+            throw new BaseException(ResultType.SYSTEM_ERROR);
+        });
 
-        return applicationRepository.findById(applicationId).orElse(null);
+        return modelMapper.map(customerInfo,ApplicationDto.class);
     }
 
     @Override
-    public Application update(ApplicationDto dto) {
+    public ApplicationDto update(ApplicationDto dto) {
         log.info("update form to String"+dto.toString());
         //1. DTO를 엔티티로 변환
         Application application = dto.toEntity();
@@ -73,7 +78,7 @@ public class ApplicationServiceImpl implements ApplicationService{
             Application saved =applicationRepository.save(application);
             log.info("DTO to Repository {}",saved.toString());
             //4. 수정 결과 페이지로 리다이렉트
-            return saved;
+            return modelMapper.map(saved,ApplicationDto.class);
         }
         return null;
     }
@@ -127,7 +132,7 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
 
     @Override
-    public Application contract(Long applicationId) {
+    public ApplicationDto contract(Long applicationId) {
         Application application = applicationRepository.findById(applicationId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
@@ -146,6 +151,6 @@ public class ApplicationServiceImpl implements ApplicationService{
         Application updated = applicationRepository.save(application);
 
 //        return modelMapper.map(updated, Response.class);
-        return updated;
+        return modelMapper.map(updated,ApplicationDto.class);
     }
 }
