@@ -66,7 +66,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="deposit" class="form-label">Deposit</label>
-                                    <select class="custom-select" id="deposit" name="deposit">
+                                    <select class="custom-select" id="deposit" name="deposit" required>
                                         <option value="" selected disabled hidden></option>
                                         <option value="0">0</option>
                                         <option value="10">10</option>
@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="loanTerm" class="form-label">Loan Term</label>
-                                    <select class="custom-select" id="loanTerm" name="loanTerm">
+                                    <select class="custom-select" id="loanTerm" name="loanTerm" required>
                                         <option value="" selected disabled hidden></option>
                                         <option value="12">12</option>
                                         <option value="24">24</option>
@@ -88,7 +88,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="interestType" class="form-label">Interest Type</label>
-                                    <select class="custom-select" id="interestType" name="interestType">
+                                    <select class="custom-select" id="interestType" name="interestType" required>
                                         <option value="" selected disabled hidden></option>
                                         <option th:each="interestTypeOpt : ${T(com.verystrong.car_loan_project.domain.Application_type.InterestType).values()}"
                                                 th:value="${interestTypeOpt}" th:text="${interestTypeOpt.name}"></option>
@@ -102,17 +102,17 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="fee" class="form-label">Fee</label>
-                                    <input type="number" step="0.01" class="form-control form-control-user" id="fee" name="fee">
+                                    <input type="number" step="0.01" class="form-control form-control-user" id="fee" name="fee" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="hopeAmount" class="form-label">Hope Amount</label>
-                                    <input type="number" class="form-control form-control-user" id="hopeAmount" name="hopeAmount">
+                                    <input type="number" class="form-control form-control-user" id="hopeAmount" name="hopeAmount" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="approvalAmount" class="form-label">Approval Amount</label>
-                                    <input type="number" class="form-control form-control-user" id="approvalAmount" name="approvalAmount">
+                                    <input type="number" class="form-control form-control-user" id="approvalAmount" name="approvalAmount" required>
                                 </div>
                             </div>
 
