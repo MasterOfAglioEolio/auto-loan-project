@@ -41,21 +41,21 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="name" class="form-label">Name</label>
-                                    <input type="text" class="form-control form-control-user" id="name" name="name" th:value="${application_model.name}" >
+                                    <input type="text" class="form-control form-control-user" id="name" name="name" th:value="${application_model.name}" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="cellPhone" class="form-label">Cell Phone</label>
-                                    <input type="text" class="form-control form-control-user" id="cellPhone" name="cellPhone" th:value="${application_model.cellPhone}" >
+                                    <input type="text" class="form-control form-control-user" id="cellPhone" name="cellPhone" th:value="${application_model.cellPhone}" required>
                             </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control form-control-user" id="email" name="email" th:value="${application_model.email}" >
+                                    <input type="email" class="form-control form-control-user" id="email" name="email" th:value="${application_model.email}" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="loanType" class="form-label">Loan Type</label>
-                                    <select class="custom-select" id="loanType" name="loanType">
+                                    <select class="custom-select" id="loanType" name="loanType" required>
                                         <option value="" selected disabled hidden></option>
                                         <option th:each="loanTypeOpt : ${T(com.verystrong.car_loan_project.domain.Application_type.LoanType).values()}"
                                                 th:value="${loanTypeOpt}" th:text="${loanTypeOpt.name}"
@@ -66,7 +66,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="deposit" class="form-label">Deposit</label>
-                                    <select class="custom-select" id="deposit" name="deposit">
+                                    <select class="custom-select" id="deposit" name="deposit" required>
                                         <option value="" selected disabled hidden></option>
                                         <option value="0" th:selected="${application_model.deposit != null && application_model.deposit.equals(0)}">0</option>
                                         <option value="10" th:selected="${application_model.deposit != null && application_model.deposit.equals(10)}">10</option>
@@ -88,7 +88,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <label for="interestType" class="form-label">Interest Type</label>
-                                    <select class="custom-select" id="interestType" name="interestType" >
+                                    <select class="custom-select" id="interestType" name="interestType" required>
                                         <option value="" selected disabled hidden></option>
                                         <option th:each="interestTypeOpt : ${T(com.verystrong.car_loan_project.domain.Application_type.InterestType).values()}"
                                                 th:value="${interestTypeOpt}" th:text="${interestTypeOpt.name}"
