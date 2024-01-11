@@ -36,6 +36,8 @@ public class Application extends BaseEntity{
 //    @Column(nullable = false)
     private String email;
 
+    private BigDecimal carPrice; // 차량 가격 //TODO : 뷰에 추가하고 Deposit 비율로 LoanAmount(hopeAmount 바꾸기) 계산
+
     @Enumerated(EnumType.STRING)
     private LoanType loanType;
 
@@ -48,19 +50,19 @@ public class Application extends BaseEntity{
 
     //    @Column(nullable = false)
     @Column(columnDefinition = "decimal(5,4)")
-    private BigDecimal interestRate; // 금리
+    private BigDecimal interestRate; // 금리   // TODO: 예상해서 알려주기
 
 //    @Column(nullable = false)
     @Column(columnDefinition = "decimal(5,4)")
-    private BigDecimal fee; // 취급 수수료
+    private BigDecimal fee; // 취급 수수료 TODO : 없애자
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 //    @Column(nullable = false)
-    private LocalDateTime maturity; //만기
+    private LocalDateTime maturity; //만기 TODO: 신청일자 기준 + loanTerm 으로 계산
 
     //    @Column(nullable = false)
     @Column(columnDefinition = "decimal(15,2)")
-    private BigDecimal hopeAmount; // 대출 신청 금액
+    private BigDecimal hopeAmount; // 대출 신청 금액 (TODO : 계산해서 알려주기)
 
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -68,7 +70,7 @@ public class Application extends BaseEntity{
     private LocalDateTime appliedAt; // 신청일자
 
     @Column(columnDefinition = "decimal(15,2)")
-    private BigDecimal approvalAmount;
+    private BigDecimal approvalAmount;  // TODO : 삭제 고려
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime contractedAt; //약정일자
