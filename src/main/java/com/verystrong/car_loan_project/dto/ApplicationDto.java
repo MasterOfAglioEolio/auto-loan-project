@@ -21,6 +21,7 @@ public class ApplicationDto {
     private String name;
     private String cellPhone;
     private String email;
+    private BigDecimal carPrice;
     private LoanType loanType;
     private Integer deposit;
     private Integer loanTerm;
@@ -41,6 +42,7 @@ public class ApplicationDto {
                 this.name,
                 this.cellPhone,
                 this.email,
+                this.carPrice,
                 loanType,
                 this.deposit,
                 this.loanTerm,

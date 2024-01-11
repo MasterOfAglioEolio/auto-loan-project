@@ -50,7 +50,6 @@ public class CustomerInfoDto {
             dwellingType,
             housingType,
             residenceClass,
-            HouseAge,
             carOwnedYN
             );}
 

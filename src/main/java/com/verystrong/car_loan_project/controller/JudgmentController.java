@@ -1,6 +1,9 @@
 package com.verystrong.car_loan_project.controller;
 
+import com.verystrong.car_loan_project.domain.Application;
+import com.verystrong.car_loan_project.dto.ApplicationDto;
 import com.verystrong.car_loan_project.dto.JudgmentDto;
+import com.verystrong.car_loan_project.service.ApplicationService;
 import com.verystrong.car_loan_project.service.JudgmentService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,11 +19,16 @@ public class JudgmentController {
 
     private final JudgmentService judgmentService;
 
-    @GetMapping()
-    public String judgement() {
+    @Autowired
+    private ApplicationService applicationService;
 
-        log.info("[Judgement]");
-        return "application/judgments/judgment";
+    @GetMapping("/{applicationId}")
+    public String judgement(@PathVariable Long applicationId) {
+        ApplicationDto application = applicationService.get(applicationId);
+
+        log.info("[Judgement]{}",application);
+
+        return "application/judgments"+applicationId;
     }
 
     @PostMapping("/judgment")

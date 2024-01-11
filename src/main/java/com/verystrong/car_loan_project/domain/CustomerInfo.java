@@ -90,9 +90,6 @@ public class CustomerInfo {
     @Enumerated(EnumType.STRING)
     private ResidenceClass residenceClass;
 
-    @Column(nullable = true)
-    private float HouseAge;
-
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private CarOwnedYN carOwnedYN;
