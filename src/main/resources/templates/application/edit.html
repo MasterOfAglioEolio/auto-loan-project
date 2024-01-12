@@ -36,7 +36,7 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Edit Your Application!</h1>
                         </div>
-                        <form class="user" action="/application/update" method="post"> <!--application/update 에 대해서 action-->
+                        <form class="user" action="/application/judgments/judgment" method="post"> <!--application/update 에 대해서 action-->
                             <input name="applicationId" type="hidden" th:value="${application_model.applicationId}">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -95,26 +95,9 @@
                                                 th:selected="${application_model.interestType != null && interestTypeOpt.name()==application_model.interestType.name()}"></option>
                                     </select>
                                 </div>
-                                <div class="col-sm-6">
-                                    <label for="interestRate" class="form-label">Interest Rate</label>
-                                    <input type="number" step="0.01" class="form-control form-control-user" id="interestRate" name="interestRate"
-                                           th:value="${application_model.interestRate}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="fee" class="form-label">Fee</label>
-                                    <input type="number" step="0.01" class="form-control form-control-user" id="fee" name="fee" th:value="${application_model.fee}" readonly>
-                                </div>
-                                <div class="col-sm-6">
-                                    <label for="hopeAmount" class="form-label">Hope Amount</label>
-                                    <input type="number" class="form-control form-control-user" id="hopeAmount" name="hopeAmount" th:value="${application_model.hopeAmount}" readonly>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <label for="approvalAmount" class="form-label">Approval Amount</label>
-                                    <input type="number" class="form-control form-control-user" id="approvalAmount" name="approvalAmount" th:value="${application_model.approvalAmount}" readonly>
+                                    <label for="carPrice" class="form-label">Car Price</label>
+                                    <input type="number" class="form-control form-control-user" id="carPrice" name="carPrice" th:value="${application_model.carPrice}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -127,15 +110,15 @@
                                     <input type="text" class="form-control form-control-user" id="appliedAt" name="appliedAt" th:value="${application_model.appliedAt}" readonly>
                                 </div>
                             </div>
+<!--                            <div class="form-group">-->
+<!--                                <button type="submit" class="btn btn-primary btn-user btn-block">-->
+<!--                                    Edit Application-->
+<!--                                </button>-->
+<!--                            </div>-->
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-user btn-block">
-                                    Edit Application
-                                </button>
-                            </div>
-                            <div class="form-group">
-                                <a type="submit" href="judgments" class="btn btn-google btn-user btn-block">
+                                <button type="submit" class="btn btn-google btn-user btn-block">
                                     judgment
-                                </a>
+                                </button>
                             </div>
 <!--                            <div class="form-group">-->
 <!--                                <a th:href="@{'/application/' + ${application_model.applicationId} + '/delete'}" class="btn btn-google btn-user btn-block">-->

@@ -3,6 +3,7 @@ package com.verystrong.car_loan_project.dto;
 import com.verystrong.car_loan_project.domain.Application;
 import com.verystrong.car_loan_project.domain.BaseEntity;
 import com.verystrong.car_loan_project.domain.Judgment;
+import com.verystrong.car_loan_project.domain.Judgment_type.JudgmentType;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -15,22 +16,10 @@ import java.time.LocalDateTime;
 @Setter
 public class JudgmentDto extends BaseEntity {
 
-        private Long applicationId;
-        private String name;
-        private BigDecimal approvalAmount;
-        private BigDecimal approvalInterestRate;
         private Long judgmentId;
-        private LocalDateTime createdAt;
-        private LocalDateTime updatedAt;
+        private Long applicationId;
+        private JudgmentType judgment; // 심사결과
+        private BigDecimal interestRate; // 예상금리   // TODO: 예상해서 알려주기
 
-        public Judgment toEntity() {
-                return new Judgment(
-                        this.judgmentId,
-                        this.applicationId,
-                        this.name,
-                        this.approvalAmount,
-                        this.approvalInterestRate
-                );
 
-        }
     }

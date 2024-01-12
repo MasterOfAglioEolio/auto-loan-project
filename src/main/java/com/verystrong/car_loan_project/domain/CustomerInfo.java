@@ -25,10 +25,6 @@ public class CustomerInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long CustomerId;
-//
-//    @Setter
-//    @Column(nullable = false, length = 20) // 기본정보는 null false
-//    private String CustomerName;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -94,87 +90,6 @@ public class CustomerInfo {
     @Enumerated(EnumType.STRING)
     private CarOwnedYN carOwnedYN;
 
-//    private CustomerInfo(
-////            String customerName,
-//            Gender gender,
-//            float age, Education education,
-//            MaritalStatus maritalStatus,
-//            Integer familyCount,
-//            Integer childCount,
-//            IncomeType incomeType,
-//            IncomeClass incomeClass,
-//            Occupation occupation,
-//            OrgType orgType,
-//            float employedYears,
-//            HouseOwnedYN houseOwnedYN,
-//            DwellingType dwellingType,
-//            HousingType housingType,
-//            ResidenceClass residenceClass,
-//            float houseAge,
-//            CarOwnedYN carOwnedYN) {
-////        CustomerName = customerName;
-//        this.gender = gender;
-//        Age = age;
-//        this.education = education;
-//        this.maritalStatus = maritalStatus;
-//        FamilyCount = familyCount;
-//        ChildCount = childCount;
-//        this.incomeType = incomeType;
-//        this.incomeClass = incomeClass;
-//        this.occupation = occupation;
-//        this.orgType = orgType;
-//        EmployedYears = employedYears;
-//        this.houseOwnedYN = houseOwnedYN;
-//        this.dwellingType = dwellingType;
-//        this.housingType = housingType;
-//        this.residenceClass = residenceClass;
-//        HouseAge = houseAge;
-//        this.carOwnedYN = carOwnedYN;
-//    }
-//
-//    public static CustomerInfo of(
-////            String customerName,
-//            Gender gender,
-//            float age, Education education,
-//            MaritalStatus maritalStatus,
-//            Integer familyCount,
-//            Integer childCount,
-//            IncomeType incomeType,
-//            IncomeClass incomeClass,
-//            Occupation occupation,
-//            OrgType orgType,
-//            float employedYears,
-//            HouseOwnedYN houseOwnedYN,
-//            DwellingType dwellingType,
-//            HousingType housingType,
-//            ResidenceClass residenceClass,
-//            float houseAge,
-//            CarOwnedYN carOwnedYN) {
-//        return new CustomerInfo(
-////               customerName,
-//                gender,
-//                age,
-//                education,
-//                maritalStatus,
-//                familyCount,
-//                childCount,
-//                incomeType,
-//                incomeClass,
-//                occupation,
-//                orgType,
-//                employedYears,
-//                houseOwnedYN,
-//                dwellingType,
-//                housingType,
-//                residenceClass,
-//                houseAge,
-//                carOwnedYN);
-//
-//    }
-//
-//    protected CustomerInfo() {
-//
-//    }
 
 
     @Override

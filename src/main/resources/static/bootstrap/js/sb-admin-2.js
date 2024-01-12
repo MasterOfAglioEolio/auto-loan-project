@@ -74,4 +74,58 @@
     popup.classList.add('hide');
   });
 
+  $(document).ready(function() {
+    // 'loanTerm' 드롭다운의 값이 변경되었을 때 이벤트를 발생시킵니다.
+    $("#loanTerm").change(function() {
+      // 선택된 옵션의 값을 가져옵니다.
+      var selectedValue = Number($(this).val());
+
+      // 선택된 값에 따라 'interestRate' 필드의 값을 설정합니다.
+      if (selectedValue === 12) {
+        $("#interestRate").val(5.6);
+      } else if (selectedValue === 24) {
+        $("#interestRate").val(5.7);
+      }
+      else if (selectedValue === 36) {
+        $("#interestRate").val(5.8);
+      }
+      else if (selectedValue === 48) {
+        $("#interestRate").val(5.9);
+      }
+    });
+  });
+  $(document).ready(function() {
+    // carPrice와 deposit 값을 가져옵니다.
+    var carPrice = parseFloat(document.getElementById('carPrice').value);
+    var deposit = parseFloat(document.getElementById('deposit').value);
+
+    // carPrice와 deposit가 입력되었을 때만 계산을 수행합니다.
+    if (!isNaN(carPrice) && !isNaN(deposit)) {
+      // deposit 값이 0이면 carPrice를 그대로 표시합니다.
+      if (deposit === 0) {
+        document.getElementById('hopeAmount').value = carPrice;
+      } else {
+        // deposit 값이 0이 아니면 hopeAmount에 carPrice에서 deposit 비율을 곱한 값을 뺀 결과를 표시합니다.
+        document.getElementById('hopeAmount').value = carPrice - (carPrice * deposit / 100);
+      }
+    }
+  });
+
+  // carPrice 또는 deposit 값이 변경되었을 때 계산을 다시 수행합니다.
+  $("#carPrice, #deposit").on("change", function() {
+    var carPrice = parseFloat(document.getElementById('carPrice').value);
+    var deposit = parseFloat(document.getElementById('deposit').value);
+
+    if (!isNaN(carPrice) && !isNaN(deposit)) {
+      if (deposit === 0) {
+        document.getElementById('hopeAmount').value = carPrice;
+      } else {
+        document.getElementById('hopeAmount').value = carPrice - (carPrice * deposit / 100);
+      }
+    }
+  });
+
+
+
+
 })(jQuery); // End of use strict

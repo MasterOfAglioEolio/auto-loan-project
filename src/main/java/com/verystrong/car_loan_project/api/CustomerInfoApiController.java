@@ -17,20 +17,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class CustomerInfoApiController {
 
-    @Autowired
-    private CustomerInfoRepository customerInfoRepository;
+//    @Autowired
+//    private CustomerInfoRepository customerInfoRepository;
 
-    @Autowired
-    private CustomerInfoService customerInfoService;
-
-//    private final ModelMapper modelMapper;
-
-    @PostMapping("/api/customerinfo/inforegister")
-    public CustomerInfoDto create(@RequestBody CustomerInfoDto dto)
-    {
-
-        return customerInfoService.create(dto);
-    }
+//    @Autowired
+//    private CustomerInfoService customerInfoService;
+//
+////    private final ModelMapper modelMapper;
+//
+//    @PostMapping("/api/customerinfo/inforegister")
+//    public CustomerInfoDto create(@RequestBody CustomerInfoDto dto)
+//    {
+//
+//        return customerInfoService.create(dto);
+//    }
 
 //    @GetMapping("/api/customerinfo/{customerId}")
 //    public CustomerInfoDto show(@PathVariable Long customerId)

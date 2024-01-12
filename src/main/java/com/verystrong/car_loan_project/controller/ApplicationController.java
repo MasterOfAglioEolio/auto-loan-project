@@ -1,8 +1,10 @@
 package com.verystrong.car_loan_project.controller;
 
 import com.verystrong.car_loan_project.domain.Application;
+import com.verystrong.car_loan_project.domain.CustomerInfo;
 import com.verystrong.car_loan_project.dto.ApplicationDto;
 import com.verystrong.car_loan_project.dto.FileDto;
+import com.verystrong.car_loan_project.repository.CustomerInfoRepository;
 import com.verystrong.car_loan_project.service.ApplicationService;
 import com.verystrong.car_loan_project.service.FileStorageService;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +28,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/application")
 public class ApplicationController {
     @Autowired
+    private CustomerInfoRepository customerInfoRepository;
+    @Autowired
     private ApplicationService applicationService;
     @Autowired
     private FileStorageService fileStorageService;
@@ -42,9 +46,8 @@ public class ApplicationController {
     }
 
     @PostMapping("/form")
-    public String create(ApplicationDto dto){
-
-        ApplicationDto saved = applicationService.create(dto);
+    public String create(ApplicationDto dto, Long customerId){
+        ApplicationDto saved = applicationService.create(dto,customerId);
         Long applicationId= saved.getApplicationId();
         log.info("[create Application]:"+saved);
         return "redirect:/application/"+applicationId;

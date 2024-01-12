@@ -8,7 +8,7 @@ import com.verystrong.car_loan_project.dto.CustomerInfoDto;
 
 public interface ApplicationService {
 
-    ApplicationDto create(ApplicationDto dto);
+    ApplicationDto create(ApplicationDto dto,Long customerId);
     ApplicationDto get(Long applicationId);
     ApplicationDto update(ApplicationDto dto);
     void delete(Long applicationId);

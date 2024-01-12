@@ -7,10 +7,7 @@ import com.verystrong.car_loan_project.domain.Terms;
 import com.verystrong.car_loan_project.dto.ApplicationDto;
 import com.verystrong.car_loan_project.exception.BaseException;
 import com.verystrong.car_loan_project.exception.ResultType;
-import com.verystrong.car_loan_project.repository.AcceptTermsRepository;
-import com.verystrong.car_loan_project.repository.ApplicationRepository;
-import com.verystrong.car_loan_project.repository.JudgmentRepository;
-import com.verystrong.car_loan_project.repository.TermsRepository;
+import com.verystrong.car_loan_project.repository.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -21,6 +18,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -33,16 +31,26 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     private final ApplicationRepository applicationRepository;
 
+    private final CustomerInfoRepository customerInfoRepository;
+
     private final JudgmentRepository judgmentRepository;
 
     private final ModelMapper modelMapper;
     @Override
-    public ApplicationDto create(ApplicationDto dto) {
+    public ApplicationDto create(ApplicationDto dto,Long customerId) {
         Application application = modelMapper.map(dto,Application.class);
-        application.setMaturity(LocalDateTime.now());
+
+        // customerInfo 설정
+        CustomerInfo customerInfo = customerInfoRepository.findById(customerId)
+                .orElseThrow(() -> new RuntimeException("고객 정보를 찾을 수 없습니다."));
+
+        application.setMaturity(LocalDateTime.now().plusMonths(application.getLoanTerm()));
         application.setAppliedAt(LocalDateTime.now());
-        application.setContractedAt(LocalDateTime.now());
-        application.setIsDeleted(false); // TODO : 일단 테스트용으로 false 설정
+        application.setIsDeleted(false);
+        application.setCustomerInfo(customerInfo);
+
+
+//        application.setCustomerInfo(customerInfo);
         log.info("[Create] application : {}",application);
 
         Application applied=applicationRepository.save(application);
@@ -55,6 +63,7 @@ public class ApplicationServiceImpl implements ApplicationService{
     public ApplicationDto get(Long applicationId) {
         log.info("show customer id = "+applicationId);
         //1. id를 조회해 데이터 가져오기
+        log.info("show data="+applicationRepository.findById(applicationId));
         Application customerInfo= applicationRepository.findById(applicationId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
@@ -66,7 +75,7 @@ public class ApplicationServiceImpl implements ApplicationService{
     public ApplicationDto update(ApplicationDto dto) {
         log.info("update form to String"+dto.toString());
         //1. DTO를 엔티티로 변환
-        Application application = dto.toEntity();
+        Application application = modelMapper.map(dto,Application.class);
         log.info("customerInfo to DTO {}",application.toString());
         //2. id 찾기
         Application target = applicationRepository.findById(application.getApplicationId()).orElse(null);

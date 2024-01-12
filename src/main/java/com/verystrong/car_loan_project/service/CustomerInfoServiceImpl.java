@@ -51,7 +51,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
     public CustomerInfoDto update(CustomerInfoDto dto) {
         log.info("update form to String"+dto.toString());
         //1. DTO를 엔티티로 변환
-        CustomerInfo customerInfo = dto.toEntity();
+        CustomerInfo customerInfo = modelMapper.map(dto,CustomerInfo.class);
 //        CustomerInfo customerInfo = modelMapper.map(dto, CustomerInfo.class);
         log.info("customerInfo to DTO {}",customerInfo.toString());
         //2. id 찾기
