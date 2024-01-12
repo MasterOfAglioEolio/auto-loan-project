@@ -36,7 +36,7 @@ public class CustomerInfoController {
     public String create(CustomerInfoDto dto)
     {
         CustomerInfoDto saved = customerInfoService.create(dto);
-        Long newCustomerId = saved.toEntity().getCustomerId();
+        Long newCustomerId = saved.getCustomerId();
 
         return "redirect:/customerinfo/"+newCustomerId;
 
@@ -70,7 +70,7 @@ public class CustomerInfoController {
     public String update(CustomerInfoDto dto)
     {
         CustomerInfoDto saved = customerInfoService.update(dto);
-        Long newCustomerId = saved.toEntity().getCustomerId();
+        Long newCustomerId = saved.getCustomerId();
 
         if (saved !=null){
             return "redirect:/customerinfo/"+newCustomerId;
