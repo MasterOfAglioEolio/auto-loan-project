@@ -23,9 +23,12 @@ import java.time.LocalDateTime;
 public class Application extends BaseEntity{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//    @Column(nullable = false, updatable = false)
     private Long applicationId;
+
+    @OneToOne
+    @JoinColumn(name = "CustomerId")
+    private CustomerInfo customerInfo;
 
 //    @Column(nullable = false)
     private String name;
@@ -49,12 +52,10 @@ public class Application extends BaseEntity{
     private InterestType interestType;
 
     //    @Column(nullable = false)
-    @Column(columnDefinition = "decimal(5,4)")
-    private BigDecimal interestRate; // 금리   // TODO: 예상해서 알려주기
 
 //    @Column(nullable = false)
-    @Column(columnDefinition = "decimal(5,4)")
-    private BigDecimal fee; // 취급 수수료 TODO : 없애자
+//    @Column(columnDefinition = "decimal(5,4)")
+//    private BigDecimal fee; // 취급 수수료 TODO : 없애자
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 //    @Column(nullable = false)

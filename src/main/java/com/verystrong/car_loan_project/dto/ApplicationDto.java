@@ -3,6 +3,7 @@ package com.verystrong.car_loan_project.dto;
 import com.verystrong.car_loan_project.domain.Application;
 import com.verystrong.car_loan_project.domain.Application_type.InterestType;
 import com.verystrong.car_loan_project.domain.Application_type.LoanType;
+import com.verystrong.car_loan_project.domain.CustomerInfo;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -18,6 +19,7 @@ import java.util.List;
 public class ApplicationDto {
 
     private Long applicationId;
+    private CustomerInfoDto customerInfo;
     private String name;
     private String cellPhone;
     private String email;
@@ -27,36 +29,14 @@ public class ApplicationDto {
     private Integer loanTerm;
     private InterestType interestType;
     private BigDecimal interestRate;
-    private BigDecimal fee;
     private LocalDateTime maturity;
-    private BigDecimal hopeAmount;
+    private BigDecimal HopeAmount;
     private LocalDateTime appliedAt;
     private LocalDateTime contractedAt;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private BigDecimal approvalAmount;
 
-    public Application toEntity() {
-        return new Application(
-                this.applicationId,
-                this.name,
-                this.cellPhone,
-                this.email,
-                this.carPrice,
-                loanType,
-                this.deposit,
-                this.loanTerm,
-                interestType,
-                this.interestRate,
-                this.fee,
-                this.maturity,
-                this.hopeAmount,
-                this.appliedAt,
-                this.approvalAmount,
-                this.contractedAt
-        );
-
-    }
 
     @NoArgsConstructor
     @AllArgsConstructor

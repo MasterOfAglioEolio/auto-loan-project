@@ -34,24 +34,6 @@ public class CustomerInfoDto {
     private CarOwnedYN carOwnedYN;
 
 
-    public CustomerInfo toEntity() {return new CustomerInfo(customerId,
-            gender,
-            Age,
-            education,
-            maritalStatus,
-            FamilyCount,
-            ChildCount,
-            incomeType,
-            incomeClass,
-            occupation,
-            orgType,
-            EmployedYears,
-            houseOwnedYN,
-            dwellingType,
-            housingType,
-            residenceClass,
-            carOwnedYN
-            );}
 
 
 
