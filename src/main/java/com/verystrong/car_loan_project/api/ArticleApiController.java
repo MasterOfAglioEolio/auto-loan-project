@@ -2,18 +2,15 @@ package com.verystrong.car_loan_project.api;
 
 import com.verystrong.car_loan_project.dto.ArticleForm;
 import com.verystrong.car_loan_project.entity.Article;
-import com.verystrong.car_loan_project.repository.ArticleRepository;
 import com.verystrong.car_loan_project.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.autoconfigure.observation.ObservationProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Slf4j
 @RestController

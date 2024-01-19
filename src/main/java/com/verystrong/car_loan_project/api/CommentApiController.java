@@ -2,7 +2,6 @@ package com.verystrong.car_loan_project.api;
 
 import com.verystrong.car_loan_project.dto.CommentDto;
 import com.verystrong.car_loan_project.service.CommentService;
-import jakarta.persistence.Id;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +11,6 @@ import java.util.List;
 
 @RestController
 public class CommentApiController {
-
     @Autowired
     private CommentService commentService;
 
@@ -58,3 +56,4 @@ public class CommentApiController {
         return ResponseEntity.status(HttpStatus.OK).body(deletedDto);
     }
 }
+

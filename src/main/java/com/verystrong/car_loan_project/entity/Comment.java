@@ -16,17 +16,17 @@ import lombok.ToString;
 public class Comment {
     @Id // 대표키 지정
     @GeneratedValue(strategy= GenerationType.IDENTITY) // DB가 자동으로 1씩 증가
-    private Long id;
+    private Long id; // 대표키
 
-    @ManyToOne
-    @JoinColumn(name="article_id")
-    private Article article;
+    @ManyToOne // 이 엔티티(Comment)와 부모 엔티티(Article)를 다대일 관계로 설정
+    @JoinColumn(name="article_id") // 외래키 생성, Article 엔티티의 기본키(id)와 매핑
+    private Article article; // 해당 댓글의 부모 게시글
 
-    @Column
-    private String nickname;
+    @Column // 해당 필드를 테이블의 속성으로 매핑
+    private String nickname; // 댓글을 단 사람
 
-    @Column
-    private String body;
+    @Column // 해당 필드를 테이블의 속성으로 매핑
+    private String body; // 댓글 본문
 
     public static Comment createComment(CommentDto dto, Article article) {
         // 예외 발생
@@ -37,10 +37,10 @@ public class Comment {
 
         // 엔티티 생성 및 반환
         return new Comment(
-                dto.getId(),
-                article,
-                dto.getNickname(),
-                dto.getBody()
+                dto.getId(), // 댓글 아이디
+                article, // 부모 게시글
+                dto.getNickname(), // 댓글 닉네임
+                dto.getBody() // 댓글 본문
         );
     }
 
@@ -50,10 +50,11 @@ public class Comment {
             throw new IllegalArgumentException("댓글 수정 실패! 잘못된 id가 입력됐습니다.");
 
         // 객체 갱신
-        if (dto.getNickname() != null)
-            this.nickname = dto.getNickname();
+        if (dto.getNickname() != null) // 수정할 닉네임 데이터가 있다면
+            this.nickname = dto.getNickname(); // 내용을 반영
 
-        if (dto.getBody() != null)
-            this.body = dto.getBody();
+        if (dto.getBody() != null) // 수정할 본문 데이터가 있다면
+            this.body = dto.getBody(); // 내용을 반영
     }
 }
+

@@ -4,7 +4,6 @@ import com.verystrong.car_loan_project.dto.ArticleForm;
 import com.verystrong.car_loan_project.entity.Article;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.graphql.tester.AutoConfigureGraphQlTester;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @SpringBootTest
 class ArticleServiceTest {
@@ -95,3 +93,4 @@ class ArticleServiceTest {
         assertEquals(expected, article);
     }
 }
+
