@@ -1,0 +1,30 @@
+{{>layouts/header}}
+
+<head>
+    <title>Login</title>
+</head>
+<body>
+<div>
+    <h2>Login</h2>
+    <form action="/login" method=post>
+        <div>
+            <label for="memberEmail">E-mail</label>
+            <input type="text" name="username" placeholder="이름을 입력하세요">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="memberPassword" placeholder="비밀번호를 입력하세요">
+        </div>
+        <div>
+            <input type="checkbox">Remember me
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</div>
+<div>
+    <button type="submit">Register</button>
+</div>
+
+</body>
+{{>layouts/footer}}
+
