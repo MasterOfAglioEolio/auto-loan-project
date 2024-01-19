@@ -15,4 +15,9 @@ public class AccountDto {
 
     private String username;
 
+    private String name;
+
+    private String cellPhone;
+
+
 }

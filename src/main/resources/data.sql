@@ -18,3 +18,4 @@ INSERT INTO comment(article_id, nickname, body) VALUES('6','Park','조깅');
 INSERT INTO comment(article_id, nickname, body) VALUES('6','kim','유튜브 시청');
 INSERT INTO comment(article_id, nickname, body) VALUES('6','Choi','독서');
 
+
