@@ -9,6 +9,7 @@ import lombok.*;
 @Setter
 @ToString
 public class AccountDto {
+    private Long id;
 
     private String password;
 

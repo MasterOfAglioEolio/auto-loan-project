@@ -13,9 +13,9 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 public class SecurityConfig {
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth-> auth.anyRequest().permitAll());
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//        http.authorizeHttpRequests(auth-> auth.anyRequest().permitAll());
 //                        .requestMatchers(
 //                                HttpMethod.GET,
 //                                "/",
@@ -31,15 +31,15 @@ public class SecurityConfig {
 //                        .failureForwardUrl("/login?error")
 //                        .permitAll())
 //                .logout(Customizer.withDefaults());
-        return http.build();
-
-
-    }
-
-
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-}
+//        return http.build();
+//
+//
+//    }
+//
+//
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//}
 
 }
