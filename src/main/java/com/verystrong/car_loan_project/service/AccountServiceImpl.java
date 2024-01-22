@@ -2,9 +2,7 @@ package com.verystrong.car_loan_project.service;
 
 import com.verystrong.car_loan_project.domain.Account;
 import com.verystrong.car_loan_project.domain.Account_type.AccountRole;
-import com.verystrong.car_loan_project.domain.CustomerInfo;
 import com.verystrong.car_loan_project.dto.AccountDto;
-import com.verystrong.car_loan_project.dto.CustomerInfoDto;
 import com.verystrong.car_loan_project.exception.BaseException;
 import com.verystrong.car_loan_project.exception.ResultType;
 import com.verystrong.car_loan_project.repository.AccountRepository;
@@ -31,10 +29,8 @@ public class AccountServiceImpl implements AccountService{
         log.info("[Register Account] Request :: {}",dto);
 
         //1. DTO를 엔티티로 변환
-//        Account account = modelMapper.map(dto ,Account.class);
-//     CustomerInfo customerInfo =modelMapper.map(customerInfoDto, CustomerInfo.class); //TODO : 나중에 리팩토링 이거로 바꾸기
         Account account = Account.builder()
-                .name(dto.getName())
+                .userName(dto.getUserName())
                 .email(dto.getEmail())
                 .password(passwordEncoder.encode(dto.getPassword()))  //암호화처리
                 .role(AccountRole.USER)

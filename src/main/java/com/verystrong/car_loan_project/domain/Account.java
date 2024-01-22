@@ -16,7 +16,6 @@ import java.util.Objects;
 @NoArgsConstructor    // 기본 생성자
 @Table(indexes = {
         @Index(columnList="AccountId")
-//        @Index(columnList="CustomerName")
 })
 @Builder
 @Entity
@@ -30,7 +29,7 @@ public class Account{
     private String password;
 
     @Column(nullable = false)
-    private String name;
+    private String userName;
 
     @Column(nullable = false)
     private String email;
@@ -39,9 +38,9 @@ public class Account{
     private AccountRole role;
 
     @Builder
-    public Account(String password, String name, String email, AccountRole role) {
+    public Account(String password, String userName, String email, AccountRole role) {
         this.password = password;
-        this.name = name;
+        this.userName = userName;
         this.email = email;
         this.role=role;
     }
@@ -59,4 +58,5 @@ public class Account{
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

@@ -1,6 +1,6 @@
 package com.verystrong.car_loan_project.config.auth;
 
-import com.verystrong.car_loan_project.entity.Account;
+import com.verystrong.car_loan_project.domain.Account;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +19,7 @@ import java.util.Collection;
 @Data
 public class PrincipalDetails implements UserDetails{
 
-    private Account account; //컴포지션
+    private com.verystrong.car_loan_project.domain.Account account; //컴포지션
     public PrincipalDetails(Account account){
         this.account = account;
     }
