@@ -27,8 +27,7 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/application")
 public class ApplicationController {
-    @Autowired
-    private CustomerInfoRepository customerInfoRepository;
+
     @Autowired
     private ApplicationService applicationService;
     @Autowired
