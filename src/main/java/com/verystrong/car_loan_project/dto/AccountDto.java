@@ -4,21 +4,24 @@ package com.verystrong.car_loan_project.dto;
 import lombok.*;
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Builder
 @Getter
 @Setter
 @ToString
 public class AccountDto {
 
-    private Long id;
-
     private String password;
 
     private String name;
 
-    private String cellPhone;
-
     private String email;
+
+    @Builder
+    public AccountDto(String password,String name, String email) {
+        this.password = password;
+        this.name = name;
+        this.email = email;
+
+    }
 
 }
