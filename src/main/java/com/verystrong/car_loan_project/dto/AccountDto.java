@@ -1,6 +1,5 @@
 package com.verystrong.car_loan_project.dto;
 
-
 import lombok.*;
 
 @NoArgsConstructor
@@ -13,9 +12,12 @@ public class AccountDto {
 
     private String password;
 
+    private String username;
+
     private String name;
 
     private String email;
+
 
     @Builder
     public AccountDto(String password,String name, String email) {
