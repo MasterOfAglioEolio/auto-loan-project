@@ -10,6 +10,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+//import org.springframework.security.crypto.password.PasswordEncoder; //TODO : SpringSecurity 오류 해결 후 수정
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class AccountServiceImpl implements AccountService{
     private final AccountRepository accountRepository;
 
     private final ModelMapper modelMapper;
-    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder; //TODO : SpringSecurity 오류 해결 후 수정
 
     @Override
     public AccountDto create(AccountDto dto){
@@ -30,9 +31,8 @@ public class AccountServiceImpl implements AccountService{
 
         //1. DTO를 엔티티로 변환
         Account account = Account.builder()
-                .userName(dto.getUserName())
-                .email(dto.getEmail())
-                .password(passwordEncoder.encode(dto.getPassword()))  //암호화처리
+                .email(dto.email())
+                .password(passwordEncoder.encode(dto.password()))  //암호화처리 //TODO : SpringSecurity 오류 해결 후 수정
                 .role(AccountRole.USER)
                 .build();
         log.info("DTO to entity {}",account);
