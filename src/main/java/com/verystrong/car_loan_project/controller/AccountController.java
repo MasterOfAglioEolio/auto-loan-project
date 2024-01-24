@@ -24,7 +24,7 @@ public class AccountController {
     @GetMapping("/new")
     public String accountForm(Model model){
         log.info("[accountForm]");
-        model.addAttribute("accountFormDto", new AccountDto());
+        model.addAttribute("accountFormDto", new AccountDto(null,null,null,null));
         return "accounts/accountForm";
     }
 
