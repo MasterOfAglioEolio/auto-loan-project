@@ -51,8 +51,8 @@ public class SecurityConfig {
                         login -> login
 //                        .loginPage("/loginPage") //get 인증이 필요한 주소 요청시 실행
 //                        .loginProcessingUrl("/loginPage") //post (로그인 인증 시)-> 시큐리티가 로그인 프로세스 진행
-//                        .usernameParameter("username")
-//                        .passwordParameter("password")
+                        .usernameParameter("username")
+                        .passwordParameter("password")
                         .defaultSuccessUrl("/", true) //로그인 성공 시
                         .failureForwardUrl("/login?error")
                         .permitAll())
