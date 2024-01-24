@@ -31,6 +31,7 @@ public class AccountServiceImpl implements AccountService{
 
         //1. DTO를 엔티티로 변환
         Account account = Account.builder()
+                .accountId(dto.accountId())
                 .email(dto.email())
                 .password(passwordEncoder.encode(dto.password()))  //암호화처리 //TODO : SpringSecurity 오류 해결 후 수정
                 .role(AccountRole.USER)
@@ -41,8 +42,12 @@ public class AccountServiceImpl implements AccountService{
         //2. 리퍼지토리로 엔티티를 DB에 저장
         Account saved = accountRepository.save(account);
 
-        log.info("[ModelMapper]{}",modelMapper.map(saved, AccountDto.class));
-        return  modelMapper.map(saved, AccountDto.class);
+//        log.info("[ModelMapper]{}",modelMapper.map(saved, AccountDto.class));
+//        return  modelMapper.map(saved, AccountDto.class);
+        // 직접 AccountDto 생성
+        AccountDto resultDto = new AccountDto(saved.getAccountId(), saved.getPassword(), saved.getEmail(), saved.getRole());
+        log.info("[Manual Mapping]{}", resultDto);
+        return resultDto;
     }
 
     @Override
@@ -56,7 +61,7 @@ public class AccountServiceImpl implements AccountService{
     }
 
     @Override
-    public AccountDto get(Long accountId) {
+    public AccountDto get(String accountId) {
         log.info("show account id = "+accountId);
         Account account= accountRepository.findById(accountId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
@@ -74,7 +79,7 @@ public class AccountServiceImpl implements AccountService{
 //        CustomerInfo customerInfo = modelMapper.map(dto, CustomerInfo.class);
         log.info("account to DTO {}",account.toString());
         //2. id 찾기
-        Account target = accountRepository.findById(account.getId()).orElseThrow(() -> {
+        Account target = accountRepository.findById(account.getAccountId()).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
         //3. 리퍼지토리로 엔티티를 DB에 저장
@@ -88,7 +93,7 @@ public class AccountServiceImpl implements AccountService{
 
 
     @Override
-    public void delete(Long accountId) {
+    public void delete(String accountId) {
         log.info("삭제 요청이 들어왔습니다!!");
         // 1.삭제할 대상 가져오기
         Account target = accountRepository.findById(accountId).orElseThrow(() -> {

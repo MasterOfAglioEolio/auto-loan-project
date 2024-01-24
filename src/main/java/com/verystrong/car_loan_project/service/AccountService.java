@@ -8,8 +8,11 @@ public interface AccountService {
 
     AccountDto create(AccountDto dto) throws IllegalAccessException;
     void validateDuplicateAccount(Account account) throws IllegalAccessException;
-    AccountDto get(Long accountId);
+
+    AccountDto get(String accountId);
+
     AccountDto update(AccountDto dto);
 
-    void delete(Long accountId);
+
+    void delete(String accountId);
 }

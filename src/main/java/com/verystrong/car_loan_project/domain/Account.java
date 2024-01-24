@@ -1,35 +1,29 @@
 package com.verystrong.car_loan_project.domain;
 
 import com.verystrong.car_loan_project.domain.Account_type.AccountRole;
-import com.verystrong.car_loan_project.dto.AccountDto;
+
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.validator.constraints.Length;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Objects;
 
 @Setter
 @Getter
 @ToString
-@AllArgsConstructor    // 모든 컬럼 생성자 생성
 @NoArgsConstructor    // 기본 생성자
 @Table(indexes = {
-        @Index(columnList="AccountId")
+        @Index(columnList="account_id")
 })
 @Builder
 @Entity
 public class Account{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String accountId;
 
     @Column(nullable = false)
 //    @Length(min = 4, max = 16, message = "비밀번호는 4자 이상, 16자 이하로 입력해주세요.")
     private String password;
 
-    @Column(nullable = false)
-    private String userName;
 
     @Column(nullable = false)
     private String email;
@@ -37,26 +31,34 @@ public class Account{
     @Enumerated(EnumType.STRING)
     private AccountRole role;
 
-    @Builder
-    public Account(String password, String userName, String email, AccountRole role) {
+
+    private Account(String accountId, String password, String email, AccountRole role) {
+        this.accountId = accountId;
         this.password = password;
-        this.userName = userName;
         this.email = email;
         this.role=role;
     }
 
-
+    public static Account of(String accountId, String password, String email, AccountRole role){
+        return new Account(accountId,password,email,role);
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Account account)) return false;
-        return Objects.equals(id, account.id);
+        return Objects.equals(accountId, account.accountId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(accountId);
     }
+
+
+
+
+
+
 
 }
