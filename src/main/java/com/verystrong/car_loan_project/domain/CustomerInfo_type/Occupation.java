@@ -1,5 +1,7 @@
 package com.verystrong.car_loan_project.domain.CustomerInfo_type;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 @Getter
@@ -32,6 +34,20 @@ public enum Occupation {
     }
 
 
+    @JsonValue
+    public String getName() {
+        return name;
+    }
+
+    @JsonCreator
+    public static Occupation fromName(String name) {
+        for (Occupation type : Occupation.values()) {
+            if (type.getName().equals(name)) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant " + Occupation.class.getCanonicalName() + "." + name);
+    }
 
 
 

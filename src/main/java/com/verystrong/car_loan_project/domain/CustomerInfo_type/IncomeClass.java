@@ -1,5 +1,7 @@
 package com.verystrong.car_loan_project.domain.CustomerInfo_type;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 @Getter
@@ -19,6 +21,21 @@ public enum IncomeClass {
     private IncomeClass(String name)
     {
         this.name=name;
+    }
+
+    @JsonValue
+    public String getName() {
+        return name;
+    }
+
+    @JsonCreator
+    public static IncomeClass fromName(String name) {
+        for (IncomeClass type : IncomeClass.values()) {
+            if (type.getName().equals(name)) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant " + IncomeClass.class.getCanonicalName() + "." + name);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.verystrong.car_loan_project.domain.CustomerInfo_type;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 @Getter
@@ -28,6 +30,21 @@ public enum OrgType {
     private final String name;
     private OrgType(String name) {
         this.name = name;
+    }
+
+    @JsonValue
+    public String getName() {
+        return name;
+    }
+
+    @JsonCreator
+    public static OrgType fromName(String name) {
+        for (OrgType type : OrgType.values()) {
+            if (type.getName().equals(name)) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant " + OrgType.class.getCanonicalName() + "." + name);
     }
 
 
