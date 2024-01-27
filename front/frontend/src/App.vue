@@ -10,6 +10,9 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import store from "@/scripts/store";
+import axios from "axios";
+import {watch} from "vue";
+import {useRoute} from "vue-router";
 
 export default {
   name: 'App',
@@ -19,12 +22,39 @@ export default {
 
   },
   setup(){
-    const id = sessionStorage.getItem("id");
+    const check = ()=>{
+      axios.get("/api/check").then(({data})=>{
+        console.log(data);
+          store.commit("setAccount",data||0);
 
-    if(id){
-      store.commit("setAccount",id);
-    }
+      })
+    };
+
+    const check_info = ()=>{
+      axios.get("/api/check-info").then(({data})=>{
+        console.log("[Check-info]",data);
+        store.commit("setInfo",data||0);
+
+      })
+    };
+
+    const check_application = ()=>{
+      axios.get("/api/check-application").then(({data})=>{
+        console.log("[Check-application]",data);
+        store.commit("setApplication",data||0);
+
+      })
+    };
+
+    const route = useRoute();
+
+    watch(route, () => {
+      check();
+      check_info();
+      check_application();
+    })
   }
+
 }
 </script>
 

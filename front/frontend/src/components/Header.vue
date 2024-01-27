@@ -7,13 +7,25 @@
             <h4>사이트맵</h4>
             <p class="text-body-secondary">
             <ul class="list-unstyled">
+              <li>
               <router-link to ="/" class="text-white"> 메인 </router-link>
-              <router-link to ="/" class="text-white"> 회원 가입 </router-link>
+              </li>
+              <li>
+              <router-link to ="/sign" class="text-white" v-if="!$store.state.account.id"> 회원 가입 </router-link>
+              </li>
+              <li>
               <router-link to ="/login" class="text-white" v-if="!$store.state.account.id"> 로그인 </router-link>
               <a to ="/login" class="text-white" @click="logout()" v-else> 로그아웃 </a>
-              <router-link to ="/" class="text-white"> 회원 정보 입력 </router-link>
-              <router-link to ="/" class="text-white"> 대출 정보 입력 </router-link>
+              </li>
+              <li>
+              <router-link to ="/info" class="text-white"> 회원 정보 입력 </router-link>
+              </li>
+              <li>
+              <router-link to ="/application" class="text-white"> 심사 신청 정보 입력 </router-link>
+              </li>
+              <li>
               <router-link to ="/" class="text-white"> 심사 </router-link>
+              </li>
             </ul>
             </p>
           </div>

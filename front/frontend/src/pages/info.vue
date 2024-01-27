@@ -166,7 +166,7 @@ export default {
 
     const submitData = async () => {
       try {
-        const response = await axios.post('/api/register', state.selected);
+        const response = await axios.post('/api/info/register', state.selected);
         console.log(response.data);
         await router.push({path: "/"});
         // 데이터 전송 성공에 대한 처리를 이곳에 작성합니다.

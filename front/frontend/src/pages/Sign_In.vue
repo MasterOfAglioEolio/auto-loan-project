@@ -8,8 +8,8 @@ vue
     <input v-model="account.email" placeholder="email">
     <select v-model="account.role">
       <option disabled value="">Please select a role</option>
-      <option>User</option>
-      <option>Admin</option>
+      <option>USER</option>
+      <option>ADMIN</option>
     </select>
     <button @click="submitForm">Submit</button>
   </div>
@@ -17,6 +17,7 @@ vue
 
 <script>
 import axios from 'axios';
+import router from "@/scripts/router";
 
 export default {
   data() {
@@ -32,9 +33,10 @@ export default {
   methods: {
     async submitForm() {
       try {
-        console.log("[Check]",this.data);
+        console.log("[Check]",this.account);
         const response = await axios.post('/api/sign', this.account);
-        console.log(response.data);
+        console.log("[Response]",response.data);
+        await router.push({path: "/login"});
         // 성공적으로 응답을 받았을 때의 처리를 여기에 작성하세요.
       } catch (error) {
         console.error(error);
