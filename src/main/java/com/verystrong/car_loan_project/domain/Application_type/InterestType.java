@@ -1,5 +1,7 @@
 package com.verystrong.car_loan_project.domain.Application_type;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.Getter;
 
 public enum InterestType {
@@ -13,6 +15,21 @@ public enum InterestType {
 
     private InterestType(String name){
         this.name=name;
+    }
+
+    @JsonValue
+    public String getName() {
+        return name;
+    }
+
+    @JsonCreator
+    public static InterestType fromName(String name) {
+        for (InterestType type : InterestType.values()) {
+            if (type.getName().equals(name)) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant " + InterestType.class.getCanonicalName() + "." + name);
     }
 
 }
