@@ -20,14 +20,14 @@ import java.time.LocalDateTime;
 })
 @Builder
 @Entity
-public class Application extends BaseEntity{
+public class Application{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)//    @Column(nullable = false, updatable = false)
     private Long applicationId;
 
     @OneToOne
-    @JoinColumn(name = "CustomerId")
+    @JoinColumn(name = "customerId")
     private CustomerInfo customerInfo;
 
 //    @Column(nullable = false)
@@ -35,9 +35,6 @@ public class Application extends BaseEntity{
 
 //    @Column(nullable = false)
     private String cellPhone;
-
-//    @Column(nullable = false)
-    private String email;
 
     private BigDecimal carPrice; // 차량 가격 //TODO : 뷰에 추가하고 Deposit 비율로 LoanAmount(hopeAmount 바꾸기) 계산
 
@@ -51,20 +48,11 @@ public class Application extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private InterestType interestType;
 
-    //    @Column(nullable = false)
-
-//    @Column(nullable = false)
-//    @Column(columnDefinition = "decimal(5,4)")
-//    private BigDecimal fee; // 취급 수수료 TODO : 없애자
-
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-//    @Column(nullable = false)
     private LocalDateTime maturity; //만기 TODO: 신청일자 기준 + loanTerm 으로 계산
 
-    //    @Column(nullable = false)
     @Column(columnDefinition = "decimal(15,2)")
     private BigDecimal hopeAmount; // 대출 신청 금액 (TODO : 계산해서 알려주기)
-
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 //    @Column(nullable = false)
