@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import store from "@/scripts/store";
 import App from './App.vue'
 import router from "@/scripts/router"
+import vuetify from './plugins/vuetify'
 
-
-
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(vuetify).use(store).use(router).mount('#app')

@@ -1,12 +1,14 @@
 <template>
-  <Header/>
-  <RouterView/>
-  <Footer/>
+  <v-app>
+    <Header/>
+    <v-main>
+      <RouterView/>
+    </v-main>
+    <Footer/>
+  </v-app>
 </template>
 
 <script>
-
-
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import store from "@/scripts/store";
@@ -25,7 +27,7 @@ export default {
     const check = ()=>{
       axios.get("/api/check").then(({data})=>{
         console.log(data);
-          store.commit("setAccount",data||0);
+        store.commit("setAccount",data||0);
 
       })
     };
@@ -136,4 +138,3 @@ export default {
   display: block !important;
 }
 </style>
-
