@@ -1,6 +1,8 @@
 <template>
+  <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
   <div class="form-signin w-100 m-auto">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <h3 class="display-10 fw-bold text-center">Please Login</h3>
+    <h4 class="display-10 fw-normal text-muted mb-5 text-center">로그인</h4>
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput"
              @keyup.enter="submit()" v-model="state.form.account_id">
@@ -10,13 +12,8 @@
       <input type="password" class="form-control" id="floatingPassword" placeholder="Password" @keyup.enter="submit()" v-model="state.form.password">
       <label for="floatingPassword">Password</label>
     </div>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me" @keyup.enter="submit()"> Remember me
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" @click="submit()">Sign in</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
+    <button class="w-100 btn btn-lg btn-primary" @click="submit()">Log in</button>
+  </div>
   </div>
 </template>
 
