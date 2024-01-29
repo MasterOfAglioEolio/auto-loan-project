@@ -14,11 +14,11 @@ import java.util.List;
 
 public interface CustomerInfoService {
 
-    CustomerInfoDto create(CustomerInfoDto dto);
-    CustomerInfoDto get(Long customerId);
-    CustomerInfoDto update(CustomerInfoDto dto);
+    CustomerInfoDto create(CustomerInfoDto dto,String accountId);
+    CustomerInfoDto get(String accountId);
+    CustomerInfoDto update(CustomerInfoDto dto,String accountId);
 
-    void delete(Long customerId);
+    void delete(String accountId);
 
 
 

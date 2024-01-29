@@ -24,7 +24,10 @@ public class CustomerInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long CustomerId;
+    private Long customerId;
+
+    @Column(nullable = false)
+    private String accountId;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -32,7 +35,7 @@ public class CustomerInfo {
 
 
     @Column(nullable = false)
-    private float Age;
+    private float age;
 
 
     @Column(nullable = false)
@@ -45,10 +48,10 @@ public class CustomerInfo {
     private MaritalStatus maritalStatus;
 
     @Column(nullable = false)
-    private Integer FamilyCount;
+    private Integer familyCount;
 
     @Column(nullable = false)
-    private Integer ChildCount;
+    private Integer childCount;
 
   // 수정 가능한 데이터 Setter 설정 권장하진 않음
     @Column(nullable = false)
@@ -68,7 +71,7 @@ public class CustomerInfo {
     private OrgType orgType;
 
     @Column(nullable = true)
-    private float EmployedYears;
+    private float employedYears;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
@@ -96,12 +99,12 @@ public class CustomerInfo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof CustomerInfo that)) return false;
-        return CustomerId != null && Objects.equals(CustomerId, that.CustomerId);
+        return customerId != null && Objects.equals(customerId, that.customerId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(CustomerId);
+        return Objects.hash(customerId);
     }
 
 
