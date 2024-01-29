@@ -14,12 +14,13 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @Setter
-public class JudgmentDto extends BaseEntity {
+public class JudgmentDto{
 
-        private Long judgmentId;
-        private Long applicationId;
-        private JudgmentType judgment; // 심사결과
-        private BigDecimal interestRate; // 예상금리   // TODO: 예상해서 알려주기
+    private Long judgmentId;
+    private String accountId;
+
+    private JudgmentType judgment; // 심사결과
+    private BigDecimal interestRate; // 예상금리   // TODO: 예상해서 알려주기
 
 
     }

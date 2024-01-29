@@ -9,11 +9,11 @@ import org.springframework.ui.Model;
 
 
 public interface JudgmentService {
-    JudgmentDto judgment(ApplicationDto applicationDto) throws JsonProcessingException;
+    JudgmentDto judgment(String accountId) throws JsonProcessingException;
 
-    JudgmentDto get(Long judgmentId);
+    JudgmentDto get(String accountId);
 
-    JudgmentDto getJudgmentOfApplication(Long applicationId);
+//    JudgmentDto getJudgmentOfApplication(Long applicationId);
 
     JudgmentDto update(Long judgmentId, JudgmentDto dto);
 
