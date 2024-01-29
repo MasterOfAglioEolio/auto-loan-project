@@ -1,9 +1,8 @@
 package com.verystrong.car_loan_project.service;
 
-import io.jsonwebtoken.JwtBuilder;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.*;
 import jakarta.xml.bind.DatatypeConverter;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
@@ -11,9 +10,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@Service
 public class JwtServiceImpl implements JwtService{
 
-    private String secretKey = "ndjqje9217yhwidh0@TDSG*(SGD^8G(@!";
+    private String secretKey = "ndjqje9217yhwidh0@TDSG*(SqwGD^8G(@asdsadsadadasdsdasdasdasdqw";
 
     @Override
     public String getToken(String key, Object value) {
@@ -37,4 +37,38 @@ public class JwtServiceImpl implements JwtService{
 
         return builder.compact();
     }
+
+    @Override
+    public Claims getClaims(String token) {
+        if (token != null && !"".equals(token)) {
+            try {
+                byte[] secretByteKey = DatatypeConverter.parseBase64Binary(secretKey);
+                Key signKey = new SecretKeySpec(secretByteKey, SignatureAlgorithm.HS256.getJcaName());
+                return Jwts.parserBuilder().setSigningKey(signKey).build().parseClaimsJws(token).getBody();
+            } catch (ExpiredJwtException e) {
+                // 만료됨
+            } catch (JwtException e) {
+                // 유효하지 않음
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean isValid(String token) {
+        return this.getClaims(token) != null;
+    }
+
+    @Override
+    public String getId(String token) {
+        Claims claims = this.getClaims(token);
+
+        if (claims!=null)
+        {
+            return claims.get("account_id").toString();
+        }
+        return null;
+    }
+
 }

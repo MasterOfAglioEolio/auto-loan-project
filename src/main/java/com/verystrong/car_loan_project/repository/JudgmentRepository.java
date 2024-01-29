@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface JudgmentRepository extends JpaRepository<Judgment, Long> {
 
-    Optional<Judgment> findByApplicationId(Long applicationId);
+    Optional<Judgment> findByAccountId(String accountId);
+    Optional<Judgment> findAllByAccountId(String accountId);
 }

@@ -6,35 +6,32 @@ import com.verystrong.car_loan_project.exception.BaseException;
 import com.verystrong.car_loan_project.exception.ResultType;
 import com.verystrong.car_loan_project.repository.CustomerInfoRepository;
 import com.verystrong.car_loan_project.service.CustomerInfoService;
+import com.verystrong.car_loan_project.service.JwtService;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @RestController
 public class CustomerInfoApiController {
 
     @Autowired
-    private CustomerInfoRepository customerInfoRepository;
-
-    @Autowired
     private CustomerInfoService customerInfoService;
 
     @Autowired
-    private ModelMapper modelMapper;
+    private JwtService jwtService;
+
     @GetMapping("/api/info")
-    public Map<String, Object> getItems() throws IllegalAccessException {
+    public ResponseEntity<Map<String, Object>> getItems() throws IllegalAccessException {
         Map<String, Object> items = new HashMap<>();
 
         for (Field field : CustomerInfo.class.getDeclaredFields()) {
@@ -64,56 +61,65 @@ public class CustomerInfoApiController {
         }
 
         log.info("[items] : {}", items);
-        return items;
+        return ResponseEntity.ok(items);
     }
 
-    @PostMapping("/api/register")
-    public CustomerInfoDto create(@RequestBody CustomerInfoDto dto)
+    @PostMapping("/api/info/register")
+    public ResponseEntity<CustomerInfoDto> create(@RequestBody CustomerInfoDto dto,
+                                                  @CookieValue(value="token", required = false) String token)
     {
-        return customerInfoService.create(dto);
+        if(!jwtService.isValid(token))
+        {
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+        }
+        String accountId=jwtService.getId(token);
+
+
+        CustomerInfoDto saved = customerInfoService.create(dto,accountId);
+        log.info("Created customerInfo: {}", saved);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
-    @GetMapping("/api/info/{customerId}")
-    public CustomerInfoDto show(@PathVariable Long customerId)
+    @GetMapping("/api/info/{accountId}")
+    public ResponseEntity<CustomerInfoDto> get(@CookieValue(value="token", required = false) String token)
     {
-        log.info("[api] show customerInfo"+customerId);
-        CustomerInfo customerInfo= customerInfoRepository.findById(customerId).orElseThrow(() -> {
-            throw new BaseException(ResultType.SYSTEM_ERROR);
-        });
-        CustomerInfoDto saved = modelMapper.map(customerInfo, CustomerInfoDto.class);
-        return saved;
+        String accountId=jwtService.getId(token);
+        log.info("[api] show customerInfo"+accountId);
+
+        CustomerInfoDto customerInfo = customerInfoService.get(accountId);
+        return new ResponseEntity<>(customerInfo, HttpStatus.OK);
     }
 
-    @PatchMapping("/api/customerinfo/{customerId}")
-    public ResponseEntity<Object> update(@PathVariable Long customerId, @RequestBody CustomerInfoDto dto)
+    @PutMapping("/api/info/{accountId}")
+    public ResponseEntity<Object> update(@RequestBody CustomerInfoDto dto,
+                                         @CookieValue(value="token", required = false) String token)
     {
-
-        //1.DTO->엔티티 변환하기
-        // 2. id 찾기
-        CustomerInfoDto saved = customerInfoService.update(dto);
-        CustomerInfoDto target = customerInfoService.get(customerId);
+        String accountId=jwtService.getId(token);
+        CustomerInfoDto updated = customerInfoService.update(dto, accountId);
         // 3. 잘못된 요청 처리하기
-        if (target == null || (customerId != target.getCustomerId())){
-            log.info("잘못된 요청 id {} customerInfo{} ", customerId);
+        if (updated == null || (!Objects.equals(accountId, updated.getAccountId()))){
+            log.info("잘못된 요청 id {} customerInfo{} ", accountId,updated);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }
         //4. 업데이트 및 정상 응답(200)하기
-        target.equals(saved);
-        log.info("update OK {}", ResponseEntity.status(HttpStatus.OK).body(saved));
-        return ResponseEntity.status(HttpStatus.OK).body(saved);
+        return new ResponseEntity<>(updated, HttpStatus.OK);
 
     }
 
-    @DeleteMapping("/api/customerinfo/{customerId}")
-    public ResponseEntity<CustomerInfo> delete(@PathVariable Long customerId) {
+    @DeleteMapping("/api/info/{customerId}")
+    public ResponseEntity<CustomerInfo> delete(@CookieValue(value="token", required = false) String token) {
+        String accountId=jwtService.getId(token);
         //1. 대상 찾기
-        CustomerInfoDto target = customerInfoService.get(customerId);
+        CustomerInfoDto target = customerInfoService.get(accountId);
         //2. 잘못된 요청 처리하기
-        if(target == null)
+        if(target == null) {
+            log.error("Invalid request for id {}", accountId);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
         //대상 삭제
-        customerInfoService.delete(customerId);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        customerInfoService.delete(accountId);
+        log.info("Deleted customerInfo with id {}", accountId);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
     }
 

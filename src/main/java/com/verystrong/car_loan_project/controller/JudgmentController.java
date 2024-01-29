@@ -34,9 +34,9 @@ public class JudgmentController {
 
 
     @PostMapping("/judgment")
-    public String judgment(ApplicationDto applicationDto) throws JsonProcessingException {
+    public String judgment(String accountId) throws JsonProcessingException {
 
-        JudgmentDto judgment = judgmentService.judgment(applicationDto);
+        JudgmentDto judgment = judgmentService.judgment(accountId);
         Long judgmentId = judgment.getJudgmentId();
 //      response save해서 전달하기
 //        // result를 뷰에 전달
@@ -45,10 +45,10 @@ public class JudgmentController {
 
     }
 
-    @GetMapping("/judgment/{judgmentId}")
-    public String get(@PathVariable Long judgmentId, Model model) {
+    @GetMapping("/judgment/{accountId}")
+    public String get(@PathVariable String accountId, Model model) {
         log.info("[Predict data get]");
-        JudgmentDto judgmentDto = judgmentService.get(judgmentId);
+        JudgmentDto judgmentDto = judgmentService.get(accountId);
 
         model.addAttribute("judgment",judgmentDto);
 

@@ -20,9 +20,9 @@ public class ApplicationDto {
 
     private Long applicationId;
     private CustomerInfoDto customerInfo;
+    private String accountId;
     private String name;
     private String cellPhone;
-    private String email;
     private BigDecimal carPrice;
     private LoanType loanType;
     private Integer deposit;

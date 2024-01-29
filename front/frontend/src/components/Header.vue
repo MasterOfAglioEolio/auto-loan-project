@@ -1,54 +1,43 @@
 <template>
-  <header data-bs-theme="dark">
-    <div class="collapse text-bg-dark" id="navbarHeader">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-md-7 py-4">
-            <h4>사이트맵</h4>
-            <p class="text-body-secondary">
-            <ul class="list-unstyled">
-              <li>
-              <router-link to ="/" class="text-white"> 메인 </router-link>
+  <header nav ref="navbar" class="navbar navbar-dark navbar-expand-md bg-primary sticky-top border-bottom bg-transparent">
+    <div class="container">
+        <div class="offcanvas-body">
+          <ul class="navbar-nav flex-grow-1 justify-content-between fw-bold">
+            <li class="nav-item"><a class="nav-link" href="#">
+              <svg class="bi" width="24" height="24"><use xlink:href="#aperture"/></svg>
+            </a></li>
+              <li class="nav-item">
+                <router-link to ="/" class="nav-link text-dark"> 메인 (이미지로 바꾸기)</router-link>
               </li>
-              <li>
-              <router-link to ="/sign" class="text-white" v-if="!$store.state.account.id"> 회원 가입 </router-link>
+              <li class="nav-item">
+                <router-link to ="/" class="nav-link text-dark"> 공지 </router-link>
               </li>
-              <li>
-              <router-link to ="/login" class="text-white" v-if="!$store.state.account.id"> 로그인 </router-link>
-              <a to ="/login" class="text-white" @click="logout()" v-else> 로그아웃 </a>
+              <li class="nav-item">
+                <router-link to ="/sign" class="nav-link text-dark" v-if="!$store.state.account.id"> 회원 가입 </router-link>
               </li>
-              <li>
-              <router-link to ="/info" class="text-white"> 회원 정보 입력 </router-link>
+              <li class="nav-item">
+                <router-link to ="/login" class="nav-link text-dark" v-if="!$store.state.account.id"> 로그인 </router-link>
+                <a to ="/login" class="nav-link" @click="logout()" v-else> 로그아웃 </a>
               </li>
-              <li>
-              <router-link to ="/application" class="text-white"> 심사 신청 정보 입력 </router-link>
+              <li class="nav-item">
+                <router-link to ="/info" class="nav-link text-dark"> 회원 정보 입력 </router-link>
               </li>
-              <li>
-              <router-link to ="/" class="text-white"> 심사 </router-link>
+              <li class="nav-item">
+                <router-link to ="/application" class="nav-link text-dark"> 심사 신청 </router-link>
               </li>
-            </ul>
-            </p>
-          </div>
+              <li class="nav-item">
+                <router-link to ="/judgment" class="nav-link text-dark"> 심사 </router-link>
+              </li>
+          </ul>
         </div>
       </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark shadow-sm">
-      <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <strong>Album</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      </div>
-    </div>
   </header>
 </template>
 
 <script>
 import store from "@/scripts/store";
 import router from "@/scripts/router";
+import {onMounted, onUnmounted, ref} from "vue";
 
 export default {
   name: 'Header',
@@ -58,11 +47,32 @@ export default {
       sessionStorage.removeItem("id");
       router.push({path:"/"});
     }
-    return {logout};
+
+    const navbar = ref(null);
+    const handleScroll = () => {
+      if (window.pageYOffset > 50) {
+        navbar.value.classList.remove('bg-transparent');
+        navbar.value.classList.add('bg-primary');
+      } else {
+        navbar.value.classList.remove('bg-primary');
+        navbar.value.classList.add('bg-transparent');
+      }
+    };
+    onMounted(() => {
+      window.addEventListener('scroll', handleScroll);
+    });
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll);
+    });
+
+    return {logout, navbar};
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+
+
 </style>
+

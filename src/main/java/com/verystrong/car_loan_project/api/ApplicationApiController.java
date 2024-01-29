@@ -91,21 +91,25 @@ public class ApplicationApiController {
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
-    @GetMapping("/api/application/{applicationId}")
-    public ResponseEntity<ApplicationDto> get(@PathVariable Long applicationId) {
-        ApplicationDto application = applicationService.get(applicationId);
+    @GetMapping("/api/application/{accountId}")
+    public ResponseEntity<ApplicationDto> get(@CookieValue(value="token", required = false) String token) {
+        String accountId=jwtService.getId(token);
+        ApplicationDto application = applicationService.get(accountId);
         return new ResponseEntity<>(application, HttpStatus.OK);
     }
 
-    @PostMapping("/api/application/{applicationId}")
-    public ResponseEntity<ApplicationDto> update(@PathVariable Long applicationId, @RequestBody ApplicationDto dto) {
-        ApplicationDto updated = applicationService.update(dto);
+    @PutMapping("/api/application/{accountId}")
+    public ResponseEntity<ApplicationDto> update(@RequestBody ApplicationDto dto,
+                                                 @CookieValue(value="token", required = false) String token) {
+        String accountId=jwtService.getId(token);
+        ApplicationDto updated = applicationService.update(dto,accountId);
         return new ResponseEntity<>(updated, HttpStatus.OK);
     }
 
-    @DeleteMapping("/api/application/{applicationId}")
-    public ResponseEntity<Void> delete(@PathVariable Long applicationId) {
-        applicationService.delete(applicationId);
+    @DeleteMapping("/api/application/{accountId}")
+    public ResponseEntity<Void> delete(@CookieValue(value="token", required = false) String token) {
+        String accountId=jwtService.getId(token);
+        applicationService.delete(accountId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 

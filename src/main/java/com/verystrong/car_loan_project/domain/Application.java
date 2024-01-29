@@ -30,6 +30,9 @@ public class Application{
     @JoinColumn(name = "customerId")
     private CustomerInfo customerInfo;
 
+    @Column(nullable = false)
+    private String accountId;
+
 //    @Column(nullable = false)
     private String name;
 
