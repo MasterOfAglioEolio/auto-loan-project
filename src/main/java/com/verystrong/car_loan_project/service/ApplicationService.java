@@ -8,10 +8,10 @@ import com.verystrong.car_loan_project.dto.CustomerInfoDto;
 
 public interface ApplicationService {
 
-    ApplicationDto create(ApplicationDto dto,Long customerId);
-    ApplicationDto get(Long applicationId);
-    ApplicationDto update(ApplicationDto dto);
-    void delete(Long applicationId);
+    ApplicationDto create(ApplicationDto dto,String accountId);
+    ApplicationDto get(String accountId);
+    ApplicationDto update(ApplicationDto dto,String accountId);
+    void delete(String accountId);
     Boolean acceptTerms(Long applicationId, ApplicationDto.AcceptTerms terms);
-    ApplicationDto contract(Long applicationId);
+//    ApplicationDto contract(Long applicationId);
 }

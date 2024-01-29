@@ -37,17 +37,18 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     private final ModelMapper modelMapper;
     @Override
-    public ApplicationDto create(ApplicationDto dto,Long customerId) {
+    public ApplicationDto create(ApplicationDto dto,String accountId) {
+
         Application application = modelMapper.map(dto,Application.class);
 
         // customerInfo 설정
-        CustomerInfo customerInfo = customerInfoRepository.findById(customerId)
-                .orElseThrow(() -> new RuntimeException("고객 정보를 찾을 수 없습니다."));
+        CustomerInfo customerInfo = customerInfoRepository.findByAccountId(accountId);
 
         application.setMaturity(LocalDateTime.now().plusMonths(application.getLoanTerm()));
         application.setAppliedAt(LocalDateTime.now());
-        application.setIsDeleted(false);
+//        application.setIsDeleted(false);
         application.setCustomerInfo(customerInfo);
+        application.setAccountId(accountId);
 
 
 //        application.setCustomerInfo(customerInfo);
@@ -60,29 +61,31 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
 
     @Override
-    public ApplicationDto get(Long applicationId) {
-        log.info("show customer id = "+applicationId);
+    public ApplicationDto get(String accountId) {
+        log.info("show account id = "+accountId);
         //1. id를 조회해 데이터 가져오기
-        log.info("show data="+applicationRepository.findById(applicationId));
-        Application customerInfo= applicationRepository.findById(applicationId).orElseThrow(() -> {
-            throw new BaseException(ResultType.SYSTEM_ERROR);
-        });
+        Application application= applicationRepository.findByAccountId(accountId);
+        log.info("show data="+application);
 
-        return modelMapper.map(customerInfo,ApplicationDto.class);
+        return modelMapper.map(application,ApplicationDto.class);
     }
 
     @Override
-    public ApplicationDto update(ApplicationDto dto) {
+    public ApplicationDto update(ApplicationDto dto,String accountId) {
         log.info("update form to String"+dto.toString());
         //1. DTO를 엔티티로 변환
         Application application = modelMapper.map(dto,Application.class);
         log.info("customerInfo to DTO {}",application.toString());
         //2. id 찾기
-        Application target = applicationRepository.findById(application.getApplicationId()).orElse(null);
+        Application target = applicationRepository.findByAccountId(accountId);
         application.setName(dto.getName());
         application.setCellPhone(dto.getCellPhone());
-        application.setEmail(dto.getEmail());
-        application.setHopeAmount(dto.getHopeAmount());
+        application.setCarPrice(dto.getCarPrice());
+        application.setLoanType(dto.getLoanType());
+        application.setDeposit(dto.getDeposit());
+        application.setLoanTerm(dto.getLoanTerm());
+        application.setInterestType(dto.getInterestType());
+
         if (target!=null) {
             Application saved =applicationRepository.save(application);
             log.info("DTO to Repository {}",saved.toString());
@@ -93,10 +96,10 @@ public class ApplicationServiceImpl implements ApplicationService{
     }
 
     @Override
-    public void delete(Long applicationId) {
+    public void delete(String accountId) {
         log.info("삭제 요청이 들어왔습니다!!");
         // 1.삭제할 대상 가져오기
-        Application target = applicationRepository.findById(applicationId).orElse(null);
+        Application target = applicationRepository.findByAccountId(accountId);
         log.info("target"+target.toString());
         // 2. 대상 엔티티 삭제하기
         if (target != null){
@@ -140,26 +143,26 @@ public class ApplicationServiceImpl implements ApplicationService{
 
     }
 
-    @Override
-    public ApplicationDto contract(Long applicationId) {
-        Application application = applicationRepository.findById(applicationId).orElseThrow(() -> {
-            throw new BaseException(ResultType.SYSTEM_ERROR);
-        });
-
-        judgmentRepository.findByApplicationId(applicationId).orElseThrow(() -> {
-            throw new BaseException(ResultType.SYSTEM_ERROR);
-        });
-
-        if (application.getApprovalAmount() == null
-                || application.getApprovalAmount().compareTo(BigDecimal.ZERO) == 0) {
-            throw new BaseException(ResultType.SYSTEM_ERROR);
-        }
-
-        application.setContractedAt(LocalDateTime.now());
-
-        Application updated = applicationRepository.save(application);
-
-//        return modelMapper.map(updated, Response.class);
-        return modelMapper.map(updated,ApplicationDto.class);
-    }
+//    @Override
+//    public ApplicationDto contract(Long applicationId) {
+//        Application application = applicationRepository.findById(applicationId).orElseThrow(() -> {
+//            throw new BaseException(ResultType.SYSTEM_ERROR);
+//        });
+//
+//        judgmentRepository.findByAccountId(applicationId).orElseThrow(() -> {
+//            throw new BaseException(ResultType.SYSTEM_ERROR);
+//        });
+//
+//        if (application.getApprovalAmount() == null
+//                || application.getApprovalAmount().compareTo(BigDecimal.ZERO) == 0) {
+//            throw new BaseException(ResultType.SYSTEM_ERROR);
+//        }
+//
+//        application.setContractedAt(LocalDateTime.now());
+//
+//        Application updated = applicationRepository.save(application);
+//
+////        return modelMapper.map(updated, Response.class);
+//        return modelMapper.map(updated,ApplicationDto.class);
+//    }
 }
