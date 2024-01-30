@@ -28,7 +28,43 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
         return http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(auth -> auth.anyRequest().permitAll()).build();
+// =======
+//         return http
+//                 .authorizeHttpRequests(auth -> auth
+//                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
+//                         .requestMatchers(
+//                                 HttpMethod.GET,
+//                                 "/",
+//                                 "/login",
+//                                 "/accounts/new"
+//                         ).permitAll()
+//                         .requestMatchers(
+//                                "/bootstrap/**" //staticresource 허용
+//                         ).permitAll()
+//                         .requestMatchers(
+//                                 HttpMethod.POST,
+//                                 "/login",
+//                                 "/accounts/new"
+//                         ).permitAll()  // 회원 가입 POST 요청 허용
+//                         .anyRequest().authenticated()
+//                 )
+//                 .formLogin(
+//                         login -> login
+// //                        .loginPage("/loginPage") //get 인증이 필요한 주소 요청시 실행
+// //                        .loginProcessingUrl("/loginPage") //post (로그인 인증 시)-> 시큐리티가 로그인 프로세스 진행
+//                         .usernameParameter("username")
+//                         .passwordParameter("password")
+//                         .defaultSuccessUrl("/", true) //로그인 성공 시
+//                         .failureForwardUrl("/login?error")
+//                         .permitAll())
+//                 .logout(logout -> logout
+//                         .logoutSuccessUrl("/")
+//                         .deleteCookies("JSESSIONID") // 로그아웃 후 쿠키삭제
+//                         .permitAll()).
+//                 build();
+// >>>>>>> main
     }
 
 //    @Bean
