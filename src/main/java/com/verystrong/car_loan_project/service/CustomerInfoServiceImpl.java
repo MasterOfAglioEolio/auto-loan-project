@@ -61,9 +61,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
 //        CustomerInfo customerInfo = modelMapper.map(dto, CustomerInfo.class);
         log.info("customerInfo to DTO {}",customerInfo.toString());
         //2. id 찾기
-        CustomerInfo target = customerInfoRepository.findById(customerInfo.getCustomerId()).orElseThrow(() -> {
-            throw new BaseException(ResultType.SYSTEM_ERROR);
-        });
+        CustomerInfo target = customerInfoRepository.findByAccountId(accountId);
         //3. 리퍼지토리로 엔티티를 DB에 저장
         if (target!=null) {
             CustomerInfo saved =customerInfoRepository.save(customerInfo);

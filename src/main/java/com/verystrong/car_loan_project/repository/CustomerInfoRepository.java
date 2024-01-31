@@ -18,6 +18,4 @@ public interface CustomerInfoRepository extends
         JpaRepository<CustomerInfo, Long> {
 
     CustomerInfo findByAccountId(String accountId);
-    CustomerInfo findByAccountIdAndCustomerId(String accountId, Long customerId);
-    
 }

@@ -20,6 +20,4 @@ public interface CustomerInfoService {
 
     void delete(String accountId);
 
-
-
 }
