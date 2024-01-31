@@ -58,25 +58,25 @@ class JpaRepositoryTest {
     void givenTestData_whenInserting_thenWorksFine(){
         //Given
         long previousCount=customerInfoRepository.count();
-        CustomerInfo customerInfo = CustomerInfo.of(
-//                "new name",
-                Gender.Man,
-                21,
-                Education.University,
-                MaritalStatus.Single,
-                5,
-                3,
-                IncomeType.Other,
-                IncomeClass.F,
-                Occupation.General_work,
-                OrgType.Communications,
-                11,
-                HouseOwnedYN.N,
-                DwellingType.Family_joint,
-                HousingType.Detached_house,
-                ResidenceClass.Best,
-                12,
-                CarOwnedYN.Y);
+        CustomerInfo customerInfo = CustomerInfo.builder()
+                .accountId("newId")
+                .gender(Gender.Man)
+                .age(21)
+                .education(Education.University)
+                .maritalStatus(MaritalStatus.Single)
+                .familyCount(5)
+                .childCount(3)
+                .incomeType(IncomeType.Other)
+                .incomeClass(IncomeClass.F)
+                .occupation(Occupation.General_work)
+                .orgType(OrgType.Communications)
+                .employedYears(11)
+                .houseOwnedYN(HouseOwnedYN.N)
+                .dwellingType(DwellingType.Family_joint)
+                .housingType(HousingType.Detached_house)
+                .residenceClass(ResidenceClass.Best)
+                .carOwnedYN(CarOwnedYN.Y)
+                .build();
 
         //When
         CustomerInfo SavedCustomerInfos = customerInfoRepository.save(customerInfo);
@@ -85,7 +85,6 @@ class JpaRepositoryTest {
         assertThat(customerInfoRepository.count()).isEqualTo(previousCount+1);
     }
 
-//    @Disabled //TODO : DB 원본 추가후 다시 테스트
     @DisplayName("update 테스트")
     @Test
     void givenTestData_whenUpdating_thenWorksFine(){
@@ -94,11 +93,9 @@ class JpaRepositoryTest {
         Gender UpdateGender = Gender.Woman;
         customerInfo.setGender(UpdateGender);
 
-
         //When
         CustomerInfo SavedCustomerInfos = customerInfoRepository.save(customerInfo);
 
-        System.out.println(SavedCustomerInfos);
         //Then
         assertThat(SavedCustomerInfos).hasFieldOrPropertyWithValue("gender", UpdateGender);
     }
