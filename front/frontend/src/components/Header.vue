@@ -1,49 +1,60 @@
 <template>
-  <header nav ref="navbar" class="navbar navbar-expand-md navbar-light bg-light sticky-top bg-transparent"
-  >
-      <div class="container-fluid">
-<!--        <div class="offcanvas-body">-->
-        <ul class="navbar-nav flex-grow-1 justify-content-start fw-bold">
-          <li class="nav-item">
-            <router-link to="/" class="nav-link">Home</router-link>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              커뮤니티
-            </a>
-            <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
-              <li><router-link to="/question/list" class="dropdown-item">Q&A</router-link></li>
-              <li><router-link to="/board/list" class="dropdown-item">공지사항</router-link></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
+  <div class="headerInner mt-3 mb-3">
+    <h1><router-link to="/" class="nav-link"><img :src="require(`@/assets/EALC_BANNER.png`)" alt="홈 배너 이미지" class="banner-image"></router-link></h1>
+    <!-- 큰글 모드 영역 -->
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+      <input type="radio" class="btn-check" name="btn_radio" id="btn_radio1" @change="setFontSize(0)" autocomplete="off" checked>
+      <label class="btn btn-outline-primary fw-bold " for="btn_radio1">기본 모드</label>
+
+      <input type="radio" class="btn-check" name="btn_radio" id="btn_radio2" @change="setFontSize(1)" autocomplete="off">
+      <label class="btn btn-outline-primary fw-bold" for="btn_radio2">큰글 모드</label>
+    </div>
+  </div>
+  <header nav ref="navbar" :class="{'navbar': true, 'navbar-expand-md': true, 'mx-auto': true,
+   'navbar-light': true, 'bg-light': true, 'sticky-top': true, 'border-bottom':true,'bg-transparent': true, 'large-font': store.state.large_Mode.check === 1}">
+    <div class="container-fluid">
+      <ul class="navbar-nav flex-grow-1 fw-bold">
+        <li class="nav-item">
+          <router-link to="/" class="nav-link">Home</router-link>
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             회원
           </a>
-            <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
             <li><router-link to ="/sign" class="dropdown-item" v-if="!$store.state.account.id"> 회원 가입 </router-link></li>
             <li>
               <router-link to ="/login" class="dropdown-item" v-if="!$store.state.account.id"> 로그인 </router-link>
               <a to ="/login" class="nav-link" @click="logout()" v-else> 로그아웃 </a>
             </li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              심사 정보 입력
-            </a>
-            <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            커뮤니티
+          </a>
+          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+            <li><router-link to="/question/list" class="dropdown-item">Q&A</router-link></li>
+            <li><router-link to="/board/list" class="dropdown-item">공지사항</router-link></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            심사 정보 입력
+          </a>
+          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
             <li><router-link to ="/info" class="dropdown-item"> 회원 정보 입력 </router-link></li>
             <li><router-link to ="/application" class="dropdown-item"> 심사 신청 </router-link></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <router-link to ="/judgment" class="nav-link"> 심사 </router-link>
-          </li>
-        </ul>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <router-link to ="/judgment" class="nav-link"> 심사 </router-link>
+        </li>
+      </ul>
 
-<!--      </div>-->
-      </div>
+      <!--      </div>-->
+    </div>
+
   </header>
 </template>
 
@@ -52,10 +63,29 @@ import store from "@/scripts/store";
 import router from "@/scripts/router";
 import {onMounted, onUnmounted, ref} from "vue";
 import axios from "axios";
+// import "@/assets/common.css";
 
 export default {
   name: 'Header',
+  computed: {
+    store() {
+      return store
+    }
+  },
+  methods:{
+    setFontSize(size) {
+      if (size === 0) {
+        store.commit('setLargeMode', 0);  // 기본 폰트 사이즈
+        console.log("[Set SIZE 0]",store.state.large_Mode)
+      } else if (size === 1) {
+        store.commit('setLargeMode', 1);  // 큰 폰트 사이즈
+        console.log("[Set SIZE 1]",store.state.large_Mode)
+      }
+    }
+  },
   setup(){
+
+
     const logout=()=>{
       store.commit('setAccount',0);
       store.commit('setAccountId','');
@@ -81,11 +111,11 @@ export default {
     const navbar = ref(null);
     const handleScroll = () => {
       if (window.pageYOffset > 50) {
-        navbar.value.classList.remove('bg-light');
+        navbar.value.classList.remove('bg-white');
         navbar.value.classList.add('bg-transparent');
       } else {
         navbar.value.classList.remove('bg-transparent');
-        navbar.value.classList.add('bg-light');
+        navbar.value.classList.add('bg-white');
       }
     };
     onMounted(() => {
@@ -95,40 +125,51 @@ export default {
       window.removeEventListener('scroll', handleScroll);
     });
 
-    return {logout, navbar};
+    return { logout, navbar};
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.banner-image {
+  width: 100px;
+  height: auto;
+}
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin:auto
 
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+}
+.nav-item{
+  margin:auto
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+.headerInner,
+.navbar {
+
+  width: 100%;
+  max-width: 1500px;
 }
-.nav-item {
-  margin-left: 20px;  /* 왼쪽 마진을 20px로 설정 */
-  margin-right: 20px;  /* 오른쪽 마진을 20px로 설정 */
+
+@media (max-width: 768px) {
+  .headerInner,
+  .navbar {
+    max-width: 100%;
+  }
+  .nav-item {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
 }
 
 .navbar .dropdown-menu{
   overflow: visible;
   position: static;
 }
-nav .navbar-nav a.router-link-exact-active {
-  color: #42b983 !important;
-}
 
-nav .navbar-nav a.nav-link {
-  font-weight: bold;
-  color: #2c3e50 !important;
-}
 
 .dropdown-item {
   margin: 10px 0;  /* 위아래 마진을 10px로 설정 */

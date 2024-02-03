@@ -1,6 +1,6 @@
 <template>
   <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
-    <div class="col-md-6 p-lg-5 mx-auto my-5">
+    <div class="col-md-6 p-lg-5 mx-auto my-5 text-left">
 
             <h1 class="display-3 fw-bolder mb-0"><span class="text-black d-inline text-white">당신의 대출 심사 결과 예상</span></h1>
             <h3 class="highlight-text display-3 fw-bolder mb-5" v-if="info.value"><span class="text-gradient d-inline">{{info.value['judgment']}}</span></h3><br>
@@ -13,7 +13,7 @@
               </h3>
             <br>
 
-           <div class="d-flex gap-3 justify-content-center lead fw-normal">
+           <div class="d-flex gap-3 lead fw-normal">
             <a class="btn btn-primary btn-lg" href="/">about</a>
           </div>
         </div>
@@ -59,7 +59,7 @@ export default {
 
 <style scoped>
 .highlight-text {
-  color: #6200EA;
+  color: #f40000;
 }
 
 .bg-body-tertiary {

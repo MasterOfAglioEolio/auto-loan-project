@@ -1,10 +1,10 @@
 
 <template>
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-body-tertiary">
-      <div class="col-md-6 p-lg-5 mx-auto my-5">
-        <h1 class="display-2 fw-bold text-white">당신의 <br>대출 심사 결과를<br> 확인하세요</h1>
+      <div class="col-md-5 p-lg-5 mx-auto my-5 text-left">
+        <h1 class="display-2 fw-bold text-white ">당신의 <br>대출 심사 결과를<br> 확인하세요</h1>
         <h3 class="fw-normal text-muted mb-5 text-white">Check The Result <br> Your Loan Judgement </h3>
-        <div class="d-flex gap-3 justify-content-center lead fw-normal">
+        <div class="d-flex gap-3  lead fw-normal">
 
             <a href="/judgment" class="btn btn-primary btn-lg">심사 받기</a>
 
@@ -67,7 +67,7 @@ export default {
 .bg-body-tertiary {
   width: auto;
   height: auto;
-  background-image: url('@/assets/AdobeStock_293465118.jpeg');
+  background-image: url('@/assets/homeimg.png');
   background-size: cover;
   background-position: center;
 }

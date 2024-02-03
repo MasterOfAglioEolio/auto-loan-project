@@ -35,6 +35,7 @@
 <script>
 import axios from 'axios';
 import router from "@/scripts/router";
+// import store from "@/scripts/store";
 
 export default {
   data() {

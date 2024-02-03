@@ -34,3 +34,8 @@
     padding: 8px;
     text-align: right;
 }
+
+.large-font,
+.large-font * {
+    font-size: 2rem;
+}
