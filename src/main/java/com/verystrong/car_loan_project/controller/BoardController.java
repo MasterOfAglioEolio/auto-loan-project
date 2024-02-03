@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin
 @RestController
+@RequestMapping("/api")
 public class BoardController {
     private final BoardService boardService;
 

@@ -84,9 +84,10 @@
 
 
 <script>
-import {onMounted, reactive, ref} from "vue";
+import {onMounted, reactive} from "vue";
 import axios from "axios";
 import router from "@/scripts/router";
+import store from "@/scripts/store";
 
 export default {
   name:"application",
@@ -101,13 +102,11 @@ export default {
       selected: {}
     })
 
-    const account_id = ref("");
+    const account_id = store.state.accountId.id;
 
 
     onMounted(async () => {
-      const responseCheck = await axios.get("/api/check");
-      account_id.value = responseCheck.data;
-      console.log("[CHECK ID in Application]", account_id.value);
+
 
       const response = await axios.get("/api/application");
       console.log("[response]",response)

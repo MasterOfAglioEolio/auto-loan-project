@@ -26,8 +26,10 @@ export default {
   setup(){
     const check = ()=>{
       axios.get("/api/check").then(({data})=>{
-        console.log(data);
+        console.log("[Check id]",data);
         store.commit("setAccount",data||0);
+        store.commit("setAccountId",data);
+
 
       })
     };
@@ -61,6 +63,15 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+
+
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;

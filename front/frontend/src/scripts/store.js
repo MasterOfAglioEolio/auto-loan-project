@@ -6,6 +6,9 @@ const store = createStore({
             account: {
                 id: 0
             },
+            accountId:{
+                id:''
+            },
             info: {
                 id: 0
             },
@@ -18,12 +21,16 @@ const store = createStore({
         setAccount(state,payload) {
             state.account.id=payload;
         },
+        setAccountId(state,accountId){
+            state.accountId.id=accountId;
+        },
         setInfo(state,payload) {
             state.info.id=payload;
         },
         setApplication(state,payload) {
             state.application.id=payload;
         }
+
 
     }
 })
