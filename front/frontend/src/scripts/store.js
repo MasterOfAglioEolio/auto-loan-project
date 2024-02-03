@@ -14,7 +14,11 @@ const store = createStore({
             },
             application: {
                 id: 0
+            },
+            large_Mode:{
+                check:0
             }
+
         }
     },
     mutations: {
@@ -29,7 +33,11 @@ const store = createStore({
         },
         setApplication(state,payload) {
             state.application.id=payload;
+        },
+        setLargeMode(state,payload) {
+            state.large_Mode.check=payload;
         }
+
 
 
     }

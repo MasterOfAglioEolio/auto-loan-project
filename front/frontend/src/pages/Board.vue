@@ -1,8 +1,8 @@
 
 
 <template>
-  <div id="nav">
-    <button @click="currentView = 'BoardList'">공지사항</button> |
+  <div id="nav" :class="{'large-font': store.state.large_Mode.check === 1}">
+    <button @click="currentView = 'BoardList'" >공지사항</button> |
     <button @click="currentView = 'QuestionList'">Q&A</button>
   </div>
   <component :is="currentView"/>
@@ -10,9 +10,15 @@
 
 <script>
 import BoardList from '@/pages/board/BoardList.vue'
-import QuestionList from '@/pages/question/QuestionList.vue' // QuestionList 컴포넌트를 임포트하세요.
+import QuestionList from '@/pages/question/QuestionList.vue'
+import store from "@/scripts/store";
 
 export default {
+  computed: {
+    store() {
+      return store
+    }
+  },
   components: {
     BoardList,
     QuestionList // QuestionList 컴포넌트를 등록하세요.
