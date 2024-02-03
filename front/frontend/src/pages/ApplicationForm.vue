@@ -110,7 +110,7 @@ export default {
       try {
         const response = await axios.post('/api/application/register', state.selected);
         console.log(response.data);
-        await router.push({path: "/"});
+        await router.push({path: "/application"});
         // 데이터 전송 성공에 대한 처리를 이곳에 작성합니다.
       } catch (error) {
         console.error(error);

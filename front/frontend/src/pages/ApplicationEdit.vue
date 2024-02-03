@@ -64,6 +64,7 @@
                 </div>
               </form>
 
+              <div class="btn-group">
                 <!-- ... 나머지 필드들을 이와 같은 방식으로 추가 ... -->
                 <button class="btn btn-primary btn-lg" type="submit" @click="submitData">
                   Edit Application
@@ -71,6 +72,7 @@
                 <button class="btn btn-success btn-lg" type="submit" @click="submitJudgment">
                   Judgment
                 </button>
+              </div>
 
 
             </div>
@@ -172,6 +174,14 @@ export default {
   background-size: cover;  /* 이미지 크기를 조절합니다 */
   background-repeat: no-repeat;  /* 이미지가 반복되지 않도록 합니다 */
   background-position: center;  /* 이미지를 중앙에 위치시킵니다 */
+}
+
+.btn-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:20px;
+  margin:auto;
 }
 
 </style>

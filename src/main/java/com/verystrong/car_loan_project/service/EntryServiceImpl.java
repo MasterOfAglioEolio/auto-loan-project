@@ -115,7 +115,8 @@ public class EntryServiceImpl implements EntryService{
         if (existed.isEmpty()) {
             return false;
         }
+        return true;
 
-        return existed.get().getContractedAt() != null;
+//        return existed.get().getContractedAt() != null;
     }
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="question-detail">
     <div class="question-contents">
-      <h3>{{ title }}</h3>
+      <h3 style="margin-bottom: 0;">{{ title }}</h3>
       <div>
         <strong class="w3-large">{{ author }}</strong>
         <br>

@@ -44,8 +44,8 @@ public class ApplicationServiceImpl implements ApplicationService{
         // customerInfo 설정
         CustomerInfo customerInfo = customerInfoRepository.findByAccountId(accountId);
 
-        application.setMaturity(LocalDateTime.now().plusMonths(application.getLoanTerm()));
-        application.setAppliedAt(LocalDateTime.now());
+//        application.setMaturity(LocalDateTime.now().plusMonths(application.getLoanTerm()));
+//        application.setAppliedAt(LocalDateTime.now());
 //        application.setIsDeleted(false);
         application.setCustomerInfo(customerInfo);
         application.setAccountId(accountId);

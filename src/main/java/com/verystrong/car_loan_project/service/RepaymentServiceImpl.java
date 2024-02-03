@@ -132,9 +132,9 @@ public class RepaymentServiceImpl implements RepaymentService {
             return false;
         }
 
-        if (existedApplication.get().getContractedAt() == null) {
-            return false;
-        }
+//        if (existedApplication.get().getContractedAt() == null) {
+//            return false;
+//        }
 
         Optional<Entry> existedEntry = entryRepository.findByApplicationId(applicationId);
         return existedEntry.isPresent();

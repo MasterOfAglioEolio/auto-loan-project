@@ -1,73 +1,51 @@
 <template>
 
   <div class="container">
-    <div class="card o-hidden border-0 shadow-lg my-5 align-items-center">
+    <div class="card o-hidden border-0 shadow-lg my-5 align-items-center large-font">
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-<!--          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>-->
           <div class="col-lg-auto d-flex justify-content-center align-items-center" style="height: 70vh;">
             <div class="p-5 ">
               <div class="text-center">
-                <h3 class="display-6 fw-bold">Register Your Information!</h3>
-                <h5 class="fw-normal text-muted mb-5">정보를 입력해주세요!! </h5>
-                <h6 class="fw-bold mb-5">{{state.step}}/{{Object.keys(state.info).length-2}}</h6>
+                <h1 class="display-6 fw-bold">Register Your Information!</h1>
+                <h2 class="fw-normal text-muted mb-5">정보를 입력해주세요!! </h2>
+                <h2 class="fw-bold mb-5">{{state.step}}/{{Object.keys(state.info).length-2}}</h2>
               </div>
               <form class="user" @submit.prevent="submitData">
-<!--                <template v-for="(values, key, index) in state.info">-->
-<!--                  <div class="form-group row my-5" :key="key" v-if="state.step === index + 1">-->
-<!--                    <div class="col-sm-12">-->
-<!--                      <label :for="key" class="form-label fw-bold">{{ key }}</label>-->
-<!--                      <select class="form-select" :id="key" v-model="state.selected[key]" required @change="state.step++" v-if="Array.isArray(values)">-->
-<!--                        <option disabled value="">Please select a {{ key }}</option>-->
-<!--                        <option v-for="value in values" :key="value" :value="value">{{ value }}</option>-->
-<!--                      </select>-->
-<!--                      <input type="number" class="form-control form-control-user" :id="key" :name="key" v-model="state.selected[key]" required @input="state.step++" v-else>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </template>-->
-                <div class="form-group row my-5" v-if="state.step === 1">
-                  <div class="col-sm-12">
+                  <div class="col-sm-12 my-5" v-if="state.step === 1">
                     <label for="gender" class="form-label fw-bold">Gender</label>
                     <select class="form-select" id="gender" v-model="state.selected['gender']" required>
                       <option disabled value="">Please select a gender</option>
                       <option v-for="value in state.info['gender']" :key="value" :value="value">{{ value }}</option>
                     </select>
                   </div>
-                </div>
-                <div class="form-group row my-5" v-if="state.step === 2">
-                  <div class="col-sm-12">
+                  <div class="col-sm-12 my-5" v-if="state.step === 2">
                     <label for="age" class="form-label fw-bold">age</label>
                     <input type="number" class="form-control form-control-user" id="age" name="age" v-model="state.selected['age']" required>
                   </div>
-                </div>
-                <div class="form-group row my-5">
-                  <div class="col-sm-6 mb-3 mb-sm-0" v-if="state.step === 3">
+                  <div class="col-sm-12 my-5" v-if="state.step === 3">
                     <label for="education" class="form-label fw-bold" >Education</label>
                     <select class="form-select" id="education" v-model="state.selected['education']" required>
                       <option disabled value="">Please select an education</option>
                       <option v-for="value in state.info['education']" :key="value" :value="value">{{ value }}</option>
                     </select>
                   </div>
-                  <div class="col-sm-6" v-if="state.step === 4">
+                  <div class="col-sm-12 my-5" v-if="state.step === 4">
                     <label for="maritalStatus" class="form-label fw-bold">Marital Status</label>
                     <select class="form-select" id="maritalStatus" v-model="state.selected['maritalStatus']" required>
                       <option disabled value="">Please select a marital status</option>
                       <option v-for="value in state.info['maritalStatus']" :key="value" :value="value">{{ value }}</option>
                     </select>
                   </div>
-                </div>
-                <div class="form-group row my-5" >
-                  <div class="col-sm-6 mb-3 mb-sm-0" v-if="state.step === 5">
+                  <div class="col-sm-12 my-5" v-if="state.step === 5">
                     <label for="familyCount" class="form-label fw-bold">Family Count</label>
                     <input type="number" class="form-control form-control-user" id="familyCount" v-model="state.selected['familyCount']" required>
                   </div>
-                  <div class="col-sm-6" v-if="state.step === 6">
+                  <div class="col-sm-12 my-5" v-if="state.step === 6">
                     <label for="ChildCount" class="form-label fw-bold">Child Count</label>
                     <input type="number" class="form-control form-control-user" id="ChildCount" v-model="state.selected['childCount']" required>
                   </div>
-                </div>
-
                 <div class="form-group my-5" v-if="state.step === 7">
                   <label for="incomeType" class="form-label fw-bold">Income Type</label>
                   <select class="form-select" id="incomeType" v-model="state.selected['incomeType']" required>
@@ -135,13 +113,17 @@
                     <option v-for="option in state.info['carOwnedYN']" :key="option" :value="option">{{ option }}</option>
                   </select>
                 </div>
+                <div class="btn-group">
+                <button class="btn btn-primary btn-lg" type="button" v-if="state.step > 1" @click="state.step--">
+                  Prev
+                </button>
                 <button class="btn btn-primary btn-lg" type="button" v-if="state.step < Object.keys(state.info).length-2" @click="state.step++">
                   Next
                 </button>
-
                 <button class="btn btn-primary btn-lg" type="submit" v-if="state.step === Object.keys(state.info).length-2">
                   Register Information
                 </button>
+                </div>
 
               </form>
             </div>
@@ -205,11 +187,15 @@ export default {
 </script>
 
 <style scoped>
-.bg-register-image {
-  background-image: url('@/assets/car3.jpg');
-  background-size: cover;  /* 이미지 크기를 조절합니다 */
-  background-repeat: no-repeat;  /* 이미지가 반복되지 않도록 합니다 */
-  background-position: center;  /* 이미지를 중앙에 위치시킵니다 */
+.btn-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:20px;
+  margin:auto;
+}
+.large-font, .form-select {
+  font-size: 1.5em;
 }
 
 </style>
