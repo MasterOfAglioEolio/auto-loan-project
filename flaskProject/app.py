@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 
-@app.route("/application/judgments/judgment", methods=['POST'])
+@app.route("/api/judgment", methods=['POST'])
 def post():
     try:
         print("post")

@@ -10,9 +10,9 @@ app = Flask(__name__)
 app.logger.setLevel(logging.INFO)
 
 retire_features=test_data.retire_features
-retire={'Default':"model_retire_Default.pkl",'InterestRate':'model_retire_InterestRate.pkl'}
+retire={'Default':"model_retire_Default_gbm.pkl",'InterestRate':'model_retire_InterestRate_gbm.pkl'}
 incumbent_features=test_data.incumbent_features
-incumbent={'Default':"model_incumbent_Default.pkl",'InterestRate':'model_incumbent_InterestRate.pkl'}
+incumbent={'Default':"model_incumbent_Default_gbm.pkl",'InterestRate':'model_incumbent_InterestRate_gbm.pkl'}
 keys=test_data.keys
 
 def data_encoding(data):
