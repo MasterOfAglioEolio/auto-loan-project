@@ -1,7 +1,6 @@
 package com.verystrong.car_loan_project.repository;
 
 import com.verystrong.car_loan_project.entity.Article;
-import com.verystrong.car_loan_project.entity.Comment;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
