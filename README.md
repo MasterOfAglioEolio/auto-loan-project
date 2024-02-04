@@ -82,6 +82,8 @@
 |loanTerm|대출 기간 데이터|integer|
 |interestType|이자율 유형 데이터|categorical|
 
+### 대출 심사 결과 에 대한 종속변수
+
 |Dependent Variable|Description|Model Category|
 |------|---|---|
 |Default|대출 심사 승인 여부(PASS OR FAIL)|categorical|
