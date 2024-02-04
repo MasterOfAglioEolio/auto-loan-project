@@ -98,6 +98,11 @@ TODO :: ML SCORE 추가
 ![car-loan-project-erd drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/4d322c8a-ba2d-49da-a3c2-36f6064758ab)#
 
 
+## Use Case
+
+![할부금융 usecase drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/3c00589d-f00d-49cf-97d3-ffea972e068c)
+
+
 Restful 방식 
 * 로그인(Spring Security & JWT)
 * 게시글, 댓글 CURD
