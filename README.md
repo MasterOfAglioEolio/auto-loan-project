@@ -58,8 +58,6 @@
 
 ## Machine Learning Data Model
 
-아래에 주어진 데이터를 표 형태로 작성한 README 파일입니다:
-
 |Predictor/Independent Variable|Description|Units|
 |------|---|---|
 |gender|성별 데이터|categorical|
@@ -72,7 +70,7 @@
 |incomeClass|소득 클래스 데이터|categorical|
 |occupation|직업 데이터|categorical|
 |orgType|조직 유형 데이터|categorical|
-|employedYears|재직 기간 데이터|float|
+|employedYears|재직 기간 데이터 (IF NULL == 퇴직자)|float|
 |houseOwnedYN|집 소유 여부 데이터|categorical|
 |dwellingType|거주 유형 데이터|categorical|
 |housingType|주택 유형 데이터|categorical|
@@ -84,6 +82,10 @@
 |loanTerm|대출 기간 데이터|integer|
 |interestType|이자율 유형 데이터|categorical|
 
+|Dependent Variable|Description|Model Category|
+|------|---|---|
+|Default|대출 심사 승인 여부(PASS OR FAIL)|categorical|
+|interestRate|대출 예상 금리|BigDecimal|
 
 Restful 방식 
 * 로그인(Spring Security & JWT)
