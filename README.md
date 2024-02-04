@@ -56,6 +56,34 @@
 * seaborn
 * sklearn
 
+## Machine Learning Data Model
+
+아래에 주어진 데이터를 표 형태로 작성한 README 파일입니다:
+
+|Predictor/Independent Variable|Description|Units|
+|------|---|---|
+|gender|성별 데이터|categorical|
+|age|나이 데이터|float|
+|education|교육 수준 데이터|categorical|
+|maritalStatus|혼인 상태 데이터|categorical|
+|familyCount|가족 수 데이터|integer|
+|childCount|자녀 수 데이터|integer|
+|incomeType|소득 유형 데이터|categorical|
+|incomeClass|소득 클래스 데이터|categorical|
+|occupation|직업 데이터|categorical|
+|orgType|조직 유형 데이터|categorical|
+|employedYears|재직 기간 데이터|float|
+|houseOwnedYN|집 소유 여부 데이터|categorical|
+|dwellingType|거주 유형 데이터|categorical|
+|housingType|주택 유형 데이터|categorical|
+|residenceClass|거주지 클래스 데이터|categorical|
+|carOwnedYN|자동차 소유 여부 데이터|categorical|
+|loanType|대출 유형 데이터|categorical|
+|carPrice|자동차 가격 데이터|BigDecimal|
+|deposit|예금 데이터|integer|
+|loanTerm|대출 기간 데이터|integer|
+|interestType|이자율 유형 데이터|categorical|
+
 
 Restful 방식 
 * 로그인(Spring Security & JWT)
