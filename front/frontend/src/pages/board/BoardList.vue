@@ -1,5 +1,3 @@
-ml
-Copy code
 <template>
   <div class="board-list table-container">
     <div class="table-responsive">
