@@ -17,7 +17,8 @@
 * BootStrap
 
 ### Back End
-SpringBoot
+
+#### SpringBoot
 * Intellij IDEA Ultimate 
 * Java 17
 * Gradle 8.5
@@ -38,7 +39,7 @@ SpringBoot
 * Spring Boot Configuration Processor 
 
 
-Flask
+#### Flask
 * Pycharm Community
 * Python 3.10.11
 * Flask 3.0.0
