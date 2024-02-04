@@ -1,4 +1,4 @@
-# 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service@@@@@@@@@@@@@@@@@@@@@
+# 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
 
 우리의 EALC 서비스는 자동차 대출 신청자의 정보를 분석하여 대출 승인 가능성과 예상 대출 금리를 제공합니다.
 
