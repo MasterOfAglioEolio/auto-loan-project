@@ -1,4 +1,4 @@
- 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
+![할부금융 usecase drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/b9d691b9-1b56-4dad-a0e0-e63ddbe43896) 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
 
 우리의 EALC 서비스는 자동차 대출 신청자의 정보를 분석하여 대출 승인 가능성과 예상 대출 금리를 제공합니다.
 
@@ -100,7 +100,8 @@ TODO :: ML SCORE 추가
 
 ## Use Case
 
-![할부금융 usecase drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/3c00589d-f00d-49cf-97d3-ffea972e068c)
+![Uploading 할부금융 usecase.drawio.svg…]()
+
 
 
 Restful 방식 
