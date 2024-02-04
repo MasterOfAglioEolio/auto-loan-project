@@ -146,4 +146,9 @@ Restful 방식
 ![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/0a0ee997-0787-4012-8a16-d01e79eb6e7e)
 
 
+# TODO: 개선안
+
+* ADMIN SERVICE 개발
+* 대출 집행, 상환 기능 개발
+* CHAT GPT 연동 대출 상담 서비스 개발
 
