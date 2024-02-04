@@ -1,4 +1,4 @@
-# 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
+ 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
 
 우리의 EALC 서비스는 자동차 대출 신청자의 정보를 분석하여 대출 승인 가능성과 예상 대출 금리를 제공합니다.
 
@@ -55,6 +55,47 @@
 * Matplotlib
 * seaborn
 * sklearn
+
+## Machine Learning Data Model
+
+|Predictor/Independent Variable|Description|Units|
+|------|---|---|
+|gender|성별 데이터|categorical|
+|age|나이 데이터|float|
+|education|교육 수준 데이터|categorical|
+|maritalStatus|혼인 상태 데이터|categorical|
+|familyCount|가족 수 데이터|integer|
+|childCount|자녀 수 데이터|integer|
+|incomeType|소득 유형 데이터|categorical|
+|incomeClass|소득 클래스 데이터|categorical|
+|occupation|직업 데이터|categorical|
+|orgType|조직 유형 데이터|categorical|
+|employedYears|재직 기간 데이터 (IF NULL == 퇴직자)|float|
+|houseOwnedYN|집 소유 여부 데이터|categorical|
+|dwellingType|거주 유형 데이터|categorical|
+|housingType|주택 유형 데이터|categorical|
+|residenceClass|거주지 클래스 데이터|categorical|
+|carOwnedYN|자동차 소유 여부 데이터|categorical|
+|loanType|대출 유형 데이터|categorical|
+|carPrice|자동차 가격 데이터|BigDecimal|
+|deposit|예금 데이터|integer|
+|loanTerm|대출 기간 데이터|integer|
+|interestType|이자율 유형 데이터|categorical|
+
+### 대출 심사 결과 에 대한 종속변수
+
+|Dependent Variable|Description|Model Category|
+|------|---|---|
+|Default|대출 심사 승인 여부(PASS OR FAIL)|categorical|
+|interestRate|대출 예상 금리|BigDecimal|
+
+
+TODO :: ML SCORE 추가
+
+
+## ERD
+
+![car-loan-project-erd drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/4d322c8a-ba2d-49da-a3c2-36f6064758ab)#
 
 
 Restful 방식 
