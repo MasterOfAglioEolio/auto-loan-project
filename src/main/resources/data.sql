@@ -5,6 +5,8 @@ INSERT INTO cars(name,info, img_path, price) VALUES ('볼보 XC60','2.0 가솔�
 INSERT INTO cars(name,info, img_path, price) VALUES ('제네시스 더 올 뉴 G80','3.5 가솔린 터보 AWD','/img/RTC20240122100007156_0X.jpg',45800000);
 INSERT INTO cars(name,info, img_path, price) VALUES ('현대 팰리세이드','3.8 가솔린 4WD 프레스티지 8인승','/img/RTC20240112100007047_0X.jpg',36000000);
 INSERT INTO cars(name,info, img_path, price) VALUES ('기아 K8 HEV','1.6 HEV 시그니처','/img/SHC20230622000004281_0X.jpg',38500000);
+INSERT INTO cars(name,info, img_path, price) VALUES ('기아 모하비 더 마스터','3.0 디젤 4WD 마스터즈 5인승','/img/RTC20231026100005881_0X.jpg',35300000);
+INSERT INTO cars(name,info, img_path, price) VALUES ('기아 4세대 카니발','2.2 디젤 노블레스 9인승','/img/RTC20240103100006875_0X.jpg',36400000);
 #
 # INSERT INTO QUESTION (IDX, TITLE, CONTENTS, AUTHOR, CREATED_AT) VALUES (1, '게시글 제목1', '게시글 내용1', '작성자1', '2024-01-01 23:24:00');
 # INSERT INTO QUESTION (IDX, TITLE, CONTENTS, AUTHOR, CREATED_AT) VALUES (2, '게시글 제목2', '게시글 내용2', '작성자2', '2024-01-01 23:24:00');

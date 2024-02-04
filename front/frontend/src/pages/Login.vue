@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+  <div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
   <div class="form-signin w-100 m-auto">
-    <h1 class="display-10 fw-bold text-center">Please Login</h1>
-    <h2 class="display-10 fw-normal text-muted mb-5 text-center">로그인</h2>
+    <h1 :class="{'display-10':true, 'fw-bold':true, 'text-center':true, 'display-5': store.state.large_Mode.check === 1}">Please Login</h1>
+    <h2 :class="{'display-10':true, 'fw-normal':true,'text-muted':true, 'text-center':true, 'display-5': store.state.large_Mode.check === 1}">로그인</h2>
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput"
              @keyup.enter="submit()" v-model="state.form.account_id" placeholder="Id">
@@ -64,7 +64,8 @@ export default {
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 350px;
+  //max-height: 350px;
   padding: 15px;
   background-color: white; /* 로그인 폼 배경 색상 */
   border-radius: 8px;

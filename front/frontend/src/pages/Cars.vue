@@ -3,7 +3,7 @@
 <template>
   <div class="card shadow-sm">
     <span class="img" :style="{backgroundImage: `url(${item.imgPath})`}"/>
-    <div class="card-body">
+    <div :class="{'card-body':true, 'large-font':store.state.large_Mode.check === 1}">
       <p class="card-text">
         <span class="fw-bold">{{ item.name }} &nbsp;</span><br/>
         <span class="small-text">{{ item.info }} &nbsp;</span><br/>
@@ -17,7 +17,7 @@
           {{ lib.getNumberFormatted(item.price) }}원
         </small>
         <small class="real text-danger">
-          월 {{ lib.getNumberFormatted((item.price/48).toFixed(2)) }} 원
+          월 {{ lib.getNumberFormatted((item.price/48).toFixed(0)) }} 원
         </small>
       </div>
     </div>
@@ -26,9 +26,13 @@
 
 <script>
 import lib from "@/scripts/lib";
+import store from "@/scripts/store";
 export default {
   name:'Cars',
   computed: {
+    store() {
+      return store
+    },
     lib() {
       return lib
     }
@@ -50,6 +54,7 @@ export default {
 
 .card .card-body .price {
   text-decoration: line-through;
+
 }
 .small-text {
   font-size: 0.8em;

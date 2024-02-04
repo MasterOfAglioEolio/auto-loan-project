@@ -2,8 +2,8 @@
 <template>
   <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
   <div class="form-signin w-100 m-auto">
-    <h3 class="display-10 fw-bold text-center">Create Your Account</h3>
-    <h4 class="display-10 fw-normal text-muted mb-5 text-center">회원 가입</h4>
+    <h2 :class="{'display-10':true, 'fw-bold':true, 'text-center':true, 'display-7': store.state.large_Mode.check === 1}">Create Your Account</h2>
+    <h3 :class="{'display-10':true, 'fw-normal':true,'text-muted':true, 'text-center':true, 'display-5': store.state.large_Mode.check === 1}">회원 가입</h3>
     <div class="form-floating">
       <input type="text" class="form-control" id="floatingInput"
              @keyup.enter="submit()" v-model="account.accountId">
@@ -35,9 +35,14 @@
 <script>
 import axios from 'axios';
 import router from "@/scripts/router";
-// import store from "@/scripts/store";
+import store from "@/scripts/store";
 
 export default {
+  computed: {
+    store() {
+      return store
+    }
+  },
   data() {
     return {
       account: {
@@ -77,7 +82,7 @@ export default {
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 400px;
   padding: 15px;
   background-color: white; /* 로그인 폼 배경 색상 */
   border-radius: 8px;
