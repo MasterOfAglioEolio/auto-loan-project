@@ -17,8 +17,8 @@ import java.time.LocalDateTime;
 public class JudgmentDto{
 
     private Long judgmentId;
+    private ApplicationDto application;
     private String accountId;
-
     private JudgmentType judgment; // 심사결과
     private BigDecimal interestRate; // 예상금리   // TODO: 예상해서 알려주기
 

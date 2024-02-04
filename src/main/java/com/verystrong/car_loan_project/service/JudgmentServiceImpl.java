@@ -75,6 +75,7 @@ public class JudgmentServiceImpl implements JudgmentService {
         JudgmentDto judgmentDto = objectMapper.readValue(response, JudgmentDto.class);
         Judgment judgment = modelMapper.map(judgmentDto, Judgment.class);
         judgment.setAccountId(accountId);
+        judgment.setApplication(find_application);
         System.out.println("to dto: " + judgment);
         Judgment saved = judgmentRepository.save(judgment);
 

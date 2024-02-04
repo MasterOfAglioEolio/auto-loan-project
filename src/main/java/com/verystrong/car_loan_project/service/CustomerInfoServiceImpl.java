@@ -33,7 +33,7 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
         log.info("[Register customerInfo] Request :: {}",dto);
         //1. DTO를 엔티티로 변환
         CustomerInfo customerInfo = modelMapper.map(dto ,CustomerInfo.class);
-        customerInfo.setAccountId(accountId);
+        customerInfo.setAccount(account);
 //     CustomerInfo customerInfo =modelMapper.map(customerInfoDto, CustomerInfo.class); //TODO : 나중에 리팩토링 이거로 바꾸기
         log.info("DTO to entity {}",customerInfo);
 

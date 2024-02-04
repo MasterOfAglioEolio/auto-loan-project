@@ -26,8 +26,9 @@ public class CustomerInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long customerId;
 
-    @Column(nullable = false)
-    private String accountId;
+    @OneToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class CustomerInfoDto {
 
     private Long customerId;
-    private String accountId;
+    private AccountDto account;
     private Gender gender;
     private float age;
     private Education education;

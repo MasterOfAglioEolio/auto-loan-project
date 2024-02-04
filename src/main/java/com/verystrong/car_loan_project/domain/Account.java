@@ -4,6 +4,7 @@ import com.verystrong.car_loan_project.domain.Account_type.AccountRole;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.Objects;
 
@@ -21,7 +22,7 @@ public class Account{
     private String accountId;
 
     @Column(nullable = false)
-//    @Length(min = 4, max = 16, message = "비밀번호는 4자 이상, 16자 이하로 입력해주세요.")
+    @Length(min = 4, max = 16, message = "비밀번호는 4자 이상, 16자 이하로 입력해주세요.")
     private String password;
 
 

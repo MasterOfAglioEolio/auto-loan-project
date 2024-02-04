@@ -23,6 +23,10 @@ public class Judgment{
     @Column(nullable = false, updatable = false)
     private Long judgmentId;
 
+    @OneToOne
+    @JoinColumn(name = "application_id")
+    private Application application;
+
     @Column(nullable = false, unique = true)
     private String accountId; // 신청 id
 
