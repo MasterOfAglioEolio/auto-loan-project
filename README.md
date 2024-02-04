@@ -12,11 +12,13 @@
 
 ## 개발 환경
 
-### Front End
+## Front End
+
+#### Vue.js
 * Vue 3.4.15
 * BootStrap
 
-### Back End
+## Back End
 
 #### SpringBoot
 * Intellij IDEA Ultimate 
@@ -44,7 +46,7 @@
 * Python 3.10.11
 * Flask 3.0.0
 
-### ML
+## ML
 * Anacond - Jupyter Notebook
 
 ### 기술 세부
