@@ -1,5 +1,5 @@
 <template>
-  <div class="question-list">
+  <div class="question-list table-container">
     <table class="w3-table-all">
       <thead>
       <tr>
@@ -122,3 +122,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.table-container {
+  margin-top: 20px; /* 헤더로부터의 간격 조절 */
+}
+</style>

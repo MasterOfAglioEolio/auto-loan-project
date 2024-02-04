@@ -66,17 +66,30 @@ export default {
 </script>
 
 
+
 <style scoped>
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
 
 .form-signin {
   max-width: 330px;
   padding: 15px;
+  background-color: white; /* 로그인 폼 배경 색상 */
+  border-radius: 8px;
+  box-shadow: 0 0 20px gainsboro;
+  width: 100%;
 }
 
 .form-signin .form-floating:focus-within {
-  z-index: 2
+  z-index: 2;
 }
 
+.form-signin input[type="text"],
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
@@ -89,5 +102,28 @@ export default {
   border-top-right-radius: 0;
 }
 
+.form-signin button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4267B2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
 
+.form-signin button:hover {
+  background-color: #365899;
+}
+
+.form-signin p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.form-signin p b {
+  color: #4267B2;
+  cursor: pointer;
+}
 </style>
