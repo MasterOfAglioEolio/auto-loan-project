@@ -126,7 +126,8 @@
 
 ## Use Case
 
-![할부금융 usecase drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/b9d691b9-1b56-4dad-a0e0-e63ddbe43896)
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d446223-6900-4425-85ad-4e23b30b9b4d)
+
 
 
 # Service Sample Image
