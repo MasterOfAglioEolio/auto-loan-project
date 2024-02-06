@@ -138,8 +138,13 @@
 ![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339)
 
 
-### Home 큰글 모드 화면면
+
+
+## Home 큰글 모드 적용용
 ![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
+
+
+
 
 
 ## TODO 게시판(Q&A, 공지사항 화면 추가)
@@ -149,9 +154,14 @@
 ![커뮤니티QA](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1241b02e-5c94-4f3d-ac3d-c2896a0a6de4)
 
 
+
+
 ### 공지사항 게시판
 
 ![커뮤니티BOARD](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0160448b-1fe7-466c-8d39-b989058b3cfd)
+
+
+
 
 
 ## 기본 모드 적용 시 회원 정보 입력
