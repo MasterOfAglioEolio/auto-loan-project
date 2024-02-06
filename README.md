@@ -1,4 +1,4 @@
- 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
+# 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
 
 우리의 EALC 서비스는 자동차 대출 신청자의 정보를 분석하여 대출 승인 가능성과 예상 대출 금리를 제공합니다.
 
@@ -10,7 +10,14 @@
 이제 복잡한 대출 심사 과정을 걱정하지 마시고, EALC 서비스를 통해 간편하게 자동차 할부 대출을 체크해보세요.
 
 
-## 개발 환경
+
+
+
+
+
+
+
+# 개발 환경
 
 ## Front End
 
@@ -93,6 +100,15 @@
 TODO :: ML SCORE 추가
 
 
+## TODO : 수정예정
+
+Restful 방식 
+* 로그인(Spring Security & JWT)
+* 게시글, 댓글 CURD
+* 회원정보 입력 및 대출 심사 신청 CRUD
+* Machine Learning Model을 이용한 대출 심사 
+* 고령 이용자를 위한 큰글 모드 및 One Page One Thing 방식 UI 제공   
+
 ## ERD
 
 ![car-loan-project-erd drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/4d322c8a-ba2d-49da-a3c2-36f6064758ab)#
@@ -100,11 +116,39 @@ TODO :: ML SCORE 추가
 
 ## Use Case
 
-![할부금융 usecase drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/3c00589d-f00d-49cf-97d3-ffea972e068c)
+![할부금융 usecase drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/b9d691b9-1b56-4dad-a0e0-e63ddbe43896)
 
 
-Restful 방식 
-* 로그인(Spring Security & JWT)
-* 게시글, 댓글 CURD
-* 회원정보 입력 및 대출 심사 신청 CRUD
-* Machine Learning Model을 이용한 대출 심사   
+# Service Sample Image
+
+## Home 화면
+![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/15efaae3-6744-41e5-ae2f-5d783b7187a4)
+
+
+
+## 심사 결과 화면 
+![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/7a406d5d-5f6b-4593-baa7-91077844da28)
+
+## TODO 게시판(Q&A, 공지사항 화면 추가)
+
+예정
+
+
+## 기본 모드 적용 시 회원 정보 입력
+
+![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/6fc8e04b-fb63-4e44-9ca6-836d70c0470b)
+
+
+
+
+## 큰글 모드 적용 시 One Page One Thing
+
+![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/0a0ee997-0787-4012-8a16-d01e79eb6e7e)
+
+
+# TODO: 개선안
+
+* ADMIN SERVICE 개발
+* 대출 집행, 상환 기능 개발
+* CHAT GPT 연동 대출 상담 서비스 개발
+
