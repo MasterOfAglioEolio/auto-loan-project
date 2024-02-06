@@ -27,7 +27,7 @@ public class Application{
     private Long applicationId;
 
     @OneToOne
-    @JoinColumn(name = "customerId")
+    @JoinColumn(name = "customer_id")
     private CustomerInfo customerInfo;
 
     @Column(nullable = false)

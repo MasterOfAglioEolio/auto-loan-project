@@ -167,7 +167,9 @@ export default {
       try {
         const response = await axios.post('/api/info/register', state.selected);
         console.log(response.data);
-        await router.push({path: "/"});
+        await router.push({path: "/application"});
+        window.alert("회원 정보가 등록되었습니다.\n 심사 신청서를 작성해주세요");
+
         // 데이터 전송 성공에 대한 처리를 이곳에 작성합니다.
       } catch (error) {
         console.error(error);

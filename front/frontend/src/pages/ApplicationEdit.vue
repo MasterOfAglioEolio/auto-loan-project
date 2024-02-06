@@ -152,10 +152,9 @@ export default {
         const responseJudgment = await axios.post('/api/judgment', {accountId: account_id.value});
         console.log("[Judgment AccountId STATE INFO]", responseJudgment.data);
         await router.push({path: "/judgment"});
-        // 데이터 전송 성공에 대한 처리를 이곳에 작성합니다.
+        location.reload();
       } catch (error) {
         console.error(error);
-        // 데이터 전송 실패에 대한 처리를 이곳에 작성합니다.
       }
     };
 
