@@ -12,7 +12,16 @@
 
 
 
+# 프로젝트 목표
 
+## TODO : 수정예정
+
+* Restful 방식 
+* 로그인(Spring Security & JWT)
+* 게시글, 댓글 CURD
+* 회원정보 입력 및 대출 심사 신청 CRUD
+* Machine Learning Model을 이용한 대출 심사 결과 제공(대출 심사 승인 여부, 대출 예상 금리)
+* 고령 이용자를 위한 큰글 모드 및 One Page One Thing 방식 UI 제공   
 
 
 
@@ -103,16 +112,7 @@
 TODO :: ML SCORE 추가
 
 
-## TODO : 수정예정
-
-Restful 방식 
-* 로그인(Spring Security & JWT)
-* 게시글, 댓글 CURD
-* 회원정보 입력 및 대출 심사 신청 CRUD
-* Machine Learning Model을 이용한 대출 심사 
-* 고령 이용자를 위한 큰글 모드 및 One Page One Thing 방식 UI 제공   
-
-## ERD
+## DB ERD
 
 ![car-loan-project-erd drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/4d322c8a-ba2d-49da-a3c2-36f6064758ab)#
 
