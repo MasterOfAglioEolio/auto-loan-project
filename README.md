@@ -115,12 +115,13 @@
 
 |Judgement Loan Model(retire)|Interest Rate Model(retire)|Judgement Loan Model(incumbent)|Interest Rate Model(incumbent)|
 |------|---|------|---|
-|Algorithm: GBM|Algorithm: GBM|
-|Model Category: Binary Classification|Model Catelgory: Regression|
-|ntrees: 100|ntrees: 100|
-|max_depth: 5|max_depth: 5|
-|learn_rate: 0.05|learn_rate: 0.05|
-|AUC on valid: 0.606|R2: 0.99|
+|Algorithm: RandomForest|Algorithm: GBM|Algorithm: RandomForest|Algorithm: GBM|
+|Model Category: Binary Classification|Model Catelgory: Regression|Model Category: Binary Classification|Model Catelgory: Regression|
+|n_estimators: 10|ntrees: 100|n_estimators: 10|ntrees: 100|
+|max_depth: 6|max_depth: 5|max_depth: 6|max_depth: 5|
+|min_samples_leaf : 8|learn_rate: 0.05|min_samples_leaf : 8|learn_rate: 0.05|
+|min_samples_split : 8|---|min_samples_split : 8|---|
+|AUC on valid: 0.606|R2: 0.99|AUC on valid: 0.671|R2: 0.99|
 
 
 ## DB ERD
