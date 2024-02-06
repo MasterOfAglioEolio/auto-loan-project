@@ -108,8 +108,6 @@
 
 ### Model Information
 
-### 퇴직자 모델
-
 |Judgement Loan Model(retire)|Interest Rate Model(retire)|Judgement Loan Model(incumbent)|Interest Rate Model(incumbent)|
 |------|---|------|---|
 |Algorithm: RandomForest|Algorithm: GBM|Algorithm: RandomForest|Algorithm: GBM|
