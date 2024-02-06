@@ -1,9 +1,6 @@
 package com.verystrong.car_loan_project.service;
 
-import com.verystrong.car_loan_project.domain.AcceptTerms;
-import com.verystrong.car_loan_project.domain.Application;
-import com.verystrong.car_loan_project.domain.CustomerInfo;
-import com.verystrong.car_loan_project.domain.Terms;
+import com.verystrong.car_loan_project.domain.*;
 import com.verystrong.car_loan_project.dto.ApplicationDto;
 import com.verystrong.car_loan_project.exception.BaseException;
 import com.verystrong.car_loan_project.exception.ResultType;
@@ -27,6 +24,8 @@ import java.util.stream.Collectors;
 public class ApplicationServiceImpl implements ApplicationService{
     private final TermsRepository termsRepository;
 
+    private final AccountRepository accountRepository;
+
     private final AcceptTermsRepository acceptTermsRepository;
 
     private final ApplicationRepository applicationRepository;
@@ -41,8 +40,10 @@ public class ApplicationServiceImpl implements ApplicationService{
 
         Application application = modelMapper.map(dto,Application.class);
 
+        Account account = accountRepository.findByAccountId(accountId);
+
         // customerInfo 설정
-        CustomerInfo customerInfo = customerInfoRepository.findByAccountId(accountId);
+        CustomerInfo customerInfo = customerInfoRepository.findByAccount(account);
 
 //        application.setMaturity(LocalDateTime.now().plusMonths(application.getLoanTerm()));
 //        application.setAppliedAt(LocalDateTime.now());

@@ -49,7 +49,8 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
     public CustomerInfoDto get(String accountId) {
 
         log.info("show customerInfo account id = "+accountId);
-       CustomerInfo customerInfo= customerInfoRepository.findByAccountId(accountId);
+        Account account = accountRepository.findByAccountId(accountId);
+        CustomerInfo customerInfo= customerInfoRepository.findByAccount(account);
         return modelMapper.map(customerInfo, CustomerInfoDto.class);
     }
 
@@ -61,7 +62,8 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
 //        CustomerInfo customerInfo = modelMapper.map(dto, CustomerInfo.class);
         log.info("customerInfo to DTO {}",customerInfo.toString());
         //2. id 찾기
-        CustomerInfo target = customerInfoRepository.findByAccountId(accountId);
+        Account account = accountRepository.findByAccountId(accountId);
+        CustomerInfo target = customerInfoRepository.findByAccount(account);
         //3. 리퍼지토리로 엔티티를 DB에 저장
         if (target!=null) {
             CustomerInfo saved =customerInfoRepository.save(customerInfo);
@@ -75,7 +77,8 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
     public void delete(String accountId) {
         log.info("삭제 요청이 들어왔습니다!!");
         // 1.삭제할 대상 가져오기
-        CustomerInfo target = customerInfoRepository.findByAccountId(accountId);
+        Account account = accountRepository.findByAccountId(accountId);
+        CustomerInfo target = customerInfoRepository.findByAccount(account);
         log.info("target"+target.toString());
         // 2. 대상 엔티티 삭제하기
         if (target != null){

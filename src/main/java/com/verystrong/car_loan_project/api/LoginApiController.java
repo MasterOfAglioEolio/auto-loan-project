@@ -90,8 +90,10 @@ public class LoginApiController {
         }
 
 
+
         String accountId = jwtService.getId(token);
-        CustomerInfo customerInfo = customerInfoRepository.findByAccountId(accountId);
+        Account account = accountRepository.findByAccountId(accountId);
+        CustomerInfo customerInfo = customerInfoRepository.findByAccount(account);
 
 
         if (customerInfo != null) {
@@ -115,7 +117,8 @@ public class LoginApiController {
         Claims claims = jwtService.getClaims(token);
 
         String accountId=jwtService.getId(token);
-        CustomerInfo customerInfo= customerInfoRepository.findByAccountId(accountId);
+        Account account = accountRepository.findByAccountId(accountId);
+        CustomerInfo customerInfo= customerInfoRepository.findByAccount(account);
         if (customerInfo != null) {
             Application application = applicationRepository.findByCustomerInfo_CustomerId(customerInfo.getCustomerId());
             if (application != null) {

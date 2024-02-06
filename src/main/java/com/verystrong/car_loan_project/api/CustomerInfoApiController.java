@@ -97,7 +97,7 @@ public class CustomerInfoApiController {
         String accountId=jwtService.getId(token);
         CustomerInfoDto updated = customerInfoService.update(dto, accountId);
         // 3. 잘못된 요청 처리하기
-        if (updated == null || (!Objects.equals(accountId, updated.getAccountId()))){
+        if (updated == null || (!Objects.equals(accountId, updated.getAccount()))){
             log.info("잘못된 요청 id {} customerInfo{} ", accountId,updated);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
         }

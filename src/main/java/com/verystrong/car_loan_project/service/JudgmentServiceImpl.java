@@ -2,6 +2,7 @@ package com.verystrong.car_loan_project.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.verystrong.car_loan_project.domain.Account;
 import com.verystrong.car_loan_project.domain.Application;
 import com.verystrong.car_loan_project.domain.CustomerInfo;
 import com.verystrong.car_loan_project.domain.Judgment;
@@ -9,6 +10,7 @@ import com.verystrong.car_loan_project.dto.ApplicationDto;
 import com.verystrong.car_loan_project.dto.JudgmentDto;
 import com.verystrong.car_loan_project.exception.BaseException;
 import com.verystrong.car_loan_project.exception.ResultType;
+import com.verystrong.car_loan_project.repository.AccountRepository;
 import com.verystrong.car_loan_project.repository.ApplicationRepository;
 import com.verystrong.car_loan_project.repository.CustomerInfoRepository;
 import com.verystrong.car_loan_project.repository.JudgmentRepository;
@@ -30,6 +32,8 @@ public class JudgmentServiceImpl implements JudgmentService {
     @Autowired
     private ApplicationService applicationService;
 
+    private final AccountRepository accountRepository;
+
     private final JudgmentRepository judgmentRepository;
 
     private final ApplicationRepository applicationRepository;
@@ -43,7 +47,8 @@ public class JudgmentServiceImpl implements JudgmentService {
     @Override
     public JudgmentDto judgment(String accountId) throws JsonProcessingException {
         log.info("[Find accountId]{}", accountId);
-        CustomerInfo customerInfo = customerInfoRepository.findByAccountId(accountId);
+        Account account = accountRepository.findByAccountId(accountId);
+        CustomerInfo customerInfo = customerInfoRepository.findByAccount(account);
         log.info("[Find customerInfo]{}", customerInfo);
 
         Application find_application = applicationRepository.findByCustomerInfo_CustomerId(customerInfo.getCustomerId());
