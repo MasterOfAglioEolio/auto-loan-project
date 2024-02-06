@@ -101,7 +101,7 @@
 |loanTerm|대출 기간 데이터|integer|
 |interestType|이자율 유형 데이터|categorical|
 
-### 대출 심사 결과 에 대한 종속변수
+### 대출 심사 결과에 대한 종속변수
 
 |Dependent Variable|Description|Model Category|
 |------|---|---|
@@ -109,7 +109,18 @@
 |interestRate|대출 예상 금리|BigDecimal|
 
 
-TODO :: ML SCORE 추가
+### Model Information
+
+### 퇴직자 모델
+
+|Judgement Loan Model(retire)|Interest Rate Model(retire)|Judgement Loan Model(incumbent)|Interest Rate Model(incumbent)|
+|------|---|------|---|
+|Algorithm: GBM|Algorithm: GBM|
+|Model Category: Binary Classification|Model Catelgory: Regression|
+|ntrees: 100|ntrees: 100|
+|max_depth: 5|max_depth: 5|
+|learn_rate: 0.05|learn_rate: 0.05|
+|AUC on valid: 0.606|R2: 0.99|
 
 
 ## DB ERD
