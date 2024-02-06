@@ -133,29 +133,42 @@
 # Service Sample Image
 
 ## Home 화면
-![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/15efaae3-6744-41e5-ae2f-5d783b7187a4)
+![home1](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788)
+
+![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339)
 
 
+### Home 큰글 모드 화면면
+![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
 
-## 심사 결과 화면 
-![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/7a406d5d-5f6b-4593-baa7-91077844da28)
 
 ## TODO 게시판(Q&A, 공지사항 화면 추가)
 
-예정
+### Q&A 게시판
+
+![커뮤니티QA](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1241b02e-5c94-4f3d-ac3d-c2896a0a6de4)
+
+
+### 공지사항 게시판
+
+![커뮤니티BOARD](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0160448b-1fe7-466c-8d39-b989058b3cfd)
 
 
 ## 기본 모드 적용 시 회원 정보 입력
 
-![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/6fc8e04b-fb63-4e44-9ca6-836d70c0470b)
 
+![정보입력_기본](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/899d8795-e26f-47f8-8f51-0256771620cd)
 
 
 
 ## 큰글 모드 적용 시 One Page One Thing
 
-![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/0a0ee997-0787-4012-8a16-d01e79eb6e7e)
+![정보입력_큰글](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635468b6-86e3-4897-bb2a-3496884d8144)
 
+
+
+## 심사 결과 화면 
+![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/7a406d5d-5f6b-4593-baa7-91077844da28)
 
 # TODO: 개선안
 
