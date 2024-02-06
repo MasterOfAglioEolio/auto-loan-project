@@ -171,7 +171,7 @@
 
 
 
-## 큰글 모드 적용 시 One Page One Thing
+## 큰글 모드 적용 시 회원 정보 입력 (One Page One Thing)
 
 ![정보입력_큰글](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635468b6-86e3-4897-bb2a-3496884d8144)
 
