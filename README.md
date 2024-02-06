@@ -19,6 +19,9 @@
 
 # 개발 환경
 
+![서버 구조](https://github.com/XgitalBounce/car-loan-project/assets/60294084/0d3f222c-6e17-4e8d-be70-b4567da87fdf)
+
+
 ## Front End
 
 #### Vue.js
