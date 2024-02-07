@@ -157,17 +157,9 @@
 ## 게시판 (Q&A, 공지사항)
 
 <figure class="half"> 
- <a href="link"><img src=![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ab0f2d4c-276c-4f4b-af3c-c2a4f9999c91)></a> 
- <a href="link"><img src=![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/572dc741-b745-4e42-bbc5-2097d2fa5173)></a> 
+ <a href="link"><img src=https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ab0f2d4c-276c-4f4b-af3c-c2a4f9999c91></a> 
+ <a href="link"><img src=https://github.com/XgitalBounce/auto-loan-project/assets/60294084/572dc741-b745-4e42-bbc5-2097d2fa5173></a> 
 </figure>
-
-
-
-
-
-
-
-
 
 
 
