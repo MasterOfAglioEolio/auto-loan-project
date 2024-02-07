@@ -149,7 +149,7 @@
 
 ## 회원가입 (기본 | 큰글모드 (One Page One Thing) 적용) 
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/e6c99703-6596-4784-8088-212f188443b9) 
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0b37a424-8d6c-45b7-b3c6-991255d5bb33)
 |---|---|
 
 
