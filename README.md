@@ -144,12 +144,12 @@
 
 ## 로그인 (기본 | 큰글모드 (One Page One Thing) 적용) 
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/b2427fd0-75fa-4e4b-a67a-16b398528848)
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d)| ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ac4839ef-8b0b-4d86-8c9b-7fc3f80f4f42)
 |---|---|
 
 ## 회원가입 (기본 | 큰글모드 (One Page One Thing) 적용) 
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0b37a424-8d6c-45b7-b3c6-991255d5bb33)
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0b37a424-8d6c-45b7-b3c6-991255d5bb33)
 |---|---|
 
 
