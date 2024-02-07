@@ -139,27 +139,22 @@
 
 ![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339)
 
+## Home 큰글 모드 적용
+![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
+
 ## 로그인, 회원가입 화면 
 
 ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803)
 ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d)
 
-# 큰글 모드 적용 로그인, 회원가입 화 (One Page One Thing)
+## 큰글 모드 적용 로그인, 회원가입 화면 (One Page One Thing)
 
 ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/b2427fd0-75fa-4e4b-a67a-16b398528848)
 ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/e6c99703-6596-4784-8088-212f188443b9)
 
 
-## Home 큰글 모드 적용용
-![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
 
-
-
-
-
-## TODO 게시판(Q&A, 공지사항 화면 추가)
-
-### Q&A 게시판
+## Q&A 게시판
 
 
 ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ab0f2d4c-276c-4f4b-af3c-c2a4f9999c91)
