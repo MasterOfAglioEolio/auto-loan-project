@@ -8,15 +8,15 @@
           <div class="col-lg-auto d-flex justify-content-center align-items-center" style="height: 70vh;">
             <div class="p-5 ">
               <div class="text-center">
-                <h1 class="display-6 fw-bold">Register Your Information!</h1>
-                <h2 class="fw-normal text-muted mb-5">정보를 입력해주세요!! </h2>
+                <h1 class="display-6 fw-bold">정보를 입력해주세요!!</h1>
+                <h2 class="fw-normal text-muted mb-5">Register Your Information!</h2>
                 <h2 class="fw-bold mb-5">{{state.step}}/{{Object.keys(state.info).length-2}}</h2>
               </div>
               <form class="user" @submit.prevent="submitData">
                   <div class="col-sm-12 my-5" v-if="state.step === 1">
                     <label for="gender" class="form-label fw-bold">Gender</label>
                     <select class="form-select" id="gender" v-model="state.selected['gender']" required>
-                      <option disabled value="">Please select a gender</option>
+                      <option disabled value="">성별을 선택해주세요!</option>
                       <option v-for="value in state.info['gender']" :key="value" :value="value">{{ value }}</option>
                     </select>
                   </div>
@@ -27,14 +27,14 @@
                   <div class="col-sm-12 my-5" v-if="state.step === 3">
                     <label for="education" class="form-label fw-bold" >Education</label>
                     <select class="form-select" id="education" v-model="state.selected['education']" required>
-                      <option disabled value="">Please select an education</option>
+                      <option disabled value="">학력을 선택해주세요!</option>
                       <option v-for="value in state.info['education']" :key="value" :value="value">{{ value }}</option>
                     </select>
                   </div>
                   <div class="col-sm-12 my-5" v-if="state.step === 4">
                     <label for="maritalStatus" class="form-label fw-bold">Marital Status</label>
                     <select class="form-select" id="maritalStatus" v-model="state.selected['maritalStatus']" required>
-                      <option disabled value="">Please select a marital status</option>
+                      <option disabled value="">결혼 상태를 선택해주세요!</option>
                       <option v-for="value in state.info['maritalStatus']" :key="value" :value="value">{{ value }}</option>
                     </select>
                   </div>
@@ -49,28 +49,28 @@
                 <div class="form-group my-5" v-if="state.step === 7">
                   <label for="incomeType" class="form-label fw-bold">Income Type</label>
                   <select class="form-select" id="incomeType" v-model="state.selected['incomeType']" required>
-                    <option disabled value="">Please select an income type</option>
+                    <option disabled value="">수입 형태를 선택해주세요!</option>
                     <option v-for="type in state.info['incomeType']" :key="type" :value="type">{{ type }}</option>
                   </select>
                 </div>
                 <div class="form-group my-5" v-if="state.step === 8">
                   <label for="incomeClass" class="form-label fw-bold">Income Class</label>
                   <select class="form-select" id="incomeClass" v-model="state.selected['incomeClass']" required>
-                    <option disabled value="">Please select an income class</option>
+                    <option disabled value="">수입 수준을 선택해주세요!</option>
                     <option v-for="incomeclass in state.info['incomeClass']" :key="incomeclass" :value="incomeclass">{{ incomeclass }}</option>
                   </select>
                 </div>
                 <div class="form-group my-5" v-if="state.step === 9">
                   <label for="occupation" class="form-label fw-bold">Occupation</label>
                   <select class="form-select" id="occupation" v-model="state.selected['occupation']" required>
-                    <option disabled value="">Please select an occupation</option>
+                    <option disabled value="">직종을 선택해주세요!</option>
                     <option v-for="occup in state.info['occupation']" :key="occup" :value="occup">{{ occup }}</option>
                   </select>
                 </div>
                 <div class="form-group my-5" v-if="state.step === 10">
                   <label for="orgType" class="form-label fw-bold">Org Type</label>
                   <select class="form-select" id="orgType" v-model="state.selected['orgType']" required >
-                    <option disabled value="">Please select an org type</option>
+                    <option disabled value="">조직 유형을 선택해주세요!</option>
                     <option v-for="type in state.info['orgType']" :key="type" :value="type">{{ type }}</option>
                   </select>
                 </div>
@@ -81,35 +81,35 @@
                 <div class="form-group my-5" v-if="state.step === 12">
                   <label for="houseOwnedYN" class="form-label fw-bold">House Own Y/N</label>
                   <select class="form-select" id="houseOwnedYN" v-model="state.selected['houseOwnedYN']" required>
-                    <option disabled value="">Please select an option</option>
+                    <option disabled value="">집 소유 여부를 선택해주세요!</option>
                     <option v-for="option in state.info['houseOwnedYN']" :key="option" :value="option">{{ option }}</option>
                   </select>
                 </div>
                 <div class="form-group my-5" v-if="state.step === 13">
                   <label for="dwellingType" class="form-label fw-bold">Dwelling Type</label>
                   <select class="form-select" id="dwellingType" v-model="state.selected['dwellingType']" required>
-                    <option disabled value="">Please select a dwelling type</option>
+                    <option disabled value="">거주 유형을 선택해주세요!</option>
                     <option v-for="type in state.info['dwellingType']" :key="type" :value="type">{{ type }}</option>
                   </select>
                 </div>
                 <div class="form-group my-5" v-if="state.step === 14">
                   <label for="housingType" class="form-label fw-bold">Housing Type</label>
                   <select class="form-select" id="housingType" v-model="state.selected['housingType']" required>
-                    <option disabled value="">Please select a housing type</option>
+                    <option disabled value="">주택 유형을 선택해주세요!</option>
                     <option v-for="type in state.info['housingType']" :key="type" :value="type">{{ type }}</option>
                   </select>
                 </div>
                 <div class="form-group my-5" v-if="state.step === 15">
                   <label for="residenceClass" class="form-label fw-bold">Residence Class</label>
                   <select class="form-select" id="residenceClass" v-model="state.selected['residenceClass']" required>
-                    <option disabled value="">Please select a residence class</option>
+                    <option disabled value="">거주지 수준을 선택해주세요 !</option>
                     <option v-for="residenceClass in state.info['residenceClass']" :key="residenceClass" :value="residenceClass">{{ residenceClass }}</option>
                   </select>
                 </div>
                 <div class="form-group my-5" v-if="state.step === 16">
                   <label for="carOwnedYN" class="form-label fw-bold">Car Owned Y/N</label>
                   <select class="form-select" id="carOwnedYN" v-model="state.selected['carOwnedYN']" required>
-                    <option disabled value="">Please select an option</option>
+                    <option disabled value="">자동차 소유 여부를 선택해주세요!</option>
                     <option v-for="option in state.info['carOwnedYN']" :key="option" :value="option">{{ option }}</option>
                   </select>
                 </div>
