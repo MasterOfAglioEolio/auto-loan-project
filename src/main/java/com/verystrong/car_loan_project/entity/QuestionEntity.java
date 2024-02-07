@@ -17,9 +17,9 @@ import java.time.LocalDateTime;
 public class QuestionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long questionId;
+    private String accountId;
     private String title;
-    private String contents;
-    private String author;
+    private String content;
     private LocalDateTime createdAt;
 }

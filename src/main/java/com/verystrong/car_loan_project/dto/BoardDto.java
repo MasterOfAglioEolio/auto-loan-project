@@ -12,8 +12,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 public class BoardDto implements Serializable {
-    private Long idx;
+    private Long boardId;
     private String title;
-    private String contents;
+    private String content;
     private String createdAt;
 }
