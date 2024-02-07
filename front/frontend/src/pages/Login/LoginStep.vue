@@ -1,19 +1,29 @@
 <template>
   <div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
-  <div class="form-signin w-100 m-auto">
-    <h1 :class="{'display-10':true, 'fw-bold':true, 'text-center':true, 'display-5': store.state.large_Mode.check === 1}">Please Login</h1>
-    <h2 :class="{'display-10':true, 'fw-normal':true,'text-muted':true, 'text-center':true, 'display-5': store.state.large_Mode.check === 1}">로그인</h2>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput"
-             @keyup.enter="submit()" v-model="state.form.account_id" placeholder="Id">
-      <label for="floatingInput">Id</label>
+    <div class="form-signin w-100 m-auto">
+      <h1 class="display-5 fw-bold text-center">로그인</h1>
+      <h2 class="display-7 fw-normal text-muted text-center">Login</h2>
+      <h2 class="fw-bold mb-5">{{state.step}}/2</h2>
+      <div class="form-floating" v-if="state.step === 1">
+        <input type="text" class="form-control" id="floatingInput"
+               @keyup.enter="submit()" v-model="state.form.account_id" placeholder="Id">
+        <label for="floatingInput">Id</label>
+      </div>
+      <div class="form-floating" v-if="state.step === 2">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" @keyup.enter="submit()" v-model="state.form.password">
+        <label for="floatingPassword">Password</label>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-primary btn-lg" type="button" v-if="state.step > 1" @click="state.step--">
+          Prev
+        </button>
+        <button class="btn btn-primary btn-lg" type="button" v-if="state.step <=1" @click="state.step++">
+          Next
+        </button>
+        <button class="w-100 btn btn-lg btn-primary" @click="submit()" v-if="state.step === 2">Log in</button>
+      </div>
+
     </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" @keyup.enter="submit()" v-model="state.form.password">
-      <label for="floatingPassword">Password</label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" @click="submit()">Log in</button>
-  </div>
   </div>
 </template>
 
@@ -32,9 +42,10 @@ export default {
   },
   setup() {
     const state = reactive({
+      step:1,
       form: {
         account_id: "",
-        password: ""
+        password: "",
       }
     })
 
@@ -43,7 +54,9 @@ export default {
         sessionStorage.setItem("id", res.data);
         store.commit('setAccount',res.data);
         router.push({path: "/"});
+        state.form.step = 1;  // 모든 정보를 입력한 후에는 step을 다시 1로 초기화합니다.
         window.alert("로그인하였습니다.");
+
       }).catch(() => {
         window.alert("로그인 정보가 존재하지 않습니다..");
       });
@@ -61,6 +74,10 @@ export default {
   align-items: center;
   justify-content: center;
   height: 80vh;
+}
+.form-floating{
+  margin-top: 30px;
+  margin-bottom:30px;
 }
 
 .form-signin {
@@ -112,5 +129,13 @@ export default {
 .form-signin p b {
   color: #4267B2;
   cursor: pointer;
+}
+
+.btn-group{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:20px;
+  margin:auto;
 }
 </style>

@@ -8,9 +8,9 @@
 
 <script>
 
-import InfoEdit from "@/pages/InfoEdit.vue";
-import InfoForm from "@/pages/InfoForm.vue";
-import Info_step from "@/pages/Info_step.vue";
+import InfoEdit from "@/pages/Info/InfoEdit.vue";
+import InfoForm from "@/pages/Info/InfoForm.vue";
+import Info_step from "@/pages/Info/Info_step.vue";
 
 export default {
   components: {
