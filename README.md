@@ -142,31 +142,28 @@
 ## Home 큰글 모드 적용
 ![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
 
-## 로그인, 회원가입 화면 
+## 로그인 (기본 | 큰글모드 (One Page One Thing) 적용) 
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803)
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d)
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/b2427fd0-75fa-4e4b-a67a-16b398528848)
+|---|---|
 
-## 큰글 모드 적용 로그인, 회원가입 화면 (One Page One Thing)
+## 회원가입 (기본 | 큰글모드 (One Page One Thing) 적용) 
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/b2427fd0-75fa-4e4b-a67a-16b398528848)
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/e6c99703-6596-4784-8088-212f188443b9)
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/e6c99703-6596-4784-8088-212f188443b9) 
+|---|---|
+
+
+
 
 
 
 ## 게시판 (Q&A, 공지사항)
 
-<figure class="half"> 
- <a href="link"><img src=https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ab0f2d4c-276c-4f4b-af3c-c2a4f9999c91 align='left'></a> 
- <a href="link"><img src=https://github.com/XgitalBounce/auto-loan-project/assets/60294084/572dc741-b745-4e42-bbc5-2097d2fa5173 align='right'></a> 
-</figure>
 
 <p align="center">
- <img src="이미지경로" align="center" width="32%">  
- <img src="이미지경로" align="center" width="32%">  
- <img src="이미지경로" align="center" width="32%">  
+ <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ab0f2d4c-276c-4f4b-af3c-c2a4f9999c91" align="center">  
+ <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/572dc741-b745-4e42-bbc5-2097d2fa5173" align="center">  
 </p>
-
 
 
 ## 기본 모드 적용 시 회원 정보 입력
