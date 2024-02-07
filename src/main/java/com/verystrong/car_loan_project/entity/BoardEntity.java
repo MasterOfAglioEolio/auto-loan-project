@@ -17,9 +17,9 @@ import java.time.LocalDateTime;
 public class BoardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long boardId;
     private String title;
-    private String contents;
+    private String content;
     private LocalDateTime createdAt;
 }
 

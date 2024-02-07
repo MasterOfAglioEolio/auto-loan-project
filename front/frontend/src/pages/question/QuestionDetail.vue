@@ -60,8 +60,8 @@ export default {
         }
       });
       axios.get('/api/comment/' + this.idx, {
-            params: this.requestBody,
-          })
+        params: this.requestBody,
+      })
           .then((res) => {
             this.commentDetail = res.data;
           })

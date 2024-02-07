@@ -9,15 +9,26 @@
  고객님께서 제공하신 데이터를 바탕으로, 우리의 서비스는 고객님의 대출 심사 결과를 신속하고 정확하게 예측해드립니다. 
 이제 복잡한 대출 심사 과정을 걱정하지 마시고, EALC 서비스를 통해 간편하게 자동차 할부 대출을 체크해보세요.
 
+# Why EALC?
+
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/a256d9ae-fd77-4037-9363-b02fc465b750)
 
 
+# 프로젝트 목표
 
-
-
+* Restful API 설계 
+* 로그인(Spring Security & JWT) 인증 기능 구현
+* 게시글, 댓글 CURD 기능 구현
+* 회원정보 입력 및 대출 심사 신청 CRUD 기능 구현
+* Machine Learning Model을 이용한 대출 심사 결과 제공(대출 심사 승인 여부, 대출 예상 금리)
+* 고령 이용자를 위한 큰글 모드 및 One Page One Thing 방식 UI 제공   
 
 
 
 # 개발 환경
+
+![서버 구조](https://github.com/XgitalBounce/car-loan-project/assets/60294084/0d3f222c-6e17-4e8d-be70-b4567da87fdf)
+
 
 ## Front End
 
@@ -89,7 +100,7 @@
 |loanTerm|대출 기간 데이터|integer|
 |interestType|이자율 유형 데이터|categorical|
 
-### 대출 심사 결과 에 대한 종속변수
+### 대출 심사 결과에 대한 종속변수
 
 |Dependent Variable|Description|Model Category|
 |------|---|---|
@@ -97,54 +108,80 @@
 |interestRate|대출 예상 금리|BigDecimal|
 
 
-TODO :: ML SCORE 추가
+### Model Information
+
+|Judgement Loan Model(retire)|Interest Rate Model(retire)|Judgement Loan Model(incumbent)|Interest Rate Model(incumbent)|
+|------|---|------|---|
+|Algorithm: RandomForest|Algorithm: GBM|Algorithm: RandomForest|Algorithm: GBM|
+|Model Category: Binary Classification|Model Catelgory: Regression|Model Category: Binary Classification|Model Catelgory: Regression|
+|n_estimators: 10|ntrees: 100|n_estimators: 10|ntrees: 100|
+|max_depth: 6|max_depth: 5|max_depth: 6|max_depth: 5|
+|min_samples_leaf : 8|learn_rate: 0.05|min_samples_leaf : 8|learn_rate: 0.05|
+|min_samples_split : 8|---|min_samples_split : 8|---|
+|AUC on valid: 0.606|R2: 0.99|AUC on valid: 0.671|R2: 0.99|
 
 
-## TODO : 수정예정
-
-Restful 방식 
-* 로그인(Spring Security & JWT)
-* 게시글, 댓글 CURD
-* 회원정보 입력 및 대출 심사 신청 CRUD
-* Machine Learning Model을 이용한 대출 심사 
-* 고령 이용자를 위한 큰글 모드 및 One Page One Thing 방식 UI 제공   
-
-## ERD
+## DB ERD
 
 ![car-loan-project-erd drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/4d322c8a-ba2d-49da-a3c2-36f6064758ab)#
 
 
 ## Use Case
 
-![할부금융 usecase drawio](https://github.com/XgitalBounce/car-loan-project/assets/60294084/b9d691b9-1b56-4dad-a0e0-e63ddbe43896)
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d446223-6900-4425-85ad-4e23b30b9b4d)
+
 
 
 # Service Sample Image
 
 ## Home 화면
-![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/15efaae3-6744-41e5-ae2f-5d783b7187a4)
+![home1](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788)
+
+![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339)
+
+
+
+
+## Home 큰글 모드 적용용
+![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
+
+
+
+
+
+## TODO 게시판(Q&A, 공지사항 화면 추가)
+
+### Q&A 게시판
+
+![커뮤니티QA](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1241b02e-5c94-4f3d-ac3d-c2896a0a6de4)
+
+
+
+
+### 공지사항 게시판
+
+![커뮤니티BOARD](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0160448b-1fe7-466c-8d39-b989058b3cfd)
+
+
+
+
+
+## 기본 모드 적용 시 회원 정보 입력
+
+
+![정보입력_기본](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/899d8795-e26f-47f8-8f51-0256771620cd)
+
+
+
+## 큰글 모드 적용 시 회원 정보 입력 (One Page One Thing)
+
+![정보입력_큰글](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/b4d7669b-b3de-437a-a9e3-01898a03005a)
+
 
 
 
 ## 심사 결과 화면 
 ![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/7a406d5d-5f6b-4593-baa7-91077844da28)
-
-## TODO 게시판(Q&A, 공지사항 화면 추가)
-
-예정
-
-
-## 기본 모드 적용 시 회원 정보 입력
-
-![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/6fc8e04b-fb63-4e44-9ca6-836d70c0470b)
-
-
-
-
-## 큰글 모드 적용 시 One Page One Thing
-
-![image](https://github.com/XgitalBounce/car-loan-project/assets/60294084/0a0ee997-0787-4012-8a16-d01e79eb6e7e)
-
 
 # TODO: 개선안
 

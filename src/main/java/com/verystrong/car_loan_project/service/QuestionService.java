@@ -27,10 +27,10 @@ public class QuestionService {
 
         for (QuestionEntity entity : questionEntities) {
             QuestionDto dto = QuestionDto.builder()
-                    .idx(entity.getIdx())
-                    .author(entity.getAuthor())
+                    .questionId(entity.getQuestionId())
+                    .accountId(entity.getAccountId())
                     .title(entity.getTitle())
-                    .contents(entity.getContents())
+                    .content(entity.getContent())
                     .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
                     .build();
 
@@ -46,10 +46,10 @@ public class QuestionService {
     public QuestionDto getQuestion(Long id) {
         QuestionEntity entity = questionRepository.findById(id).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
         return QuestionDto.builder()
-                .idx(entity.getIdx())
+                .questionId(entity.getQuestionId())
                 .title(entity.getTitle())
-                .contents(entity.getContents())
-                .author(entity.getAuthor())
+                .content(entity.getContent())
+                .accountId(entity.getAccountId())
                 .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
                 .build();
     }
@@ -60,8 +60,8 @@ public class QuestionService {
     public QuestionEntity create(QuestionDto questionDto) {
         QuestionEntity entity = QuestionEntity.builder()
                 .title(questionDto.getTitle())
-                .contents(questionDto.getContents())
-                .author(questionDto.getAuthor())
+                .content(questionDto.getContent())
+                .accountId(questionDto.getAccountId())
                 .createdAt(LocalDateTime.now())
                 .build();
         return questionRepository.save(entity);
@@ -71,9 +71,9 @@ public class QuestionService {
      * 게시글 수정
      */
     public QuestionEntity update(QuestionDto questionDto) {
-        QuestionEntity entity = questionRepository.findById(questionDto.getIdx()).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
+        QuestionEntity entity = questionRepository.findById(questionDto.getQuestionId()).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
         entity.setTitle(questionDto.getTitle());
-        entity.setContents(questionDto.getContents());
+        entity.setContent(questionDto.getContent());
         return questionRepository.save(entity);
     }
 

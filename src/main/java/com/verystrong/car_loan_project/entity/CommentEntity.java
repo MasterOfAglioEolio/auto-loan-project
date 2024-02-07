@@ -14,8 +14,10 @@ import java.time.LocalDateTime;
 public class CommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
-    private String contents;
+    private Long commentId;
+    private String accountId;
+    private Long questionId;
+    private String content;
     private LocalDateTime createdAt;
 }
 

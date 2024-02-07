@@ -1,5 +1,6 @@
 <template>
   <div class="board-list table-container">
+    <h3>공지사항</h3>
     <div class="table-responsive">
       <table class="w3-table-all">
         <thead>
@@ -126,6 +127,6 @@ export default {
 
 <style scoped>
 .table-container {
-  margin-top: 20px; /* 헤더로부터의 간격 조절 */
+  margin-top: 100px; /* 헤더로부터의 간격 조절 */
 }
 </style>

@@ -27,9 +27,9 @@ public class BoardService {
 
         for (BoardEntity entity : boardEntities) {
             BoardDto dto = BoardDto.builder()
-                    .idx(entity.getIdx())
+                    .boardId(entity.getBoardId())
                     .title(entity.getTitle())
-                    .contents(entity.getContents())
+                    .content(entity.getContent())
                     .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
                     .build();
 
@@ -45,9 +45,9 @@ public class BoardService {
     public BoardDto getBoard(Long id) {
         BoardEntity entity = boardRepository.findById(id).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
         return BoardDto.builder()
-                .idx(entity.getIdx())
+                .boardId(entity.getBoardId())
                 .title(entity.getTitle())
-                .contents(entity.getContents())
+                .content(entity.getContent())
                 .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
                 .build();
     }
@@ -58,7 +58,7 @@ public class BoardService {
     public BoardEntity create(BoardDto boardDto) {
         BoardEntity entity = BoardEntity.builder()
                 .title(boardDto.getTitle())
-                .contents(boardDto.getContents())
+                .content(boardDto.getContent())
                 .createdAt(LocalDateTime.now())
                 .build();
         return boardRepository.save(entity);
@@ -68,9 +68,9 @@ public class BoardService {
      * 게시글 수정
      */
     public BoardEntity update(BoardDto boardDto) {
-        BoardEntity entity = boardRepository.findById(boardDto.getIdx()).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
+        BoardEntity entity = boardRepository.findById(boardDto.getBoardId()).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
         entity.setTitle(boardDto.getTitle());
-        entity.setContents(boardDto.getContents());
+        entity.setContent(boardDto.getContent());
         return boardRepository.save(entity);
     }
 

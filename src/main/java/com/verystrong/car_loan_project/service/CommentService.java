@@ -27,8 +27,8 @@ public class CommentService {
 
         for (CommentEntity entity : commentEntities) {
             CommentDto dto = CommentDto.builder()
-                    .idx(entity.getIdx())
-                    .contents(entity.getContents())
+                    .commentId(entity.getCommentId())
+                    .content(entity.getContent())
                     .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
                     .build();
 
@@ -44,8 +44,8 @@ public class CommentService {
     public CommentDto getComment(Long id) {
         CommentEntity entity = commentRepository.findById(id).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
         return CommentDto.builder()
-                .idx(entity.getIdx())
-                .contents(entity.getContents())
+                .commentId(entity.getCommentId())
+                .content(entity.getContent())
                 .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
                 .build();
     }
@@ -55,7 +55,7 @@ public class CommentService {
      */
     public CommentEntity create(CommentDto commentDto) {
         CommentEntity entity = CommentEntity.builder()
-                .contents(commentDto.getContents())
+                .content(commentDto.getContent())
                 .createdAt(LocalDateTime.now())
                 .build();
         return commentRepository.save(entity);
@@ -65,8 +65,8 @@ public class CommentService {
      * 댓글 수정
      */
     public CommentEntity update(CommentDto commentDto) {
-        CommentEntity entity = commentRepository.findById(commentDto.getIdx()).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
-        entity.setContents(commentDto.getContents());
+        CommentEntity entity = commentRepository.findById(commentDto.getCommentId()).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
+        entity.setContent(commentDto.getContent());
         return commentRepository.save(entity);
     }
 
