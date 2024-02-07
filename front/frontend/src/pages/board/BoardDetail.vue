@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="board-contents">
-      <span>{{ contents }}</span>
+      <span>{{ content }}</span>
     </div>
     <div class="common-buttons">
       <button type="button" class="w3-button w3-round w3-blue-gray" v-on:click="fnUpdate">수정</button>&nbsp;
@@ -29,7 +29,7 @@ export default {
       idx: this.$route.query.idx,
 
       title: '',
-      contents: '',
+      content: '',
       created_at: ''
     }
   },
@@ -42,7 +42,7 @@ export default {
         params: this.requestBody
       }).then((res) => {
         this.title = res.data.title
-        this.contents = res.data.contents
+        this.content = res.data.content
         this.created_at = res.data.createdAt
       }).catch((err) => {
         if (err.message.indexOf('Network Error') > -1) {

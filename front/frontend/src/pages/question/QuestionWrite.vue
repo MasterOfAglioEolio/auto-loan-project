@@ -2,7 +2,7 @@
   <div class="question-detail">
     <div class="question-contents">
       <input type="text" v-model="title" class="w3-input w3-border" placeholder="제목을 입력해주세요.">
-      <input type="text" v-model="author" class="w3-input w3-border" v-if="idx === undefined" readonly>
+      <input type="text" v-model="accountId" class="w3-input w3-border" v-if="idx === undefined" readonly>
     </div>
     <div class="question-contents">
       <textarea id="" cols="30" rows="10" v-model="contents" class="w3-input w3-border" style="resize: none;">
@@ -27,7 +27,7 @@ export default {
       idx: this.$route.query.idx,
 
       title: '',
-      author: store.state.accountId.id,
+      accountId: store.state.accountId.id,
       contents: '',
       created_at: ''
     }
@@ -42,7 +42,7 @@ export default {
           params: this.requestBody
         }).then((res) => {
           this.title = res.data.title
-          this.author = res.data.author
+          this.accountId = res.data.accountId
           this.contents = res.data.contents
           this.created_at = res.data.createdAt
         }).catch((err) => {
@@ -70,7 +70,7 @@ export default {
         "idx": this.idx,
         "title": this.title,
         "contents": this.contents,
-        "author": this.author
+        "accountId": this.accountId
       }
 
       if (this.idx === undefined) {

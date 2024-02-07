@@ -3,7 +3,7 @@
     <div class="question-contents">
       <h3 style="margin-bottom: 0;">{{ title }}</h3>
       <div>
-        <strong class="w3-large">{{ author }}</strong>
+        <strong class="w3-large">{{ accountId }}</strong>
         <br>
         <span>{{ created_at }}</span>
       </div>
@@ -37,6 +37,7 @@ export default {
       idx: this.$route.query.idx,
 
       title: '',
+      accountId:'',
       contents: '',
       created_at:'',
       commentDetail: {},
@@ -52,6 +53,7 @@ export default {
         params: this.requestBody
       }).then((res) => {
         this.title = res.data.title
+        this.accountId=res.data.accountId
         this.contents = res.data.contents
         this.created_at = res.data.createdAt
       }).catch((err) => {
