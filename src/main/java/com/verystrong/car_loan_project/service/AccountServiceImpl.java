@@ -33,7 +33,7 @@ public class AccountServiceImpl implements AccountService{
         Account account = Account.builder()
                 .accountId(dto.accountId())
                 .email(dto.email())
-                .password(passwordEncoder.encode(dto.password()))  //암호화처리 //TODO : SpringSecurity 오류 해결 후 수정
+                .password(passwordEncoder.encode(dto.password()))  //암호화처리
                 .role(AccountRole.USER)
                 .build();
         log.info("DTO to entity {}",account);

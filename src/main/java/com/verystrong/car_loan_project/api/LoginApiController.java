@@ -17,6 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -38,12 +39,15 @@ public class LoginApiController {
     @Autowired
     private JwtService jwtService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping("/api/login")
     public ResponseEntity login(@RequestBody Map<String, String> params, HttpServletResponse res){
         log.info("[LoginCheck]:{}",params);
-        Account account = accountRepository.findByAccountIdAndPassword(params.get("account_id"),params.get("password"));
-
-        if(account!=null){
+        Account account = accountRepository.findByAccountId(params.get("account_id"));
+        log.info("[Account]:{}",account);
+        if(account != null && passwordEncoder.matches(params.get("password"), account.getPassword())){
             JwtService jwtService = new JwtServiceImpl();
             String account_id = account.getAccountId();
             String token = jwtService.getToken("account_id",account_id);
