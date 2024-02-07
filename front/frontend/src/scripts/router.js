@@ -1,10 +1,10 @@
 import Home from "@/pages/Home.vue";
-import Login from "@/pages/Login.vue";
-import info from "@/pages/info.vue";
-import Sign_In from "@/pages/Sign_In.vue";
+import Login from "@/pages/Login/Login.vue";
+import info from "@/pages/Info/info.vue";
+import Sign_In from "@/pages/SignIn/Sign_In.vue";
 import {createRouter, createWebHistory} from "vue-router";
-import Application from "@/pages/Application.vue";
-import Judgment from "@/pages/Judgment.vue";
+import Application from "@/pages/Application/Application.vue";
+import Judgment from "@/pages/Judgment/Judgment.vue";
 import BoardList from '@/pages/board/BoardList.vue'
 import AboutView from "@/pages/AboutView.vue";
 import BoardDetail from "@/pages/board/BoardDetail.vue";
