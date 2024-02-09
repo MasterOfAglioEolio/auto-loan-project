@@ -2,29 +2,41 @@
   <div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
     <div class="form-signin w-100 m-auto">
       <h1 class="display-5 fw-bold text-center">로그인</h1>
-      <h2 class="display-7 fw-normal text-muted text-center">Login</h2>
-      <h2 class="fw-bold mb-5">{{state.step}}/2</h2>
-      <div class="form-floating" v-if="state.step === 1">
+<!--      <h2 class="display-7 fw-normal text-muted text-center">Login</h2>-->
+<!--      <h2 class="fw-bold mb-5">{{state.step}}/2</h2>-->
+<!--      <div class="form-floating" v-if="state.step === 1">-->
+<!--        <input type="text" class="form-control" id="floatingInput"-->
+<!--               @keyup.enter="submit()" v-model="state.form.account_id" placeholder="Id">-->
+<!--        <label for="floatingInput">Id</label>-->
+<!--      </div>-->
+<!--      <div class="form-floating" v-if="state.step === 2">-->
+<!--        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" @keyup.enter="submit()" v-model="state.form.password">-->
+<!--        <label for="floatingPassword">Password</label>-->
+<!--      </div>-->
+<!--      <div class="btn-group">-->
+<!--        <button class="btn btn-primary btn-lg" type="button" v-if="state.step > 1" @click="state.step&#45;&#45;">-->
+<!--          Prev-->
+<!--        </button>-->
+<!--        <button class="btn btn-primary btn-lg" type="button" v-if="state.step <=1" @click="state.step++">-->
+<!--          Next-->
+<!--        </button>-->
+<!--        <button class="w-100 btn btn-lg btn-primary" @click="submit()" v-if="state.step === 2">Log in</button>-->
+<!--      </div>-->
+      <div class="form-floating-group">
+      <div class="form-floating">
         <input type="text" class="form-control" id="floatingInput"
                @keyup.enter="submit()" v-model="state.form.account_id" placeholder="Id">
         <label for="floatingInput">Id</label>
       </div>
-      <div class="form-floating" v-if="state.step === 2">
+      <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" placeholder="Password" @keyup.enter="submit()" v-model="state.form.password">
         <label for="floatingPassword">Password</label>
       </div>
-      <div class="btn-group">
-        <button class="btn btn-primary btn-lg" type="button" v-if="state.step > 1" @click="state.step--">
-          Prev
-        </button>
-        <button class="btn btn-primary btn-lg" type="button" v-if="state.step <=1" @click="state.step++">
-          Next
-        </button>
-        <button class="w-100 btn btn-lg btn-primary" @click="submit()" v-if="state.step === 2">Log in</button>
       </div>
+      <button class="w-100 btn btn-lg btn-primary" @click="submit()">Log in</button>
+    </div>
 
     </div>
-  </div>
 </template>
 
 <script>
@@ -75,9 +87,13 @@ export default {
   justify-content: center;
   height: 80vh;
 }
-.form-floating{
+.form-floating-group{
   margin-top: 30px;
   margin-bottom:30px;
+}
+.form-floating{
+  //margin-top: 30px;
+  //margin-bottom:30px;
 }
 
 .form-signin {
