@@ -137,25 +137,24 @@
 
 # Service Sample Image
 
-## Home 화면
-![home1](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788)
-
-![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339)
-
-## Home 큰글 모드 적용
-![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
-
-## 로그인 (기본 | 큰글모드 (One Page One Thing) 적용) 
-
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d)| ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ac4839ef-8b0b-4d86-8c9b-7fc3f80f4f42)
+## Home 화면 (기본|큰글 모드)
+![home1](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788) | ![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
 |---|---|
 
-## 회원가입 (기본 | 큰글모드 (One Page One Thing) 적용) 
-
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0b37a424-8d6c-45b7-b3c6-991255d5bb33)
+![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/75701da9-9f74-4dc9-911b-6a3cdd1d1ebf)
 |---|---|
 
 
+
+## 로그인 (기본|큰글 모드)
+
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d)| ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d0a2ca3-62cb-4c67-b98e-837f5293d42a)
+
+
+## 회원가입 (기본|큰글 모드)
+
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/56cd521d-bd4f-47b2-9a03-042f3817a9d4)
+|---|---|
 
 
 
