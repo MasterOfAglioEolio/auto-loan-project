@@ -144,20 +144,15 @@
 ![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/75701da9-9f74-4dc9-911b-6a3cdd1d1ebf)
 |---|---|
 
+## 회원가입 (기본|큰글 모드)
 
+![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/MasterOfAglioEolio/auto-loan-project/assets/60294084/5eef53ec-336d-4797-80dd-db4fbb6bcf2c)
+|---|---|
 
 ## 로그인 (기본|큰글 모드)
 
 ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d)| ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d0a2ca3-62cb-4c67-b98e-837f5293d42a)
-
-
-## 회원가입 (기본|큰글 모드)
-
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/56cd521d-bd4f-47b2-9a03-042f3817a9d4)
 |---|---|
-
-
-
 
 ## 게시판 (Q&A, 공지사항)
 
