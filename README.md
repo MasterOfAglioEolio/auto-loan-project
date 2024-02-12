@@ -137,22 +137,62 @@
 
 # Service Sample Image
 
-## Home 화면 (기본|큰글 모드)
-![home1](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788) | ![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
-|---|---|
 
-![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339) | ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/75701da9-9f74-4dc9-911b-6a3cdd1d1ebf)
-|---|---|
+## Home 화면 (기본|큰글 모드)
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788" width=450 alt="home1">
+    </td>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73" width=450 alt="home큰글모드">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339"  alt="home2">
+    </td>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/75701da9-9f74-4dc9-911b-6a3cdd1d1ebf" alt="image">
+    </td>
+  </tr>
+</table>
 
 ## 회원가입 (기본|큰글 모드)
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803) | ![image](https://github.com/MasterOfAglioEolio/auto-loan-project/assets/60294084/5eef53ec-336d-4797-80dd-db4fbb6bcf2c)
-|---|---|
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803" width=450 alt="기본 모드">
+    </td>
+    <td align="center">
+      <img src="https://github.com/MasterOfAglioEolio/auto-loan-project/assets/60294084/5eef53ec-336d-4797-80dd-db4fbb6bcf2c" width=450 alt="큰글 모드">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">기본 모드</td>
+    <td align="center">큰글 모드</td>
+  </tr>
+</table>
+
 
 ## 로그인 (기본|큰글 모드)
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d)| ![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d0a2ca3-62cb-4c67-b98e-837f5293d42a)
-|---|---|
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d" width=450 alt="기본 모드">
+    </td>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d0a2ca3-62cb-4c67-b98e-837f5293d42a" width=450 alt="큰글 모드">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">기본 모드</td>
+    <td align="center">큰글 모드</td>
+  </tr>
+</table>
 
 ## 게시판 (Q&A, 공지사항)
 
