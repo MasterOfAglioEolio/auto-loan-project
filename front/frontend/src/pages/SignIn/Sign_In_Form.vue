@@ -1,31 +1,31 @@
 
 <template>
   <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
-  <div class="form-signin w-100 m-auto">
-    <h2 :class="{'display-10':true, 'fw-bold':true, 'text-center':true, 'display-7': store.state.large_Mode.check === 1}">Create Your Account</h2>
-    <h3 :class="{'display-10':true, 'fw-normal':true,'text-muted':true, 'text-center':true, 'display-5': store.state.large_Mode.check === 1}">회원 가입</h3>
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput"
-             @keyup.enter="submit()" v-model="account.accountId">
-      <label for="floatingInput">Id</label>
+    <div class="form-signin w-100 m-auto">
+      <h2 :class="{'display-10':true, 'fw-bold':true, 'text-center':true, 'display-7': store.state.large_Mode.check === 1}">Create Your Account</h2>
+      <h3 :class="{'display-10':true, 'fw-normal':true,'text-muted':true, 'text-center':true, 'display-5': store.state.large_Mode.check === 1}">회원 가입</h3>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput"
+               @keyup.enter="submit()" v-model="account.accountId" required>
+        <label for="floatingInput">Id</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingInput" placeholder="Password" @keyup.enter="submit()" v-model="account.password" required>
+        <label for="floatingInput">Password</label>
+      </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="Email" @keyup.enter="submit()" v-model="account.email" required>
+        <label for="floatingInput">Email</label>
+      </div>
+      <!--    <div>-->
+      <!--      <select v-model="account.role">-->
+      <!--        <option disabled value="">Please select a role</option>-->
+      <!--        <option>USER</option>-->
+      <!--        <option>ADMIN</option>-->
+      <!--      </select>-->
+      <!--    </div>-->
+      <button class="w-100 btn btn-lg btn-primary" @click="submitForm">Sign in</button>
     </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="floatingInput" placeholder="Password" @keyup.enter="submit()" v-model="account.password">
-      <label for="floatingInput">Password</label>
-    </div>
-    <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="Email" @keyup.enter="submit()" v-model="account.email">
-      <label for="floatingInput">Email</label>
-    </div>
-    <div>
-      <select v-model="account.role">
-        <option disabled value="">Please select a role</option>
-        <option>USER</option>
-        <option>ADMIN</option>
-      </select>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" @click="submitForm">Sign in</button>
-  </div>
   </div>
 
 
@@ -49,7 +49,7 @@ export default {
         accountId: '',
         password: '',
         email: '',
-        role: ''
+        role: 'USER'
       }
     };
   },
@@ -60,6 +60,7 @@ export default {
         const response = await axios.post('/api/sign', this.account);
         console.log("[Response]",response.data);
         await router.push({path: "/login"});
+        window.alert("회원가입이 완료되었습니다 로그인해주세요.");
         // 성공적으로 응답을 받았을 때의 처리를 여기에 작성하세요.
       } catch (error) {
         console.error(error);

@@ -1,7 +1,6 @@
 <template>
-  <div class="board-list table-container">
-    <h3>공지사항</h3>
-    <div class="table-responsive">
+  <div :class="{'board-list':true, 'table-container':true, 'large-font':store.state.large_Mode.check === 1}">
+    <h3 class="my-5 fw-bold">공지사항</h3>
       <table class="w3-table-all">
         <thead>
         <tr>
@@ -12,13 +11,13 @@
         </thead>
         <tbody>
         <tr v-for="(row, idx) in list" :key="idx">
-          <td>{{ row.idx }}</td>
-          <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
+          <td>{{ row.boardId }}</td>
+          <td><a v-on:click="fnView(`${row.boardId}`)">{{ row.title }}</a></td>
           <td>{{ row.createdAt }}</td>
         </tr>
         </tbody>
       </table>
-    </div>
+
 
     <div class="pagination w3-bar w3-padding-16 w3-small" v-if="paging.total_list_cnt > 0">
       <span class="pg">
@@ -46,8 +45,14 @@
 
 import axios from "axios";
 import router from "@/scripts/router";
+import store from "@/scripts/store";
 
 export default {
+  computed: {
+    store() {
+      return store
+    }
+  },
   data() { //변수생성
     return {
       requestBody: {}, //리스트 페이지 데이터전송

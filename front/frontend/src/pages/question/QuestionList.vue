@@ -1,6 +1,6 @@
 <template>
-  <div class="question-list table-container">
-    <h3>Q&A</h3>
+  <div :class="{'question-list':true, 'table-container':true, 'large-font':store.state.large_Mode.check === 1}">
+    <h3 class="my-5 fw-bold">Q&A</h3>
     <table class="w3-table-all">
       <thead>
       <tr>
@@ -12,9 +12,9 @@
       </thead>
       <tbody>
       <tr v-for="(row, idx) in list" :key="idx">
-        <td>{{ row.idx }}</td>
-        <td><a v-on:click="fnView(`${row.idx}`)">{{ row.title }}</a></td>
-        <td>{{ row.author }}</td>
+        <td>{{ row.questionId }}</td>
+        <td><a v-on:click="fnView(`${row.questionId}`)">{{ row.title }}</a></td>
+        <td>{{ row.accountId }}</td>
         <td>{{ row.createdAt }}</td>
       </tr>
       </tbody>
@@ -46,8 +46,14 @@
 <script>
 import axios from "axios";
 import router from "@/scripts/router";
+import store from "@/scripts/store";
 
 export default {
+  computed: {
+    store() {
+      return store
+    }
+  },
   data() { //변수생성
     return {
       requestBody: {}, //리스트 페이지 데이터전송

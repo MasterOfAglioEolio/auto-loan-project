@@ -1,4 +1,4 @@
-# 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
+## 자동차 할부 대출 심사 서비스 EALC(Easy Auto Loan Check) Service
 
 우리의 EALC 서비스는 자동차 대출 신청자의 정보를 분석하여 대출 승인 가능성과 예상 대출 금리를 제공합니다.
 
@@ -8,6 +8,9 @@
 
  고객님께서 제공하신 데이터를 바탕으로, 우리의 서비스는 고객님의 대출 심사 결과를 신속하고 정확하게 예측해드립니다. 
 이제 복잡한 대출 심사 과정을 걱정하지 마시고, EALC 서비스를 통해 간편하게 자동차 할부 대출을 체크해보세요.
+
+# 개발 기간
+2023.12.19~ 2024.02.08(개선 예정)
 
 # Why EALC?
 
@@ -134,36 +137,70 @@
 
 # Service Sample Image
 
-## Home 화면
-![home1](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788)
 
-![home2](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339)
+## Home 화면 (기본|큰글 모드)
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/6faf0db8-05a4-41c9-825b-509c86225788" width=450 alt="home1">
+    </td>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73" width=450 alt="home큰글모드">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/110b914b-788f-4181-8a57-48e7a9719339"  alt="home2">
+    </td>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/75701da9-9f74-4dc9-911b-6a3cdd1d1ebf" alt="image">
+    </td>
+  </tr>
+</table>
 
-
-
-
-## Home 큰글 모드 적용용
-![home큰글모드](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/635f5b6e-d0a7-4f65-9575-c8ad1298af73)
-
-
-
-
-
-## TODO 게시판(Q&A, 공지사항 화면 추가)
-
-### Q&A 게시판
-
-![커뮤니티QA](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1241b02e-5c94-4f3d-ac3d-c2896a0a6de4)
-
-
-
-
-### 공지사항 게시판
-
-![커뮤니티BOARD](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/0160448b-1fe7-466c-8d39-b989058b3cfd)
+## 회원가입 (기본|큰글 모드)
 
 
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/f3a418e8-00fd-4f78-b646-12b26b8b5803" width=450 alt="기본 모드">
+    </td>
+    <td align="center">
+      <img src="https://github.com/MasterOfAglioEolio/auto-loan-project/assets/60294084/5eef53ec-336d-4797-80dd-db4fbb6bcf2c" width=450 alt="큰글 모드">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">기본 모드</td>
+    <td align="center">큰글 모드</td>
+  </tr>
+</table>
 
+
+## 로그인 (기본|큰글 모드)
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/25709b25-e91e-416c-870f-43a86c044e7d" width=450 alt="기본 모드">
+    </td>
+    <td align="center">
+      <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d0a2ca3-62cb-4c67-b98e-837f5293d42a" width=450 alt="큰글 모드">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">기본 모드</td>
+    <td align="center">큰글 모드</td>
+  </tr>
+</table>
+
+## 게시판 (Q&A, 공지사항)
+
+
+<p align="center">
+ <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/ab0f2d4c-276c-4f4b-af3c-c2a4f9999c91" align="center">  
+ <img src="https://github.com/XgitalBounce/auto-loan-project/assets/60294084/572dc741-b745-4e42-bbc5-2097d2fa5173" align="center">  
+</p>
 
 
 ## 기본 모드 적용 시 회원 정보 입력
@@ -174,6 +211,7 @@
 
 
 ## 큰글 모드 적용 시 회원 정보 입력 (One Page One Thing)
+
 
 ![정보입력_큰글](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/b4d7669b-b3de-437a-a9e3-01898a03005a)
 

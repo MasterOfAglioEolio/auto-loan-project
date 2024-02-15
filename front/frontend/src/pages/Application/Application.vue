@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import ApplicationForm from '@/pages/ApplicationForm.vue'
-import ApplicationEdit from '@/pages/ApplicationEdit.vue'
+import ApplicationForm from '@/pages/Application/ApplicationForm.vue'
+import ApplicationEdit from '@/pages/Application/ApplicationEdit.vue'
 import store from "@/scripts/store";
-import Application_Step from "@/pages/Application_Step.vue";
-import Info from "@/pages/info.vue";
+import Application_Step from "@/pages/Application/Application_Step.vue";
+import Info from "@/pages/Info/info.vue";
 
 
 export default {

@@ -4,7 +4,7 @@
       <input type="text" v-model="title" class="w3-input w3-border" placeholder="제목을 입력해주세요.">
     </div>
     <div class="board-contents">
-      <textarea id="" cols="30" rows="10" v-model="contents" class="w3-input w3-border" style="resize: none;">
+      <textarea id="" cols="30" rows="10" v-model="content" class="w3-input w3-border" style="resize: none;">
       </textarea>
     </div>
     <div class="common-buttons">
@@ -25,7 +25,7 @@ export default {
       idx: this.$route.query.idx,
 
       title: '',
-      contents: '',
+      content: '',
       created_at: ''
     }
   },
@@ -39,7 +39,7 @@ export default {
           params: this.requestBody
         }).then((res) => {
           this.title = res.data.title
-          this.contents = res.data.contents
+          this.content = res.data.content
           this.created_at = res.data.createdAt
         }).catch((err) => {
           console.log(err)
@@ -65,7 +65,7 @@ export default {
       this.form = {
         "idx": this.idx,
         "title": this.title,
-        "contents": this.contents,
+        "content": this.content,
       }
 
       if (this.idx === undefined) {
