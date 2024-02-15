@@ -12,7 +12,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name="BOARD")
+@Table(indexes = {
+        @Index(columnList="BoardId")
+})
 @Entity
 public class BoardEntity {
     @Id

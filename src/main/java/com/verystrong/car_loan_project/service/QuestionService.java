@@ -28,7 +28,7 @@ public class QuestionService {
         for (QuestionEntity entity : questionEntities) {
             QuestionDto dto = QuestionDto.builder()
                     .questionId(entity.getQuestionId())
-                    .accountId(entity.getAccountId())
+                    .comments(entity.getComments())
                     .title(entity.getTitle())
                     .content(entity.getContent())
                     .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
@@ -47,9 +47,9 @@ public class QuestionService {
         QuestionEntity entity = questionRepository.findById(id).orElseThrow(() -> new RuntimeException("게시글을 찾을 수 없습니다."));
         return QuestionDto.builder()
                 .questionId(entity.getQuestionId())
+                .comments(entity.getComments())
                 .title(entity.getTitle())
                 .content(entity.getContent())
-                .accountId(entity.getAccountId())
                 .createdAt(entity.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss")))
                 .build();
     }
@@ -61,7 +61,7 @@ public class QuestionService {
         QuestionEntity entity = QuestionEntity.builder()
                 .title(questionDto.getTitle())
                 .content(questionDto.getContent())
-                .accountId(questionDto.getAccountId())
+                .comments(questionDto.getComments())
                 .createdAt(LocalDateTime.now())
                 .build();
         return questionRepository.save(entity);
