@@ -13,6 +13,7 @@ import QuestionList from "@/pages/question/QuestionList.vue";
 import QuestionDetail from "@/pages/question/QuestionDetail.vue";
 import QuestionWrite from "@/pages/question/QuestionWrite.vue";
 import CommentDetail from "@/pages/comment/CommentDetail.vue";
+import Order from "@/pages/Order/Order.vue";
 
 const routes=[
     {path:'/', component:Home},
@@ -21,6 +22,8 @@ const routes=[
     {path:'/sign',component: Sign_In},
     {path:'/application',component:Application},
     {path:'/judgment',component:Judgment},
+    {path:'/order',component: Order},
+    {path:'/orders',component: Orders},
     {
         path: '/about',
         name: 'about',
