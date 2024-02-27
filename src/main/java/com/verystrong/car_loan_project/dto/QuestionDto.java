@@ -1,21 +1,22 @@
 package com.verystrong.car_loan_project.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.verystrong.car_loan_project.entity.CommentEntity;
+import lombok.*;
 
-import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class QuestionDto implements Serializable {
+@Getter
+@Setter
+public class QuestionDto{
 
     private Long questionId;
-    private String accountId;
+    private List<CommentEntity> comments;
     private String title;
     private String content;
     private String createdAt;
+
 }

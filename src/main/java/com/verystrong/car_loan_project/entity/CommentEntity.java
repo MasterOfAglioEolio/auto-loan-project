@@ -9,14 +9,19 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name="COMMENT")
+@Table(indexes = {
+        @Index(columnList="CommentId")
+})
 @Entity
 public class CommentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentId;
-    private String accountId;
-    private Long questionId;
+
+    @ManyToOne
+    @JoinColumn(name = "question_id")
+    private QuestionEntity question;
+
     private String content;
     private LocalDateTime createdAt;
 }
