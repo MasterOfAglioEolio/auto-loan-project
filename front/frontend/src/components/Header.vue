@@ -98,8 +98,10 @@ export default {
       axios.post('/api/logout')
           .then(() => {
             // 로그아웃 성공 시, 홈 페이지로 이동
-            router.push({ path: "/" });
-            location.reload();
+            router.push({ path: "/" }).then(() => {
+              // 페이지 새로고침
+              location.reload();
+            });
           })
           .catch(err => {
             // 에러 처리

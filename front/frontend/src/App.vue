@@ -30,6 +30,10 @@ export default {
         store.commit("setAccount",data||0);
         store.commit("setAccountId",data);
 
+        if(data) { // account가 확인된 경우
+          check_info();
+          check_application();
+        }
 
       })
     };
@@ -54,8 +58,6 @@ export default {
 
     watch(route, () => {
       check();
-      check_info();
-      check_application();
     })
   }
 

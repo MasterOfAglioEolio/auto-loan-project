@@ -42,6 +42,10 @@ public class LoginApiController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @GetMapping("/api/login")
+    public ResponseEntity loginPage() {
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
     @PostMapping("/api/login")
     public ResponseEntity login(@RequestBody Map<String, String> params, HttpServletResponse res){
         log.info("[LoginCheck]:{}",params);
@@ -111,8 +115,7 @@ public class LoginApiController {
     }
 
     @GetMapping("/api/check-application")
-    public ResponseEntity check_application(@CookieValue(value = "token", required = false) String token,
-                                            Long applicationId) {
+    public ResponseEntity check_application(@CookieValue(value = "token", required = false) String token) {
         if(!jwtService.isValid(token))
         {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
