@@ -11,8 +11,10 @@
           최대 할부 48개월
         </span>
       </p>
+      <button class="btn btn-primary" @click="addToCart(item.id)">
+        <i class="fa fa-shopping-cart" aria-hidden="true">구입하기</i>
+      </button>
       <div class="d-flex justify-content-between align-items-center">
-
         <small class="price text-muted">
           {{ lib.getNumberFormatted(item.price) }}원
         </small>
@@ -27,18 +29,25 @@
 <script>
 import lib from "@/scripts/lib";
 import store from "@/scripts/store";
+import axios from "axios";
 export default {
   name:'Cars',
   computed: {
     store() {
       return store
-    },
-    lib() {
-      return lib
     }
   },
   props:{
     item:Object
+  },
+  setup() {
+    const addToCart = (itemId) => {
+      console.log(itemId)
+      axios.post(`/api/cart/items/${itemId}`).then(() => {
+        console.log('success')
+      })
+    };
+    return {lib,addToCart}
   }
 }
 </script>

@@ -13,7 +13,12 @@ import QuestionList from "@/pages/question/QuestionList.vue";
 import QuestionDetail from "@/pages/question/QuestionDetail.vue";
 import QuestionWrite from "@/pages/question/QuestionWrite.vue";
 import CommentDetail from "@/pages/comment/CommentDetail.vue";
-import Order from "@/pages/Order/Order.vue";
+import CarList from "@/pages/Contract/CarList.vue";
+import Cart from "@/pages/Contract/Cart.vue";
+import Contract from "@/pages/Contract/Contract.vue";
+import Contract_check from "@/pages/Contract/Contract_check.vue";
+import Repayment from "@/pages/Repayment/Repayment.vue";
+import Repayment_history from "@/pages/Repayment/Repayment_history.vue";
 
 const routes=[
     {path:'/', component:Home},
@@ -22,8 +27,12 @@ const routes=[
     {path:'/sign',component: Sign_In},
     {path:'/application',component:Application},
     {path:'/judgment',component:Judgment},
-    {path:'/order',component: Order},
-    {path:'/orders',component: Orders},
+    {path:'/contract',component: Contract},
+    {path:'/contract-check',component: Contract_check},
+    {path:'/car-list',component: CarList},
+    {path:'/cart',component: Cart},
+    {path:'/repayment',component: Repayment},
+    {path:'/repayment-history',component: Repayment_history},
     {
         path: '/about',
         name: 'about',

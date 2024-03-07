@@ -29,13 +29,7 @@ public class ApplicationDto {
     private Integer loanTerm;
     private InterestType interestType;
     private BigDecimal interestRate;
-//    private LocalDateTime maturity;
-//    private BigDecimal HopeAmount;
-//    private LocalDateTime appliedAt;
-//    private LocalDateTime contractedAt;
-//    private LocalDateTime createdAt;
-//    private LocalDateTime updatedAt;
-//    private BigDecimal approvalAmount;
+
 
 
     @NoArgsConstructor

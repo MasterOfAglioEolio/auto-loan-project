@@ -5,6 +5,8 @@ import com.verystrong.car_loan_project.domain.Terms;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -14,22 +16,14 @@ public class BalanceDto {
 
     private Long balanceId;
     private Long applicationId;
+    private String accountId;
     private BigDecimal entryAmount;
     private BigDecimal beforeEntryAmount;
     private BigDecimal afterEntryAmount;
     private BigDecimal balance;
-    private RepaymentType type;
     private BigDecimal repaymentAmount;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public Balance toEntity() {
-        return new Balance(
-                this.balanceId,
-                this.applicationId,
-                this.balance
-        );
-    }
-    public enum RepaymentType {
-        ADD,
-        REMOVE
-    }
+
 }

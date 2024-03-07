@@ -6,13 +6,13 @@ import com.verystrong.car_loan_project.dto.BalanceDto;
 
 public interface BalanceService {
 
-    Balance create(Long applicationId, BalanceDto dto);
+    BalanceDto create(Long applicationId, BalanceDto dto,String accountId);
 
-    Balance get(Long applicationId);
+    BalanceDto get(Long applicationId,String accountId);
 
-    Balance update(Long applicationId, BalanceDto dto);
+    BalanceDto update(Long applicationId, BalanceDto dto);
 
-    Balance repaymentUpdate(Long applicationId, BalanceDto dto);
+    BalanceDto repaymentUpdate(Long applicationId, BalanceDto dto);
 
     void delete(Long applicationId);
 }

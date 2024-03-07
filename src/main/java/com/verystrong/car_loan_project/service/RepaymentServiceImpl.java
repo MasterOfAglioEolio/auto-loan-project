@@ -12,8 +12,11 @@ import com.verystrong.car_loan_project.repository.ApplicationRepository;
 import com.verystrong.car_loan_project.repository.EntryRepository;
 import com.verystrong.car_loan_project.repository.RepaymentRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CookieValue;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -21,6 +24,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class RepaymentServiceImpl implements RepaymentService {
 
@@ -36,8 +40,8 @@ public class RepaymentServiceImpl implements RepaymentService {
 
 
     @Override
-    public Repayment create(Long applicationId, RepaymentDto dto) {
-        if (!isRepayableApplication(applicationId)) {
+    public RepaymentDto create(Long applicationId, RepaymentDto dto,String accountId) {
+        if (!isRepayableApplication(applicationId,accountId)) {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         }
 
@@ -46,29 +50,39 @@ public class RepaymentServiceImpl implements RepaymentService {
 
         repaymentRepository.save(repayment);
 
-        Balance updatedBalance = balanceService.repaymentUpdate(applicationId,
-                BalanceDto.builder() .repaymentAmount(dto.getRepaymentAmount())
-                        .type(BalanceDto.RepaymentType.REMOVE)
-                        .build());
+        BalanceDto updatedBalance = balanceService.repaymentUpdate(applicationId,
+                BalanceDto.builder().repaymentAmount(dto.getRepaymentAmount()).build());
 
         RepaymentDto response = modelMapper.map(repayment, RepaymentDto.class);
 
-//        Response response = modelMapper.map(repayment, Response.class);
-         response.setBalance(updatedBalance.getBalance());
-         Repayment response_entity= modelMapper.map(response, Repayment.class);
+        response.setBalance(updatedBalance.getBalance());
 //
-         return response_entity;
+         return response;
     }
 
     @Override
-    public List<Repayment> get(Long applicationId) {
+    public RepaymentDto get(Long applicationId) {
         List<Repayment> repayments = repaymentRepository.findAllByApplicationId(applicationId);
 
-        return repayments.stream().map(r -> modelMapper.map(r, Repayment.class)).collect(Collectors.toList());
+        if (!repayments.isEmpty()) { // 리스트가 비어있지 않은지 확인
+            Repayment lastRepayment = repayments.get(repayments.size() - 1); // 가장 마지막 요소 가져오기
+            RepaymentDto lastRepaymentDto = modelMapper.map(lastRepayment, RepaymentDto.class); // Dto로 변환
+            return lastRepaymentDto;
+        }
+
+        return null; // 리스트가 비어있다면 null 반환
     }
 
     @Override
-    public Repayment update(Long repaymentId, RepaymentDto dto) {
+    public List<RepaymentDto> get_list(Long applicationId) {
+        List<Repayment> repayments = repaymentRepository.findAllByApplicationId(applicationId);
+        java.lang.reflect.Type targetListType = new TypeToken<List<RepaymentDto>>() {}.getType();
+        List<RepaymentDto> repaymentDtos=modelMapper.map(repayments, targetListType);
+        return repaymentDtos;
+    }
+
+    @Override
+    public RepaymentDto update(Long repaymentId, RepaymentDto dto) {
         Repayment repayment = repaymentRepository.findById(repaymentId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
@@ -79,31 +93,24 @@ public class RepaymentServiceImpl implements RepaymentService {
         balanceService.repaymentUpdate(applicationId,
                 BalanceDto.builder()
                         .repaymentAmount(beforeRepaymentAmount)
-                        .type(BalanceDto.RepaymentType.ADD)
                         .build()
         );
 
         repayment.setRepaymentAmount(dto.getRepaymentAmount());
         repaymentRepository.save(repayment);
 
-        Balance updatedBalance = balanceService.repaymentUpdate(applicationId,
+        BalanceDto updatedBalance = balanceService.repaymentUpdate(applicationId,
                 BalanceDto.builder()
                         .repaymentAmount(dto.getRepaymentAmount())
-                        .type(BalanceDto.RepaymentType.REMOVE)
                         .build()
         );
-        Repayment repayment_enity =modelMapper.map(RepaymentDto.builder()
-                .applicationId(applicationId)
-                .beforeRepaymentAmount(beforeRepaymentAmount)
-                .afterRepaymentAmount(dto.getRepaymentAmount())
-                .balance(updatedBalance.getBalance())
-                .createdAt(repayment.getCreatedAt())
-                .updatedAt(repayment.getUpdatedAt())
-                .build(),Repayment.class);
+        repayment.setRepaymentAmount(dto.getRepaymentAmount());
+        repayment.setBalance(updatedBalance.getBalance());
+        repayment.setCreatedAt(repayment.getCreatedAt());
+        repayment.setUpdatedAt(repayment.getUpdatedAt());
 
 
-
-        return repayment_enity;
+        return modelMapper.map(repayment,RepaymentDto.class);
     }
 
     @Override
@@ -118,15 +125,14 @@ public class RepaymentServiceImpl implements RepaymentService {
         balanceService.repaymentUpdate(applicationId
                 , BalanceDto.builder()
                         .repaymentAmount(removeRepaymentAmount)
-                        .type(BalanceDto.RepaymentType.ADD)
+//                        .type(BalanceDto.RepaymentType.ADD)
                         .build());
 
-        repayment.setIsDeleted(true);
-        repaymentRepository.save(repayment);
+        repaymentRepository.delete(repayment);
 
     }
 
-    private boolean isRepayableApplication(Long applicationId) {
+    private boolean isRepayableApplication(Long applicationId, String accountId) {
         Optional<Application> existedApplication = applicationRepository.findById(applicationId);
         if (existedApplication.isEmpty()) {
             return false;
@@ -136,7 +142,7 @@ public class RepaymentServiceImpl implements RepaymentService {
 //            return false;
 //        }
 
-        Optional<Entry> existedEntry = entryRepository.findByApplicationId(applicationId);
+        Optional<Entry> existedEntry = entryRepository.findByApplicationIdAndAccountId(applicationId,accountId);
         return existedEntry.isPresent();
     }
 }

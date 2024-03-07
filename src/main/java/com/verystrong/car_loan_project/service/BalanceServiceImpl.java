@@ -6,6 +6,7 @@ import com.verystrong.car_loan_project.exception.BaseException;
 import com.verystrong.car_loan_project.exception.ResultType;
 import com.verystrong.car_loan_project.repository.BalanceRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class BalanceServiceImpl implements BalanceService{
 
@@ -20,9 +22,9 @@ public class BalanceServiceImpl implements BalanceService{
 
     private final ModelMapper modelMapper;
     @Override
-    public Balance create(Long applicationId, BalanceDto dto) {
+    public BalanceDto create(Long applicationId, BalanceDto dto,String accountId) {
         Balance balance = modelMapper.map(dto, Balance.class);
-
+        log.info("balance create{}",balance);
         // 첫 생성은 entry amount 를 balance
         BigDecimal entryAmount = dto.getEntryAmount();
         balance.setApplicationId(applicationId);
@@ -30,29 +32,27 @@ public class BalanceServiceImpl implements BalanceService{
 
         balanceRepository.findByApplicationId(applicationId).ifPresent(b -> {
             balance.setBalanceId(b.getBalanceId());
-            balance.setIsDeleted(b.getIsDeleted());
             balance.setCreatedAt(b.getCreatedAt());
             balance.setUpdatedAt(LocalDateTime.now());
         });
 
         Balance saved = balanceRepository.save(balance);
 
-//        return modelMapper.map(saved, BalanceDto.class);
-        return saved;
+        return modelMapper.map(saved, BalanceDto.class);
+//        return saved;
 
     }
 
     @Override
-    public Balance get(Long applicationId) {
+    public BalanceDto get(Long applicationId, String accountId) {
         Balance balance = balanceRepository.findById(applicationId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
-//        return modelMapper.map(balance, Response.class);
-        return balance;
+        return modelMapper.map(balance, BalanceDto.class);
     }
 
     @Override
-    public Balance update(Long applicationId, BalanceDto dto) {
+    public BalanceDto update(Long applicationId, BalanceDto dto) {
         Balance balance = balanceRepository.findByApplicationId(applicationId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
@@ -67,30 +67,28 @@ public class BalanceServiceImpl implements BalanceService{
         Balance updated = balanceRepository.save(balance);
 
 //        return modelMapper.map(updated, Response.class);
-        return updated;
+        return modelMapper.map(updated,BalanceDto.class);
     }
 
     @Override
-    public Balance repaymentUpdate(Long applicationId, BalanceDto dto) {
+    public BalanceDto repaymentUpdate(Long applicationId, BalanceDto balanceDto) {
         Balance balance = balanceRepository.findByApplicationId(applicationId).orElseThrow(() -> {
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
 
         BigDecimal updatedBalance = balance.getBalance();
-        BigDecimal repaymentAmount = dto.getRepaymentAmount();
+        BigDecimal repaymentAmount = balanceDto.getRepaymentAmount();
 
-        if (dto.getType().equals(BalanceDto.RepaymentType.ADD)) {
-            updatedBalance = updatedBalance.add(repaymentAmount);
-        } else {
-            updatedBalance = updatedBalance.subtract(repaymentAmount);
-        }
+
+        updatedBalance = updatedBalance.subtract(repaymentAmount);
+
 
         balance.setBalance(updatedBalance);
 
         Balance updated = balanceRepository.save(balance);
 
-//        return modelMapper.map(updated, Response.class);
-        return updated;
+        return modelMapper.map(updated, BalanceDto.class);
+//        return updated;
     }
 
     @Override
@@ -99,9 +97,8 @@ public class BalanceServiceImpl implements BalanceService{
             throw new BaseException(ResultType.SYSTEM_ERROR);
         });
 
-        balance.setIsDeleted(true);
 
-        balanceRepository.save(balance);
+        balanceRepository.delete(balance);
 
     }
 }

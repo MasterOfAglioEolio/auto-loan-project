@@ -7,6 +7,16 @@ INSERT INTO cars(name,info, img_path, price) VALUES ('현대 팰리세이드','3
 INSERT INTO cars(name,info, img_path, price) VALUES ('기아 K8 HEV','1.6 HEV 시그니처','/img/SHC20230622000004281_0X.jpg',38500000);
 INSERT INTO cars(name,info, img_path, price) VALUES ('기아 모하비 더 마스터','3.0 디젤 4WD 마스터즈 5인승','/img/RTC20231026100005881_0X.jpg',35300000);
 INSERT INTO cars(name,info, img_path, price) VALUES ('기아 4세대 카니발','2.2 디젤 노블레스 9인승','/img/RTC20240103100006875_0X.jpg',36400000);
+
+
+INSERT INTO repayment (   application_id,    account_id,  repayment_amount,  balance, before_repayment_amount, after_repayment_amount, created_at, updated_at)
+VALUES (1,'jyjy1284',100.00, 1000.00,1000.00,900.00,'2024-03-03 00:00:00','2024-03-03 00:00:00');
+INSERT INTO repayment (   application_id,    account_id,  repayment_amount,  balance, before_repayment_amount, after_repayment_amount, created_at, updated_at)
+VALUES (1,'jyjy1284',100.00, 900.00,10.00,150.00,'2024-03-03 00:00:00','2024-04-03 00:00:00');
+INSERT INTO repayment (   application_id,    account_id,  repayment_amount,  balance, before_repayment_amount, after_repayment_amount, created_at, updated_at)
+VALUES (1,'jyjy1284',100.00, 800.00,50.00,150.00,'2024-03-03 00:00:00','2024-05-03 00:00:00');
+INSERT INTO repayment (   application_id,    account_id,  repayment_amount,  balance, before_repayment_amount, after_repayment_amount, created_at, updated_at)
+VALUES (1,'jyjy1284',100.00, 700.00,50.00,150.00,'2024-03-03 00:00:00','2024-06-03 00:00:00');
 #
 # INSERT INTO QUESTION (IDX, TITLE, CONTENTS, AUTHOR, CREATED_AT) VALUES (1, '게시글 제목1', '게시글 내용1', '작성자1', '2024-01-01 23:24:00');
 # INSERT INTO QUESTION (IDX, TITLE, CONTENTS, AUTHOR, CREATED_AT) VALUES (2, '게시글 제목2', '게시글 내용2', '작성자2', '2024-01-01 23:24:00');

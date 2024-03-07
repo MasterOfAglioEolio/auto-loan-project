@@ -50,6 +50,7 @@ export default {
       axios.get("/api/check-application").then(({data})=>{
         console.log("[Check-application]",data);
         store.commit("setApplication",data||0);
+        store.commit("setApplicationId",data);
 
       })
     };

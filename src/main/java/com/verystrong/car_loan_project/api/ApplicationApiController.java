@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
-@Controller
+@RestController
 public class ApplicationApiController {
 
     @Autowired
