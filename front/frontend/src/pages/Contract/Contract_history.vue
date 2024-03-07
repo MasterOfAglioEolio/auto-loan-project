@@ -38,7 +38,7 @@ export default {
       orders: [],
     })
 
-    axios.get("/api/orders").then(({data}) => {
+    axios.get("/api/contract").then(({data}) => {
       state.orders = [];
 
       for (let d of data) {

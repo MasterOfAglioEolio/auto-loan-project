@@ -5,9 +5,9 @@ import com.verystrong.car_loan_project.dto.EntryDto;
 
 public interface EntryService {
 
-    Entry create(Long applicationId, EntryDto dto);
-    Entry get(Long applicationId);
-    Entry update(Long entryId, EntryDto dto);
+    EntryDto create(Long applicationId, EntryDto dto,String accountId);
+    EntryDto get(Long applicationId,String accountId);
+    EntryDto update(Long entryId, EntryDto dto,String accountId);
     void delete(Long entryId);
 
 

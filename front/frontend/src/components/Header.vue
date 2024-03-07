@@ -45,14 +45,30 @@
           <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
             <li><router-link to ="/info" class="dropdown-item"> 회원 정보 입력 </router-link></li>
             <li><router-link to ="/application" class="dropdown-item"> 심사 신청 </router-link></li>
+            <li><router-link to ="/judgment" class="dropdown-item"> 심사 결과 확인 </router-link></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <router-link to ="/judgment" class="nav-link"> 심사 </router-link>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            자동차 구매
+          </a>
+          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+            <li><router-link to ="/car-list" class="dropdown-item"> 자동차 리스트 </router-link></li>
+            <li><router-link to ="/cart" class="dropdown-item"> 위시 리스트 </router-link></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            대출 관리
+          </a>
+          <ul class="dropdown-menu bg-transparent border-0" aria-labelledby="navbarDropdown">
+          <li><router-link to ="/contract" class="dropdown-item"> 계약서 작성 </router-link></li>
+          <li><router-link to ="/contract-check" class="dropdown-item"> 계약 확인 </router-link></li>
+          <li><router-link to ="/repayment" class="dropdown-item"> 대출금 상환 </router-link></li>
+          <li><router-link to ="/repayment-history" class="dropdown-item"> 대출금 상환 내역 </router-link></li>
+          </ul>
         </li>
       </ul>
-
-      <!--      </div>-->
     </div>
 
   </header>

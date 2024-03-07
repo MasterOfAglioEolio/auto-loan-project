@@ -7,11 +7,12 @@ import java.util.List;
 
 public interface RepaymentService {
 
-    Repayment create(Long applicationId, RepaymentDto dto);
+    RepaymentDto create(Long applicationId, RepaymentDto dto,String accountId);
 
-    List<Repayment> get(Long applicationId);
+    RepaymentDto get(Long applicationId);
+    List<RepaymentDto> get_list(Long applicationId);
 
-    Repayment update(Long repaymentId, RepaymentDto dto);
+    RepaymentDto update(Long repaymentId, RepaymentDto dto);
 
     void delete(Long repaymentId);
 }

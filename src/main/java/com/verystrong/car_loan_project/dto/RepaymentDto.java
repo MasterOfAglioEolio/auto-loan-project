@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 public class RepaymentDto {
     private Long repaymentId;
     private Long applicationId;
+    private String accountId;
     private BigDecimal repaymentAmount;
     private BigDecimal beforeRepaymentAmount;
     private BigDecimal afterRepaymentAmount;
@@ -22,12 +23,5 @@ public class RepaymentDto {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Repayment toEntity() {
-        return new Repayment(
-                this.repaymentId,
-                this.applicationId,
-                this.repaymentAmount
 
-        );
-    }
 }

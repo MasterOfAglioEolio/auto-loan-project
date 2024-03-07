@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface EntryRepository extends JpaRepository<Entry, Long> {
 
-    Optional<Entry> findByApplicationId(Long applicationId);
+    Optional<Entry> findByApplicationIdAndAccountId(Long applicationId,String accountId);
 }

@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @DynamicInsert
 @DynamicUpdate
-public class Entry extends BaseEntity {
+public class Entry {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +23,8 @@ public class Entry extends BaseEntity {
     private Long entryId;
 
     private Long applicationId; // 신청 ID
+
+    private String accountId;
 
     @Column(columnDefinition = "decimal(15,2)")
     private BigDecimal entryAmount;// 집행금액

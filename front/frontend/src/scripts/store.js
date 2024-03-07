@@ -15,6 +15,9 @@ const store = createStore({
             application: {
                 id: 0
             },
+            applicationId:{
+                id:''
+            },
             large_Mode:{
                 check:0
             }
@@ -33,6 +36,9 @@ const store = createStore({
         },
         setApplication(state,payload) {
             state.application.id=payload;
+        },
+        setApplicationId(state,payload){
+            state.applicationId.id=payload;
         },
         setLargeMode(state,payload) {
             state.large_Mode.check=payload;
