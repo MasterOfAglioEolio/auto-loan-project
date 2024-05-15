@@ -138,7 +138,7 @@
 
 ## Use Case
 
-![image](https://github.com/XgitalBounce/auto-loan-project/assets/60294084/1d446223-6900-4425-85ad-4e23b30b9b4d)
+![할부금융 usecase drawio](https://github.com/MasterOfAglioEolio/auto-loan-project/assets/60294084/7865401f-061b-4594-9767-15eee3bf608a)
 
 
 
